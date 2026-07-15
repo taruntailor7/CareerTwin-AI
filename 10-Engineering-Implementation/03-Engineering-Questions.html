@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - Engineering Questions</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">Engineering Implementation</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">Phase 3 - Consolidated Engineering Questions</p>
+      </div>
+      <div class="controls">
+        <label for="searchInput">Find section</label>
+        <input id="searchInput" type="search" placeholder="Search questions...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+      <nav class="doc-nav">
+        <a href="01-Repository-Review.html">01 Repository Review</a>
+        <a href="02-Engineering-Readiness.html">02 Engineering Readiness</a>
+        <a href="03-Engineering-Questions.html">03 Engineering Questions</a>
+        <a href="04-Implementation-Blueprint.html">04 Implementation Blueprint</a>
+        <a href="05-Milestone-Plan.html">05 Milestone Plan</a>
+        <a href="06-Implementation-Strategy.html">06 Implementation Strategy</a>
+      </nav>
+      <nav class="section-nav">
+        <a href="#usage">How to Use</a>
+        <a href="#product-scope">Product Scope</a>
+        <a href="#platform">Platform & Infra</a>
+        <a href="#ai">AI & Model Operations</a>
+        <a href="#data">Data & Storage</a>
+        <a href="#security">Security & Privacy</a>
+        <a href="#integrations">Integrations</a>
+        <a href="#design-brand">Design & Brand Assets</a>
+        <a href="#analytics">Analytics & Monitoring</a>
+        <a href="#delivery">Delivery & Governance</a>
+      </nav>
+      <p class="sidebar-footnote">All implementation questions are grouped in one place, as requested.</p>
+    </aside>
+
+    <main class="content">
+      <header id="usage" class="hero">
+        <span class="hero-badge">Phase 3</span>
+        <h2>All Engineering Questions (Single Consolidated Set)</h2>
+        <p>This is the complete checklist to unblock production implementation planning decisions. Questions are grouped to minimize back-and-forth and avoid one-by-one clarification loops.</p>
+      </header>
+
+      <section id="product-scope">
+        <h3>Product Scope & Delivery Decisions</h3>
+        <ol>
+          <li>What is the strict MVP boundary for public launch (must-have vs can-wait)?</li>
+          <li>Which persona is primary for v1 success metrics?</li>
+          <li>Should enterprise/team collaboration be excluded from v1?</li>
+          <li>What is the accepted simulation confidence floor for showing recommendations?</li>
+          <li>Which user actions define "activation" and "retention" for business success?</li>
+        </ol>
+      </section>
+
+      <section id="platform">
+        <h3>Platform, Hosting, and Infrastructure</h3>
+        <ol>
+          <li>Cloud provider preference (AWS/GCP/Azure) and region strategy?</li>
+          <li>Deployment platform choice for frontend, backend, and workers?</li>
+          <li>Container orchestration choice (Kubernetes/ECS/other)?</li>
+          <li>Environment strategy (dev/stage/prod plus ephemeral preview envs)?</li>
+          <li>Secrets management system and rotation policy owner?</li>
+          <li>Disaster recovery target (RTO/RPO) and multi-region requirement timing?</li>
+        </ol>
+      </section>
+
+      <section id="ai">
+        <h3>AI, Model, and Prompt Operations</h3>
+        <ol>
+          <li>Preferred model providers and allowed fallback providers?</li>
+          <li>Primary OpenAI model(s) per task and budget caps per request?</li>
+          <li>Do we require structured outputs with strict JSON schema enforcement everywhere?</li>
+          <li>Prompt versioning ownership: product, AI, or platform team?</li>
+          <li>What is the required eval gate to ship prompt/model changes?</li>
+          <li>What policy handles low-confidence outputs: suppress, warn, or require user confirmation?</li>
+          <li>Do we require a human review workflow for sensitive outputs?</li>
+        </ol>
+      </section>
+
+      <section id="data">
+        <h3>Data, Database, and Storage</h3>
+        <ol>
+          <li>Database provider and managed service choice?</li>
+          <li>Need for vector storage now or deferred?</li>
+          <li>Object storage provider and encryption standard?</li>
+          <li>Retention window for source documents, simulation artifacts, and reports?</li>
+          <li>Data deletion SLA for user-initiated deletion and account closure?</li>
+          <li>Should historical twin versions be immutable forever or archived by policy?</li>
+          <li>Do we need tenant separation from day one?</li>
+        </ol>
+      </section>
+
+      <section id="security">
+        <h3>Security, Privacy, and Compliance</h3>
+        <ol>
+          <li>Authentication provider and identity protocol preference (OAuth/OIDC/SAML)?</li>
+          <li>Authorization model (RBAC/ABAC/hybrid) and role matrix ownership?</li>
+          <li>Compliance targets at launch (GDPR, CCPA, SOC2, ISO27001)?</li>
+          <li>PII logging policy and enforcement mechanism?</li>
+          <li>Threat modeling and penetration testing cadence?</li>
+          <li>Audit trail retention and tamper-evident requirement?</li>
+          <li>Legal policy for recommendations disclaimer and liability language?</li>
+        </ol>
+      </section>
+
+      <section id="integrations">
+        <h3>Integration and Third-Party Decisions</h3>
+        <ol>
+          <li>LinkedIn integration approach (official API vs user-provided export)?</li>
+          <li>GitHub integration scope (public only vs private repo optional permissions)?</li>
+          <li>Portfolio ingestion scope (URLs only vs file uploads and media parsing)?</li>
+          <li>Email provider for transactional notifications?</li>
+          <li>File parsing vendors/libraries allowed for resumes and documents?</li>
+          <li>Rate-limit and quota policy for each external integration?</li>
+        </ol>
+      </section>
+
+      <section id="design-brand">
+        <h3>Design, Brand, and UX Asset Questions</h3>
+        <ol>
+          <li>Final brand kit: logos, icon system, typography, color tokens?</li>
+          <li>Domain and subdomain strategy for app and API?</li>
+          <li>Accessibility compliance target (WCAG 2.1 AA minimum?)</li>
+          <li>Do we need localization in v1 and which locales first?</li>
+          <li>What visualizations are mandatory for simulation trust communication?</li>
+        </ol>
+      </section>
+
+      <section id="analytics">
+        <h3>Analytics, Monitoring, and Operations</h3>
+        <ol>
+          <li>Analytics platform selection for product and funnel events?</li>
+          <li>Monitoring stack and APM choice for distributed tracing?</li>
+          <li>Centralized logging platform and retention policy?</li>
+          <li>Alerting policy (on-call rotation, incident severity levels, response times)?</li>
+          <li>Which metrics define AI quality degradation and rollback conditions?</li>
+        </ol>
+      </section>
+
+      <section id="delivery">
+        <h3>Delivery Governance & Team Structure</h3>
+        <ol>
+          <li>Team composition and ownership matrix by subsystem?</li>
+          <li>Branching strategy and release cadence?</li>
+          <li>Definition of done standards per milestone?</li>
+          <li>Required QA automation coverage thresholds before release?</li>
+          <li>Who approves prompt/model changes in production?</li>
+        </ol>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

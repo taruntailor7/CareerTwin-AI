@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - Repository Review</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">Engineering Implementation</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">Phase 1 - Product Understanding</p>
+      </div>
+      <div class="controls">
+        <label for="searchInput">Find section</label>
+        <input id="searchInput" type="search" placeholder="Search review...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+      <nav class="doc-nav">
+        <a href="01-Repository-Review.html">01 Repository Review</a>
+        <a href="02-Engineering-Readiness.html">02 Engineering Readiness</a>
+        <a href="03-Engineering-Questions.html">03 Engineering Questions</a>
+        <a href="04-Implementation-Blueprint.html">04 Implementation Blueprint</a>
+        <a href="05-Milestone-Plan.html">05 Milestone Plan</a>
+        <a href="06-Implementation-Strategy.html">06 Implementation Strategy</a>
+      </nav>
+      <nav class="section-nav">
+        <a href="#scope">Scope</a>
+        <a href="#vision">Product Vision Understanding</a>
+        <a href="#personas">User Personas</a>
+        <a href="#journey">Complete User Journey</a>
+        <a href="#twin-lifecycle">Career Twin Lifecycle</a>
+        <a href="#ai-workflow">AI Workflow</a>
+        <a href="#simulation-workflow">Simulation Workflow</a>
+        <a href="#core-surfaces">Dashboard & Reports</a>
+        <a href="#interview">AI Interview</a>
+        <a href="#data-flow">Data Flow</a>
+        <a href="#integrations">Integrations</a>
+        <a href="#constraints">Technical Constraints</a>
+      </nav>
+      <p class="sidebar-footnote">Planning only. No implementation code is proposed in this package.</p>
+    </aside>
+
+    <main class="content">
+      <header id="scope" class="hero">
+        <span class="hero-badge">Phase 1</span>
+        <h2>Repository-Wide Product Understanding</h2>
+        <p>Read and synthesized all artifacts from `00` to `09` as the current source of truth for engineering planning.</p>
+      </header>
+
+      <section id="vision">
+        <h3>Product Vision Understanding</h3>
+        <p>CareerTwin AI aims to create a new category: career decision intelligence, not resume optimization or generic AI coaching.</p>
+        <ul>
+          <li>Core promise: simulate likely career futures before irreversible decisions.</li>
+          <li>Core trust stance: evidence-backed recommendations with uncertainty, never deterministic prediction.</li>
+          <li>Core business thesis: longitudinal digital career twin becomes defensible product moat.</li>
+        </ul>
+      </section>
+
+      <section id="personas">
+        <h3>User Personas</h3>
+        <div class="card-grid two">
+          <article class="card"><h4>Inflection Engineer</h4><p>Choosing between IC depth, management, startup, or AI pivot path.</p></article>
+          <article class="card"><h4>Global Mover</h4><p>Balancing relocation opportunities with uncertainty and personal constraints.</p></article>
+          <article class="card"><h4>Skilled Drifter</h4><p>High capability but low strategic clarity and inconsistent long-term planning.</p></article>
+          <article class="card"><h4>Aspiring Founder</h4><p>Evaluating founder route versus career stability and income certainty.</p></article>
+        </div>
+      </section>
+
+      <section id="journey">
+        <h3>Complete User Journey</h3>
+        <ol>
+          <li>Discovery and trust framing (what this product is and is not).</li>
+          <li>Twin Genesis onboarding (profile + imports + interview).</li>
+          <li>Twin synthesis with confidence layers.</li>
+          <li>Simulation setup and scenario comparison.</li>
+          <li>Decision conversion into short experiments.</li>
+          <li>Weekly insight loop and twin evolution updates.</li>
+          <li>Report sharing with mentors/family/stakeholders.</li>
+        </ol>
+      </section>
+
+      <section id="twin-lifecycle">
+        <h3>Career Twin Lifecycle</h3>
+        <ul>
+          <li><strong>Genesis:</strong> initial model generated from imported + interviewed signals.</li>
+          <li><strong>Calibration:</strong> assumptions corrected, confidence re-weighted.</li>
+          <li><strong>Decision Support:</strong> simulations tied to versioned twin snapshots.</li>
+          <li><strong>Evolution:</strong> ongoing updates from user actions and new context.</li>
+        </ul>
+      </section>
+
+      <section id="ai-workflow">
+        <h3>AI Workflow Understanding</h3>
+        <ul>
+          <li>Ingestion and enrichment from multiple sources.</li>
+          <li>Context builder composes memory + assumptions + constraints.</li>
+          <li>Simulation and reasoning pipelines generate structured outputs.</li>
+          <li>Evidence and confidence engines gate recommendation quality.</li>
+          <li>Safety/policy layer filters final responses.</li>
+        </ul>
+      </section>
+
+      <section id="simulation-workflow">
+        <h3>Simulation Workflow Understanding</h3>
+        <ol>
+          <li>User defines 2-5 scenarios with constraints.</li>
+          <li>Engine computes multi-metric outputs and confidence bands.</li>
+          <li>Scenario comparison ranks tradeoffs based on user-weighted priorities.</li>
+          <li>System converts recommendation into practical next-step experiment plan.</li>
+        </ol>
+      </section>
+
+      <section id="core-surfaces">
+        <h3>Dashboard & Reports Understanding</h3>
+        <ul>
+          <li>Dashboard is the decision command center (next actions, pending decisions, twin health).</li>
+          <li>Insights feed drives longitudinal engagement and timing decisions.</li>
+          <li>Reports transform simulations into shareable decision briefs.</li>
+        </ul>
+      </section>
+
+      <section id="interview">
+        <h3>AI Interview Understanding</h3>
+        <ul>
+          <li>Adaptive questioning targets ambiguity and contradiction gaps.</li>
+          <li>Responses classified by certainty class (confirmed/inferred/uncertain).</li>
+          <li>Interview output feeds directly into twin confidence recalibration.</li>
+        </ul>
+      </section>
+
+      <section id="data-flow">
+        <h3>Data Flow Understanding</h3>
+        <p>Frontend → API gateway → domain services → DB/cache/storage + async workers → insight/report artifacts.</p>
+        <ul>
+          <li>Heavy operations (parsing, simulation, reports) are asynchronous.</li>
+          <li>Versioned twin state is a key dependency for reproducible outputs.</li>
+          <li>Traceability is expected via audit events and evidence references.</li>
+        </ul>
+      </section>
+
+      <section id="integrations">
+        <h3>Integration Understanding</h3>
+        <ul>
+          <li>Resume parsing pipeline</li>
+          <li>LinkedIn profile import</li>
+          <li>GitHub activity/metadata import</li>
+          <li>Portfolio crawling/parsing</li>
+          <li>Potential future channels: email, analytics, enterprise partner APIs</li>
+        </ul>
+      </section>
+
+      <section id="constraints">
+        <h3>Technical Constraints</h3>
+        <ul>
+          <li>High trust bar: outputs must be explainable and uncertainty-aware.</li>
+          <li>Latency pressure on simulation UX despite complex compute pipeline.</li>
+          <li>Security/privacy requirements are central due to sensitive career data.</li>
+          <li>Scope pressure: rich product ambition vs hackathon/beta execution limits.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

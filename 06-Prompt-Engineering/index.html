@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - Prompt Engineering</title>
+  <meta name="description" content="CareerTwin AI Prompt Engineering documentation: prompt design, schemas, evaluation, and reliability patterns.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">AI Reliability Playbook</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">06 - Prompt Engineering</p>
+      </div>
+
+      <div class="controls">
+        <label for="searchInput">Find prompt section</label>
+        <input id="searchInput" type="search" placeholder="Search prompt docs...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+
+      <nav id="sideNav">
+        <a href="#overview">Overview</a>
+        <a href="#system-prompts">System Prompts</a>
+        <a href="#developer-prompts">Developer Prompts</a>
+        <a href="#career-interview-prompts">Career Interview Prompts</a>
+        <a href="#simulation-prompts">Simulation Prompts</a>
+        <a href="#reasoning-prompts">Reasoning Prompts</a>
+        <a href="#json-schemas">JSON Schemas</a>
+        <a href="#structured-outputs">Structured Outputs</a>
+        <a href="#prompt-templates">Prompt Templates</a>
+        <a href="#prompt-versioning">Prompt Versioning</a>
+        <a href="#prompt-evaluation">Prompt Evaluation</a>
+        <a href="#failure-cases">Failure Cases</a>
+        <a href="#recovery-strategies">Recovery Strategies</a>
+        <a href="#examples">Examples</a>
+        <a href="#best-practices">Best Practices</a>
+      </nav>
+
+      <p class="sidebar-footnote">
+        Objective: deterministic structure, high explainability, low hallucination risk, and measurable prompt quality over time.
+      </p>
+    </aside>
+
+    <main class="content">
+      <header id="overview" class="hero">
+        <span class="hero-badge">Prompt Engineering Specification</span>
+        <h2>Reliable prompt architecture for CareerTwin AI</h2>
+        <p>
+          Prompting in CareerTwin AI is treated as production infrastructure. Prompts are modular, versioned, testable, and constrained by strict output schemas and safety policies.
+        </p>
+      </header>
+
+      <section id="system-prompts">
+        <h3>System Prompts</h3>
+        <p>System prompts define hard behavior boundaries and must never be overridden by user content.</p>
+        <pre><code>[System Prompt: CareerTwin Core]
+You are CareerTwin AI, a decision intelligence system.
+Non-negotiable rules:
+1) Never make deterministic future claims.
+2) Always include assumptions, tradeoffs, confidence range.
+3) Cite evidence source types for important claims.
+4) If data is insufficient, ask clarifying questions before advising.
+5) Output must follow JSON schema exactly.
+6) Reject unsafe or manipulative requests and provide safe alternatives.</code></pre>
+      </section>
+
+      <section id="developer-prompts">
+        <h3>Developer Prompts</h3>
+        <ul>
+          <li>Task-scoped instructions per module: interview, simulation, insight generation, reporting.</li>
+          <li>Include domain context and output format contract in each prompt package.</li>
+          <li>Use explicit fallback behavior for low-confidence or missing-data cases.</li>
+        </ul>
+        <pre><code>[Developer Prompt: SimulationOrchestrator]
+Goal: Compare 2-5 user scenarios and produce ranked tradeoff analysis.
+Constraints:
+- Use only provided context bundle.
+- Do not invent salary values without source.
+- Mark missing assumptions explicitly.
+Output: SimulationComparisonSchema v1.3</code></pre>
+      </section>
+
+      <section id="career-interview-prompts">
+        <h3>Career Interview Prompts</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>Intent</h4>
+            <p>Fill profile gaps and surface latent career constraints and preferences.</p>
+          </article>
+          <article class="card">
+            <h4>Prompt Pattern</h4>
+            <p>One high-leverage question at a time with confidence-aware follow-ups.</p>
+          </article>
+        </div>
+        <pre><code>[Interview Prompt Template]
+Context: {profile_summary}, {known_constraints}, {confidence_gaps}
+Task:
+1) Ask exactly one clarifying question.
+2) Keep under 25 words.
+3) If prior answer is contradictory, ask reconciliation question.
+Output JSON:
+{
+  "question": "...",
+  "question_type": "constraint|motivation|preference|risk",
+  "reason": "why this question now"
+}</code></pre>
+      </section>
+
+      <section id="simulation-prompts">
+        <h3>Simulation Prompts</h3>
+        <ul>
+          <li>Scenario prompts operate on normalized context bundles with explicit assumptions.</li>
+          <li>Every output must return quantitative ranges plus qualitative risk narrative.</li>
+          <li>Simulation prompts include stress-test mode for assumption sensitivity.</li>
+        </ul>
+        <pre><code>[Simulation Prompt Skeleton]
+Inputs:
+- twin_version
+- scenario_set[]
+- market_context
+- user_constraints
+
+Tasks:
+1) Evaluate each scenario across required metrics.
+2) Compute confidence band per metric.
+3) Produce tradeoff summary and next-step experiments.</code></pre>
+      </section>
+
+      <section id="reasoning-prompts">
+        <h3>Reasoning Prompts</h3>
+        <ul>
+          <li>Reasoning stage converts raw outputs into user-readable decision intelligence.</li>
+          <li>Requires explicit separation of facts, assumptions, and inferred conclusions.</li>
+          <li>Must include uncertainty language and actionability.</li>
+        </ul>
+        <pre><code>[Reasoning Prompt Contract]
+Produce:
+1) Recommendation headline
+2) Assumptions
+3) Evidence-linked rationale
+4) Tradeoffs
+5) Confidence range
+6) 3 action steps
+Disallow:
+- certainty language ("will definitely", "guaranteed")
+- unsupported numerical claims</code></pre>
+      </section>
+
+      <section id="json-schemas">
+        <h3>JSON Schemas</h3>
+        <p>All model outputs are schema-validated before downstream use.</p>
+        <pre><code>{
+  "$id": "SimulationComparisonSchema-v1.3",
+  "type": "object",
+  "required": ["scenarios", "summary", "recommendation", "confidence_band", "evidence_refs"],
+  "properties": {
+    "scenarios": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["name", "metrics", "tradeoffs"],
+        "properties": {
+          "name": {"type": "string"},
+          "metrics": {"type": "object"},
+          "tradeoffs": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "summary": {"type": "string"},
+    "recommendation": {"type": "string"},
+    "confidence_band": {
+      "type": "object",
+      "required": ["min", "max"],
+      "properties": {"min": {"type": "number"}, "max": {"type": "number"}}
+    },
+    "evidence_refs": {"type": "array", "items": {"type": "object"}}
+  }
+}</code></pre>
+      </section>
+
+      <section id="structured-outputs">
+        <h3>Structured Outputs</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Output Type</th>
+                <th>Schema</th>
+                <th>Validation Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Interview Question</td>
+                <td>InterviewQuestionSchema</td>
+                <td>Reject and retry on missing reason/question_type</td>
+              </tr>
+              <tr>
+                <td>Simulation Result</td>
+                <td>SimulationComparisonSchema</td>
+                <td>Fallback to safe-summary mode on repeated failure</td>
+              </tr>
+              <tr>
+                <td>Insight Card</td>
+                <td>InsightCardSchema</td>
+                <td>Drop non-critical fields, keep required core</td>
+              </tr>
+              <tr>
+                <td>Report Brief</td>
+                <td>ReportSummarySchema</td>
+                <td>Regenerate with stricter token budget</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="prompt-templates">
+        <h3>Prompt Templates</h3>
+        <ul>
+          <li>Template variables: user profile, twin version, scenario list, market context, safety mode.</li>
+          <li>Guardrail blocks are always prepended.</li>
+          <li>Template engine supports conditional sections for low/high confidence modes.</li>
+        </ul>
+        <pre><code>Template: InsightsWeeklyDigest-v2
+Sections:
+- Role
+- Goals
+- Constraint shifts
+- Top opportunities
+- Top risks
+- Action suggestions
+- Confidence explanation
+</code></pre>
+      </section>
+
+      <section id="prompt-versioning">
+        <h3>Prompt Versioning</h3>
+        <ul>
+          <li>Semantic versioning per prompt family (major/minor/patch).</li>
+          <li>Prompt registry stores prompt text, schema ref, owner, rollout status, eval score.</li>
+          <li>Canary rollout with automatic rollback on quality regression.</li>
+        </ul>
+      </section>
+
+      <section id="prompt-evaluation">
+        <h3>Prompt Evaluation</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>Offline</h4>
+            <ul>
+              <li>Golden prompts with expected structured outputs.</li>
+              <li>Rubric scoring: relevance, accuracy, explainability, safety.</li>
+              <li>Regression suite run on every prompt change.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Online</h4>
+            <ul>
+              <li>A/B prompt experiments by user cohort.</li>
+              <li>Measure confidence calibration and correction rate.</li>
+              <li>Capture user override and dissatisfaction signals.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="failure-cases">
+        <h3>Failure Cases</h3>
+        <ul>
+          <li>Schema violation (missing required fields).</li>
+          <li>Unsupported claims without evidence references.</li>
+          <li>Conflicting recommendations across similar contexts.</li>
+          <li>Overconfident language in low-data scenarios.</li>
+          <li>Prompt injection from imported untrusted content.</li>
+        </ul>
+      </section>
+
+      <section id="recovery-strategies">
+        <h3>Recovery Strategies</h3>
+        <ol>
+          <li>Automatic retry with constrained prompt variant.</li>
+          <li>Fallback prompt with reduced scope and stricter schema.</li>
+          <li>Safe-mode summary with explicit uncertainty.</li>
+          <li>Escalation to deterministic rules engine for critical outputs.</li>
+          <li>Event logging for eval loop and prompt refinement backlog.</li>
+        </ol>
+      </section>
+
+      <section id="examples">
+        <h3>Examples</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>Good Output</h4>
+            <pre><code>{
+  "recommendation": "Prioritize AI platform pivot with staged upskilling.",
+  "assumptions": ["6 hrs/week learning", "no relocation in 12 months"],
+  "confidence_band": {"min": 0.58, "max": 0.73},
+  "tradeoffs": ["Short-term salary volatility", "Higher long-term optionality"]
+}</code></pre>
+          </article>
+          <article class="card">
+            <h4>Bad Output</h4>
+            <pre><code>"You should definitely switch jobs now. It will increase salary by 40%."
+# Issues:
+# - Deterministic claim
+# - No assumptions
+# - No evidence
+# - No confidence band</code></pre>
+          </article>
+        </div>
+      </section>
+
+      <section id="best-practices">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Keep prompt roles explicit and single-purpose.</li>
+          <li>Always bind outputs to strict schemas.</li>
+          <li>Prefer short, deterministic instructions over verbose ambiguity.</li>
+          <li>Treat prompt text as versioned code with tests.</li>
+          <li>Measure prompt quality continuously, not only at release.</li>
+          <li>Separate untrusted content from instruction channels.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

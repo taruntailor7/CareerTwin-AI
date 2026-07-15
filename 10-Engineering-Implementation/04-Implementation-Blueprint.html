@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - Implementation Blueprint</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">Engineering Implementation</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">Phase 4 - Complete Implementation Blueprint</p>
+      </div>
+      <div class="controls">
+        <label for="searchInput">Find section</label>
+        <input id="searchInput" type="search" placeholder="Search blueprint...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+      <nav class="doc-nav">
+        <a href="01-Repository-Review.html">01 Repository Review</a>
+        <a href="02-Engineering-Readiness.html">02 Engineering Readiness</a>
+        <a href="03-Engineering-Questions.html">03 Engineering Questions</a>
+        <a href="04-Implementation-Blueprint.html">04 Implementation Blueprint</a>
+        <a href="05-Milestone-Plan.html">05 Milestone Plan</a>
+        <a href="06-Implementation-Strategy.html">06 Implementation Strategy</a>
+      </nav>
+      <nav class="section-nav">
+        <a href="#repo">Repository Structure</a>
+        <a href="#frontend">Frontend Architecture</a>
+        <a href="#backend">Backend Architecture</a>
+        <a href="#database">Database Design</a>
+        <a href="#auth">AuthN/AuthZ</a>
+        <a href="#api">API Design</a>
+        <a href="#ai">AI Platform</a>
+        <a href="#engines">Core Engines</a>
+        <a href="#ops">DevOps & Observability</a>
+        <a href="#testing">Testing Strategy</a>
+        <a href="#security">Security Blueprint</a>
+      </nav>
+      <p class="sidebar-footnote">This is a production-ready design blueprint, not implementation code.</p>
+    </aside>
+
+    <main class="content">
+      <header id="repo" class="hero">
+        <span class="hero-badge">Phase 4</span>
+        <h2>Production Implementation Blueprint</h2>
+        <p>Reference architecture for engineering execution with explicit boundaries across frontend, backend, AI pipelines, data stores, and operational controls.</p>
+      </header>
+
+      <section>
+        <h3>Recommended Monorepo & Folder Structure</h3>
+        <pre>careertwin-ai/
+  apps/
+    web/                     # Next.js app shell + dashboard + simulations
+    api/                     # Fastify/Nest API (REST + internal orchestration)
+    worker/                  # Async jobs: ingest, parse, simulation, reports
+    admin/                   # Internal prompt/model/governance console
+  packages/
+    ui/                      # design system and shared components
+    domain/                  # business models and validation schemas
+    ai/                      # prompt registry, model routing, output parsers
+    sdk/                     # typed client SDK for frontend and services
+    config/                  # eslint, tsconfig, build, env schemas
+  infra/
+    terraform/               # infra as code
+    k8s/                     # deploy manifests
+  docs/
+    adr/                     # architecture decision records
+    runbooks/                # SRE and incident procedures</pre>
+      </section>
+
+      <section id="frontend">
+        <h3>Frontend Architecture</h3>
+        <ul>
+          <li>Framework: Next.js App Router + TypeScript.</li>
+          <li>State strategy: server state via React Query, client state via Zustand/Redux Toolkit for twin simulation session state.</li>
+          <li>Feature modules: onboarding, profile, simulations, dashboard, reports, settings.</li>
+          <li>UI strategy: design tokens + component primitives + accessibility-first patterns.</li>
+          <li>Resilience: optimistic updates where safe, explicit retry/fallback UX for async operations.</li>
+        </ul>
+      </section>
+
+      <section id="backend">
+        <h3>Backend Architecture</h3>
+        <ul>
+          <li>API gateway service for auth, request shaping, and rate limits.</li>
+          <li>Domain services: twin, ingestion, simulation, insights, reports, governance.</li>
+          <li>Async orchestration with queue workers for high-latency jobs.</li>
+          <li>Event-driven integration with schema versioning and dead-letter queues.</li>
+          <li>Phased approach: modular monolith first, service split by explicit load/team triggers.</li>
+        </ul>
+      </section>
+
+      <section id="database">
+        <h3>Database & Storage Design</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Store</th><th>Purpose</th><th>Core Entities</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>PostgreSQL</td><td>System of record</td><td>users, twin_profiles, twin_versions, simulations, decisions</td><td>Strong consistency + relational integrity.</td></tr>
+              <tr><td>Redis</td><td>Cache + short-lived session acceleration</td><td>query_cache, simulation_hot_paths</td><td>TTL-based with invalidation hooks.</td></tr>
+              <tr><td>Object Storage</td><td>Artifacts and imports</td><td>resumes, reports, evidence bundles</td><td>Encrypted at rest, signed access URLs.</td></tr>
+              <tr><td>Analytics Warehouse</td><td>Product and AI telemetry analysis</td><td>events, eval outcomes, conversion traces</td><td>Append-only with privacy controls.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="auth">
+        <h3>Authentication & Authorization</h3>
+        <ul>
+          <li>Authentication: OIDC-based provider with social and email login support.</li>
+          <li>Authorization: role + policy checks (user, analyst, admin, support).</li>
+          <li>Token handling: short-lived access tokens + refresh token rotation.</li>
+          <li>Session security: device metadata, anomaly detection, optional MFA.</li>
+        </ul>
+      </section>
+
+      <section id="api">
+        <h3>API Design Principles</h3>
+        <ul>
+          <li>Versioned REST APIs (`/v1`) with OpenAPI-driven contracts.</li>
+          <li>Standard response envelope with typed errors and trace IDs.</li>
+          <li>Idempotency keys for all mutation operations.</li>
+          <li>Pagination and filtering contracts for timelines, insights, and history feeds.</li>
+          <li>Webhooks/events for async completion notifications.</li>
+        </ul>
+      </section>
+
+      <section id="ai">
+        <h3>OpenAI Integration & Prompt Management</h3>
+        <ul>
+          <li>Model router selects model by task class: parsing, synthesis, reasoning, report generation.</li>
+          <li>Prompt registry stores system/developer templates with semantic versions.</li>
+          <li>Structured output validation enforced before persistence.</li>
+          <li>Safety and compliance filters executed before response delivery.</li>
+          <li>Fallback pipeline with deterministic degraded mode when AI fails.</li>
+        </ul>
+      </section>
+
+      <section id="engines">
+        <h3>Core Engine Blueprints</h3>
+        <div class="card-grid two">
+          <article class="card"><h4>Career Twin Engine</h4><ul><li>identity graph synthesis</li><li>versioned profile state</li><li>confidence weighting</li></ul></article>
+          <article class="card"><h4>Simulation Engine</h4><ul><li>scenario graph and constraints</li><li>metric computation</li><li>tradeoff ranking</li></ul></article>
+          <article class="card"><h4>Import Connectors</h4><ul><li>resume parser</li><li>LinkedIn and GitHub connectors</li><li>portfolio extractor</li></ul></article>
+          <article class="card"><h4>Memory and Reports</h4><ul><li>event + outcome memory</li><li>evidence lineage</li><li>report generation service</li></ul></article>
+        </div>
+      </section>
+
+      <section id="ops">
+        <h3>Deployment, Monitoring, Logging, CI/CD</h3>
+        <ul>
+          <li>Containerized deployment with environment-isolated clusters.</li>
+          <li>CI pipeline: lint, type-check, unit, integration, contract, security, load smoke tests.</li>
+          <li>CD pipeline: canary releases + automatic rollback on SLO breach.</li>
+          <li>Observability: OpenTelemetry traces, metric dashboards, centralized logs.</li>
+          <li>Runbooks for incident classes including AI degradation and queue failures.</li>
+        </ul>
+      </section>
+
+      <section id="testing">
+        <h3>Testing Strategy</h3>
+        <ul>
+          <li>Unit tests for domain logic and transformation correctness.</li>
+          <li>Contract tests between frontend and backend APIs.</li>
+          <li>Integration tests for import pipelines and simulation orchestration.</li>
+          <li>AI eval tests for prompt/model regression and safety checks.</li>
+          <li>Performance tests for simulation latency and queue throughput.</li>
+        </ul>
+      </section>
+
+      <section id="security">
+        <h3>Security and Scalability Blueprint</h3>
+        <ul>
+          <li>Threat model-driven controls for ingestion, prompt injection, and data exfiltration.</li>
+          <li>Encryption in transit and at rest with strict secret rotation.</li>
+          <li>Policy-based PII redaction before logs and analytics.</li>
+          <li>Autoscaling for worker pools and read-heavy API paths.</li>
+          <li>Feature flags and kill switches for rapid risk containment.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

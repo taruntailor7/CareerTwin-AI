@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - UI/UX Specification</title>
+  <meta name="description" content="CareerTwin AI complete UI/UX Specification across all core screens and flows.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">Internal Design Spec</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">03 - UI/UX Specification</p>
+      </div>
+
+      <div class="controls">
+        <label for="searchInput">Find screen spec</label>
+        <input id="searchInput" type="search" placeholder="Search UI/UX sections...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+
+      <nav id="sideNav">
+        <a href="#overview">Overview</a>
+        <a href="#global-patterns">Global UX Patterns</a>
+        <a href="#landing-page">Landing Page</a>
+        <a href="#authentication">Authentication</a>
+        <a href="#create-career-twin">Create Career Twin</a>
+        <a href="#ai-interview">AI Interview</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#career-timeline">Career Timeline</a>
+        <a href="#twin-profile">Twin Profile</a>
+        <a href="#simulation-engine">Simulation Engine</a>
+        <a href="#scenario-comparison">Scenario Comparison</a>
+        <a href="#career-insights">Career Insights</a>
+        <a href="#reports">Reports</a>
+        <a href="#settings">Settings</a>
+      </nav>
+
+      <p class="sidebar-footnote">
+        This specification aligns with Strategy, PCD, and PRD. It defines screen behavior and UX quality standards for implementation and QA.
+      </p>
+    </aside>
+
+    <main class="content">
+      <header id="overview" class="hero">
+        <span class="hero-badge">UI/UX Specification</span>
+        <h2>Complete Screen and Experience Blueprint</h2>
+        <p>
+          This document defines the UI and UX behavior for every core CareerTwin AI screen: purpose, wireframe intent, components, interactions, states, accessibility, and flow continuity.
+        </p>
+      </header>
+
+      <section id="global-patterns">
+        <h3>Global UX Patterns</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>Visual Language</h4>
+            <ul>
+              <li>Premium minimalist layout with strong hierarchy and calm whitespace.</li>
+              <li>Data-heavy areas use card clusters with progressive disclosure.</li>
+              <li>Core accent color reserved for primary actions and focus states.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Interaction Language</h4>
+            <ul>
+              <li>Primary action per screen; secondary actions visually subordinated.</li>
+              <li>Transition timing: 180ms for micro interactions, 280ms for screen transitions.</li>
+              <li>Never animate on error; keep failure states still and clear.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>State Consistency</h4>
+            <ul>
+              <li>Skeleton loading for network-driven content blocks.</li>
+              <li>Empty states include explicit next action, never dead ends.</li>
+              <li>Success states include confirmation and suggested follow-up.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Accessibility Baseline</h4>
+            <ul>
+              <li>Keyboard support for all controls and dialog flows.</li>
+              <li>Minimum contrast ratio AA for text and actionable elements.</li>
+              <li>Reduced motion mode for non-essential animations.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="landing-page">
+        <h3>Landing Page</h3>
+        <div class="spec-grid">
+          <article><h4>Purpose</h4><p>Convert high-intent visitors by demonstrating category differentiation in under 30 seconds.</p></article>
+          <article><h4>Wireframe Description</h4><p>Hero + interactive simulation teaser + trust band + social proof + CTA footer.</p></article>
+          <article><h4>Components</h4><p>Hero banner, scenario teaser widget, credibility strip, FAQ accordion, CTA panel.</p></article>
+          <article><h4>Buttons</h4><p>Primary: "Create Your Twin"; Secondary: "Watch 90-sec demo"; Tertiary: "How it works".</p></article>
+          <article><h4>Inputs</h4><p>Email field for waitlist/demo access and optional role selector for personalization.</p></article>
+          <article><h4>Animations</h4><p>Subtle constellation background parallax and hover lift on scenario cards.</p></article>
+          <article><h4>Transitions</h4><p>Hero-to-demo expansion animation with ease-out curve and scroll-linked opacity.</p></article>
+          <article><h4>Loading States</h4><p>Skeleton blocks for social proof cards and animated placeholder for teaser widget.</p></article>
+          <article><h4>Empty States</h4><p>If no social proof data, show curated narrative case examples.</p></article>
+          <article><h4>Success States</h4><p>Waitlist submission confirmation with estimated invite timeline.</p></article>
+          <article><h4>Error States</h4><p>Inline validation and retry prompt for failed lead capture submission.</p></article>
+          <article><h4>Responsive Behaviour</h4><p>Desktop split hero; mobile stacked flow with sticky bottom CTA.</p></article>
+          <article><h4>Accessibility</h4><p>Landmark structure, keyboard-navigable accordion, descriptive CTA labels.</p></article>
+          <article><h4>User Flow</h4><p>Discover → Understand value → Trust check → Start onboarding.</p></article>
+        </div>
+      </section>
+
+      <section id="authentication">
+        <h3>Authentication</h3>
+        <div class="spec-grid">
+          <article><h4>Purpose</h4><p>Enable secure account access with minimal onboarding friction.</p></article>
+          <article><h4>Wireframe Description</h4><p>Centered auth card with segmented tabs for sign in/sign up and SSO options.</p></article>
+          <article><h4>Components</h4><p>Auth form, social SSO buttons, legal consent text, progress reminder panel.</p></article>
+          <article><h4>Buttons</h4><p>Primary: Continue; Secondary: Continue with Google/LinkedIn; Link: Forgot password.</p></article>
+          <article><h4>Inputs</h4><p>Email, password, confirmation password, OTP field (if verification required).</p></article>
+          <article><h4>Animations</h4><p>Form state swap fade between sign-in and sign-up tabs.</p></article>
+          <article><h4>Transitions</h4><p>Post-auth route transition to onboarding with progress context chip.</p></article>
+          <article><h4>Loading States</h4><p>Button spinner with disabled submit to prevent duplicate requests.</p></article>
+          <article><h4>Empty States</h4><p>No external provider available state with fallback email auth.</p></article>
+          <article><h4>Success States</h4><p>Account verified message then auto-redirect to Twin Genesis.</p></article>
+          <article><h4>Error States</h4><p>Credential errors, expired OTP handling, locked account cooldown messaging.</p></article>
+          <article><h4>Responsive Behaviour</h4><p>Single-column card on mobile with large tap targets and full-width inputs.</p></article>
+          <article><h4>Accessibility</h4><p>Input labels, aria-invalid hints, error message association, focus retention.</p></article>
+          <article><h4>User Flow</h4><p>Entry point → Auth method selection → Validation → Onboarding start.</p></article>
+        </div>
+      </section>
+
+      <section id="create-career-twin">
+        <h3>Create Career Twin</h3>
+        <div class="spec-grid">
+          <article><h4>Purpose</h4><p>Collect foundational data and initialize the first twin version.</p></article>
+          <article><h4>Wireframe Description</h4><p>Multi-step wizard with left progress rail and right context panel.</p></article>
+          <article><h4>Components</h4><p>Step navigator, data cards, progress meter, confidence status widget.</p></article>
+          <article><h4>Buttons</h4><p>Primary: Continue; Secondary: Save and exit; Utility: Skip optional step.</p></article>
+          <article><h4>Inputs</h4><p>Career goals, salary expectation range, location preference, work-style preferences.</p></article>
+          <article><h4>Animations</h4><p>Step completion check animation and twin graph node illumination.</p></article>
+          <article><h4>Transitions</h4><p>Horizontal step slide with history-preserving breadcrumb updates.</p></article>
+          <article><h4>Loading States</h4><p>Step-level loading while validating imported or parsed data.</p></article>
+          <article><h4>Empty States</h4><p>No data source connected fallback with manual input prompts.</p></article>
+          <article><h4>Success States</h4><p>Twin creation trigger confirmation and transition to reveal screen.</p></article>
+          <article><h4>Error States</h4><p>Step validation errors pinned near fields and summary at top.</p></article>
+          <article><h4>Responsive Behaviour</h4><p>Progress rail transforms into compact stepper on mobile.</p></article>
+          <article><h4>Accessibility</h4><p>Stepper announced with current step count and completion status.</p></article>
+          <article><h4>User Flow</h4><p>Profile basics → Imports → Preferences → Review → Twin generation.</p></article>
+        </div>
+      </section>
+
+      <section id="ai-interview">
+        <h3>AI Interview</h3>
+        <div class="spec-grid">
+          <article><h4>Purpose</h4><p>Fill ambiguity gaps and capture nuanced user motivations.</p></article>
+          <article><h4>Wireframe Description</h4><p>Conversational card interface with one prompt at a time and context memory panel.</p></article>
+          <article><h4>Components</h4><p>Prompt card, response composer, confidence indicator, summary tracker.</p></article>
+          <article><h4>Buttons</h4><p>Primary: Submit answer; Secondary: Clarify question; Utility: Skip for now.</p></article>
+          <article><h4>Inputs</h4><p>Free text, quick-select chips, optional voice transcript.</p></article>
+          <article><h4>Animations</h4><p>Prompt reveal fade; confidence meter pulse on answer submission.</p></article>
+          <article><h4>Transitions</h4><p>Question-to-question crossfade with conversation continuity marker.</p></article>
+          <article><h4>Loading States</h4><p>AI thinking indicator with deterministic timeout fallback copy.</p></article>
+          <article><h4>Empty States</h4><p>If user pauses, show "Need help answering?" guidance examples.</p></article>
+          <article><h4>Success States</h4><p>Interview summary card with editable assumptions and confirmed facts.</p></article>
+          <article><h4>Error States</h4><p>Generation failure fallback to static question set without data loss.</p></article>
+          <article><h4>Responsive Behaviour</h4><p>Sticky response box on mobile; transcript panel collapses into drawer.</p></article>
+          <article><h4>Accessibility</h4><p>Prompt text read order and explicit role labels for conversational elements.</p></article>
+          <article><h4>User Flow</h4><p>Prompt loop → Clarification → Summary confirmation → Twin synthesis.</p></article>
+        </div>
+      </section>
+
+      <section id="dashboard">
+        <h3>Dashboard</h3>
+        <div class="spec-grid">
+          <article><h4>Purpose</h4><p>Provide strategic command center for decisions, actions, and twin health.</p></article>
+          <article><h4>Wireframe Description</h4><p>Top insights row, decision queue, simulation summary, and action column.</p></article>
+          <article><h4>Components</h4><p>Twin health card, next actions list, decision queue cards, insight highlights.</p></article>
+          <article><h4>Buttons</h4><p>Primary: Run simulation; Secondary: Update twin; Utility: View full report.</p></article>
+          <article><h4>Inputs</h4><p>Filters for timeframe, goals mode, and simulation status.</p></article>
+          <article><h4>Animations</h4><p>Card reorder animation on priority changes and subtle KPI count-up.</p></article>
+          <article><h4>Transitions</h4><p>Deep-link navigation into simulations, timeline, and insights modules.</p></article>
+          <article><h4>Loading States</h4><p>Skeleton rows for decision queue and chart placeholders.</p></article>
+          <article><h4>Empty States</h4><p>New-user dashboard shows onboarding completion CTA and first simulation prompt.</p></article>
+          <article><h4>Success States</h4><p>Action completion toast and progress streak indicator.</p></article>
+          <article><h4>Error States</h4><p>Partial module failure surfaces in-card retry without blocking entire dashboard.</p></article>
+          <article><h4>Responsive Behaviour</h4><p>Cards stack by priority with sticky top actions on mobile.</p></article>
+          <article><h4>Accessibility</h4><p>Readable summary labels and keyboard order matching visual priority.</p></article>
+          <article><h4>User Flow</h4><p>Open dashboard → identify priority → take action → review outcome.</p></article>
+        </div>
+      </section>
+
+      <section id="career-timeline">
+        <h3>Career Timeline</h3>
+        <div class="spec-grid">
+          <article><h4>Purpose</h4><p>Visualize trajectory history and future branch possibilities over time.</p></article>
+          <article><h4>Wireframe Description</h4><p>Horizontal timeline with expandable milestones and future branch lanes.</p></article>
+          <article><h4>Components</h4><p>Milestone nodes, branch overlays, confidence bands, notes drawer.</p></article>
+          <article><h4>Buttons</h4><p>Primary: Add milestone; Secondary: Compare branches; Utility: Toggle assumptions.</p></article>
+          <article><h4>Inputs</h4><p>Milestone date, role, impact score notes, branch filters.</p></article>
+          <article><h4>Animations</h4><p>Timeline scrub interpolation and branch highlight glow.</p></article>
+          <article><h4>Transitions</h4><p>Seamless handoff to simulation from selected branch node.</p></article>
+          <article><h4>Loading States</h4><p>Progressive rendering of timeline segments for faster first paint.</p></article>
+          <article><h4>Empty States</h4><p>No milestones state prompts "Add first turning point."</p></article>
+          <article><h4>Success States</h4><p>Milestone saved and integrated into twin recalibration queue.</p></article>
+          <article><h4>Error States</h4><p>Date conflicts and invalid sequence warnings with correction hints.</p></article>
+          <article><h4>Responsive Behaviour</h4><p>Timeline converts to vertical stacked list on narrow widths.</p></article>
+          <article><h4>Accessibility</h4><p>Alternative table view for non-pointer users and screen readers.</p></article>
+          <article><h4>User Flow</h4><p>Review past → inspect branch → run scenario from branch context.</p></article>
+        </div>
+      </section>
+
+      <section id="twin-profile">
+        <h3>Twin Profile</h3>
+        <div class="spec-grid">
+          <article><h4>Purpose</h4><p>Expose full digital twin composition and confidence quality.</p></article>
+          <article><h4>Wireframe Description</h4><p>Profile summary header, dimension tabs, source provenance panel.</p></article>
+          <article><h4>Components</h4><p>Skill matrix, motivation map, risk appetite gauge, evidence ledger.</p></article>
+          <article><h4>Buttons</h4><p>Primary: Recalibrate twin; Secondary: Edit assumptions; Utility: View version diff.</p></article>
+          <article><h4>Inputs</h4><p>Editable goals, constraints, strength adjustments, preference toggles.</p></article>
+          <article><h4>Animations</h4><p>Dimension chart transitions when switching profile tabs.</p></article>
+          <article><h4>Transitions</h4><p>Version picker transition to historical twin snapshots.</p></article>
+          <article><h4>Loading States</h4><p>Deferred loading of deep analytics modules with shimmer placeholders.</p></article>
+          <article><h4>Empty States</h4><p>If dimension has low data, prompt user for targeted enrichment step.</p></article>
+          <article><h4>Success States</h4><p>Assumption updates show confidence uplift summary.</p></article>
+          <article><h4>Error States</h4><p>Conflict alerts when edits contradict locked imported fields.</p></article>
+          <article><h4>Responsive Behaviour</h4><p>Tab group collapses into segmented control; ledger in slide-up panel.</p></article>
+          <article><h4>Accessibility</h4><p>Graph values mirrored in text tables; tab semantics applied.</p></article>
+          <article><h4>User Flow</h4><p>Inspect twin → adjust assumption → rerun simulation.</p></article>
+        </div>
+      </section>
+
+      <section id="simulation-engine">
+        <h3>Simulation Engine</h3>
+        <div class="spec-grid">
+          <article><h4>Purpose</h4><p>Create and execute structured career scenario simulations.</p></article>
+          <article><h4>Wireframe Description</h4><p>Scenario builder on left, assumptions panel center, run output right.</p></article>
+          <article><h4>Components</h4><p>Scenario cards, assumptions editor, output charts, recommendation module.</p></article>
+          <article><h4>Buttons</h4><p>Primary: Run simulation; Secondary: Save scenario set; Utility: Duplicate scenario.</p></article>
+          <article><h4>Inputs</h4><p>Salary floor, geography, timeline, learning intensity, risk tolerance sliders.</p></article>
+          <article><h4>Animations</h4><p>Output chart morph animation between scenario runs.</p></article>
+          <article><h4>Transitions</h4><p>Builder mode to results mode with fixed anchor summary bar.</p></article>
+          <article><h4>Loading States</h4><p>Multi-step compute status: validating, simulating, calibrating, finalizing.</p></article>
+          <article><h4>Empty States</h4><p>No scenario created state with templates and "start from baseline" option.</p></article>
+          <article><h4>Success States</h4><p>Results generated banner and recommendation snapshot availability.</p></article>
+          <article><h4>Error States</h4><p>Assumption conflict errors and compute timeout fallback prompt.</p></article>
+          <article><h4>Responsive Behaviour</h4><p>Scenario builder becomes full-screen step flow on mobile.</p></article>
+          <article><h4>Accessibility</h4><p>All charts include text equivalents and keyboard-controllable filters.</p></article>
+          <article><h4>User Flow</h4><p>Define scenarios → run compute → inspect outputs → send to comparison.</p></article>
+        </div>
+      </section>
+
+      <section id="scenario-comparison">
+        <h3>Scenario Comparison</h3>
+        <div class="spec-grid">
+          <article><h4>Purpose</h4><p>Help users decide by exposing path tradeoffs side by side.</p></article>
+          <article><h4>Wireframe Description</h4><p>Column comparison cards with weighted metric sliders and summary verdict panel.</p></article>
+          <article><h4>Components</h4><p>Scenario columns, radar chart, regret view, weighted score bar.</p></article>
+          <article><h4>Buttons</h4><p>Primary: Choose path; Secondary: Adjust weights; Utility: Save comparison.</p></article>
+          <article><h4>Inputs</h4><p>Importance sliders for salary, growth, balance, leadership, risk.</p></article>
+          <article><h4>Animations</h4><p>Real-time score recalculation animation on slider changes.</p></article>
+          <article><h4>Transitions</h4><p>Transition to action plan generator from selected scenario.</p></article>
+          <article><h4>Loading States</h4><p>Short recalculation loader for weighted score update requests.</p></article>
+          <article><h4>Empty States</h4><p>Prompt to run at least two simulations before comparing.</p></article>
+          <article><h4>Success States</h4><p>Decision lock-in confirmation and next-step experiment creation.</p></article>
+          <article><h4>Error States</h4><p>If metrics unavailable, show partial comparison with visible caveat.</p></article>
+          <article><h4>Responsive Behaviour</h4><p>Horizontal swipe cards on mobile with pinned summary footer.</p></article>
+          <article><h4>Accessibility</h4><p>Slider values announce changes and affective labels.</p></article>
+          <article><h4>User Flow</h4><p>Select scenarios → tune priorities → choose path → create execution plan.</p></article>
+        </div>
+      </section>
+
+      <section id="career-insights">
+        <h3>Career Insights</h3>
+        <div class="spec-grid">
+          <article><h4>Purpose</h4><p>Deliver ongoing strategic guidance from twin and market shifts.</p></article>
+          <article><h4>Wireframe Description</h4><p>Insight feed with weekly digest card, blind spots, and opportunity alerts.</p></article>
+          <article><h4>Components</h4><p>Insight cards, urgency tags, trend sparkline, recommendation actions.</p></article>
+          <article><h4>Buttons</h4><p>Primary: Apply insight; Secondary: Dismiss; Utility: Why this insight?</p></article>
+          <article><h4>Inputs</h4><p>Insight filters by type, urgency, and source confidence.</p></article>
+          <article><h4>Animations</h4><p>Card entry transitions and urgency pulse for critical items.</p></article>
+          <article><h4>Transitions</h4><p>Deep links to simulation or profile edit from each insight card.</p></article>
+          <article><h4>Loading States</h4><p>Staggered insight feed loading with placeholder cards.</p></article>
+          <article><h4>Empty States</h4><p>"No new insights yet" state with suggestion to run a fresh simulation.</p></article>
+          <article><h4>Success States</h4><p>Applied insight feedback updates dashboard action queue.</p></article>
+          <article><h4>Error States</h4><p>Insight service outage banner with last cached digest fallback.</p></article>
+          <article><h4>Responsive Behaviour</h4><p>Feed becomes single-column with sticky filter drawer on mobile.</p></article>
+          <article><h4>Accessibility</h4><p>Urgency tags include textual meaning beyond color cues.</p></article>
+          <article><h4>User Flow</h4><p>Review insight → validate rationale → apply to action plan.</p></article>
+        </div>
+      </section>
+
+      <section id="reports">
+        <h3>Reports</h3>
+        <div class="spec-grid">
+          <article><h4>Purpose</h4><p>Package decisions and simulations for mentors, peers, or stakeholders.</p></article>
+          <article><h4>Wireframe Description</h4><p>Report template selector, content inclusion checklist, preview panel.</p></article>
+          <article><h4>Components</h4><p>Template cards, privacy controls, preview canvas, share settings.</p></article>
+          <article><h4>Buttons</h4><p>Primary: Generate report; Secondary: Share link; Utility: Download PDF.</p></article>
+          <article><h4>Inputs</h4><p>Template choice, audience type, redaction toggles, link expiry selector.</p></article>
+          <article><h4>Animations</h4><p>Preview refresh shimmer and generation progress ring.</p></article>
+          <article><h4>Transitions</h4><p>Draft-to-final mode transition with immutable snapshot timestamp.</p></article>
+          <article><h4>Loading States</h4><p>Report generation progress with stage labels.</p></article>
+          <article><h4>Empty States</h4><p>No saved simulation state prompting run requirement before report creation.</p></article>
+          <article><h4>Success States</h4><p>Report ready dialog with copy link and download actions.</p></article>
+          <article><h4>Error States</h4><p>Generation fail state with retry and simplified export fallback.</p></article>
+          <article><h4>Responsive Behaviour</h4><p>Preview collapses below controls; actions pinned at bottom.</p></article>
+          <article><h4>Accessibility</h4><p>Preview summaries are screen-reader consumable in structured text.</p></article>
+          <article><h4>User Flow</h4><p>Select template → configure privacy → preview → generate/share.</p></article>
+        </div>
+      </section>
+
+      <section id="settings">
+        <h3>Settings</h3>
+        <div class="spec-grid">
+          <article><h4>Purpose</h4><p>Allow users to control data, privacy, preferences, and integrations.</p></article>
+          <article><h4>Wireframe Description</h4><p>Category tabs: Profile, Integrations, Privacy, Notifications, AI Preferences.</p></article>
+          <article><h4>Components</h4><p>Toggle groups, permission cards, account actions, export/delete controls.</p></article>
+          <article><h4>Buttons</h4><p>Primary: Save changes; Secondary: Revoke source; Danger: Delete account.</p></article>
+          <article><h4>Inputs</h4><p>Preference toggles, language/timezone, communication settings, consent checkboxes.</p></article>
+          <article><h4>Animations</h4><p>Toggle feedback micro animation and confirmation slide-in panel.</p></article>
+          <article><h4>Transitions</h4><p>Settings tab content crossfade preserving scroll position per tab.</p></article>
+          <article><h4>Loading States</h4><p>Optimistic toggle state with rollback on save failure.</p></article>
+          <article><h4>Empty States</h4><p>No integration connected state with clear connect actions.</p></article>
+          <article><h4>Success States</h4><p>Settings saved toast with undo for reversible changes.</p></article>
+          <article><h4>Error States</h4><p>Permission revoke or delete failures displayed with support guidance.</p></article>
+          <article><h4>Responsive Behaviour</h4><p>Tab list becomes accordion on mobile for easier scanning.</p></article>
+          <article><h4>Accessibility</h4><p>All toggles have explicit labels and state announcements.</p></article>
+          <article><h4>User Flow</h4><p>Open settings → adjust controls → save → verify effect in product.</p></article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

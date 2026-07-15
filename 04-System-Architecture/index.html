@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - System Architecture</title>
+  <meta name="description" content="CareerTwin AI production-ready system architecture specification.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">Engineering Blueprint</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">04 - System Architecture</p>
+      </div>
+
+      <div class="controls">
+        <label for="searchInput">Find architecture section</label>
+        <input id="searchInput" type="search" placeholder="Search architecture...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+
+      <nav id="sideNav">
+        <a href="#overview">Overview</a>
+        <a href="#tech-stack">Technology Stack</a>
+        <a href="#frontend">Frontend Architecture</a>
+        <a href="#backend">Backend Architecture</a>
+        <a href="#database">Database Architecture</a>
+        <a href="#authentication">Authentication & Authorization</a>
+        <a href="#storage">Storage Layer</a>
+        <a href="#caching">Caching Strategy</a>
+        <a href="#api-layer">API Layer</a>
+        <a href="#data-flow">Data Flow</a>
+        <a href="#microservices">Microservices Strategy</a>
+        <a href="#deployment">Deployment & DevOps</a>
+        <a href="#folder-structure">Folder Structure</a>
+        <a href="#scalability">Scalability & Reliability</a>
+        <a href="#trade-offs">Trade-offs & Decisions</a>
+      </nav>
+
+      <p class="sidebar-footnote">
+        This architecture is aligned with Strategy, PCD, PRD, and UI/UX docs and targets production readiness.
+      </p>
+    </aside>
+
+    <main class="content">
+      <header id="overview" class="hero">
+        <span class="hero-badge">System Architecture Document</span>
+        <h2>Production-ready architecture for CareerTwin AI</h2>
+        <p>
+          The architecture prioritizes fast simulation loops, explainability, secure data handling, and long-term scalability from hackathon MVP to multi-tenant platform.
+        </p>
+      </header>
+
+      <section id="tech-stack">
+        <h3>Technology Stack</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Layer</th>
+                <th>Choice</th>
+                <th>Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Frontend</td>
+                <td>React + TypeScript + Next.js</td>
+                <td>Fast iteration, SSR/edge flexibility, mature ecosystem</td>
+              </tr>
+              <tr>
+                <td>Backend API</td>
+                <td>Node.js + TypeScript (Fastify or NestJS)</td>
+                <td>High throughput, strong typing, team velocity</td>
+              </tr>
+              <tr>
+                <td>AI Orchestration</td>
+                <td>Python services (FastAPI) + task workers</td>
+                <td>Model ecosystem compatibility and async compute</td>
+              </tr>
+              <tr>
+                <td>Primary Database</td>
+                <td>PostgreSQL</td>
+                <td>Relational integrity for users, versions, decisions</td>
+              </tr>
+              <tr>
+                <td>Document Store</td>
+                <td>S3-compatible object storage</td>
+                <td>Resume files, report exports, artifacts</td>
+              </tr>
+              <tr>
+                <td>Cache</td>
+                <td>Redis</td>
+                <td>Low-latency scenario caching and session acceleration</td>
+              </tr>
+              <tr>
+                <td>Queue/Event Bus</td>
+                <td>SQS/Kafka equivalent</td>
+                <td>Decoupled async tasks and event-driven workflows</td>
+              </tr>
+              <tr>
+                <td>Infra</td>
+                <td>Kubernetes + managed cloud services</td>
+                <td>Horizontal scalability and operational control</td>
+              </tr>
+              <tr>
+                <td>Observability</td>
+                <td>OpenTelemetry + logs + metrics + tracing</td>
+                <td>Production incident triage and model quality tracking</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="frontend">
+        <h3>Frontend Architecture</h3>
+        <ul>
+          <li>App shell with authenticated route guards and role-aware layout rendering.</li>
+          <li>Domain modules: Onboarding, Twin Profile, Simulation, Insights, Reports, Settings.</li>
+          <li>State management split: server-state cache (query layer) + UI state store.</li>
+          <li>Design system tokens for typography, spacing, motion, and accessibility consistency.</li>
+          <li>Progressive hydration for heavy analytics and simulation modules.</li>
+        </ul>
+        <div class="diagram">
+          <svg viewBox="0 0 980 220" width="100%" role="img" aria-label="Frontend architecture diagram">
+            <rect x="40" y="80" width="160" height="60" rx="12" fill="#dbeafe" stroke="#93c5fd"></rect>
+            <text x="78" y="115" font-size="14" fill="#1e3a8a">App Shell</text>
+            <rect x="250" y="80" width="190" height="60" rx="12" fill="#ede9fe" stroke="#c4b5fd"></rect>
+            <text x="284" y="115" font-size="14" fill="#4c1d95">Domain Modules</text>
+            <rect x="490" y="80" width="190" height="60" rx="12" fill="#dcfce7" stroke="#86efac"></rect>
+            <text x="525" y="115" font-size="14" fill="#14532d">State Layer</text>
+            <rect x="730" y="80" width="210" height="60" rx="12" fill="#fee2e2" stroke="#fca5a5"></rect>
+            <text x="774" y="115" font-size="14" fill="#7f1d1d">API Client</text>
+            <line x1="200" y1="110" x2="250" y2="110" stroke="#64748b" stroke-width="2"></line>
+            <line x1="440" y1="110" x2="490" y2="110" stroke="#64748b" stroke-width="2"></line>
+            <line x1="680" y1="110" x2="730" y2="110" stroke="#64748b" stroke-width="2"></line>
+          </svg>
+        </div>
+      </section>
+
+      <section id="backend">
+        <h3>Backend Architecture</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>Gateway Service</h4>
+            <ul>
+              <li>Request authentication and tenant routing.</li>
+              <li>Rate limiting and request normalization.</li>
+              <li>BFF endpoints for frontend optimized payloads.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Core Domain Services</h4>
+            <ul>
+              <li>User & Profile Service</li>
+              <li>Twin Lifecycle Service</li>
+              <li>Simulation Service</li>
+              <li>Insights Service</li>
+              <li>Reporting Service</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>AI Services</h4>
+            <ul>
+              <li>Interview Orchestrator</li>
+              <li>Reasoning + Explainability Generator</li>
+              <li>Calibration and Contradiction Detector</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Asynchronous Workers</h4>
+            <ul>
+              <li>Import Parsers (resume, LinkedIn, GitHub, portfolio)</li>
+              <li>Report generation and export</li>
+              <li>Weekly insights and scheduled recomputation</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="database">
+        <h3>Database Architecture</h3>
+        <p>
+          PostgreSQL stores transactional and relational data; event streams and analytics snapshots feed downstream insights pipelines.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Entity</th>
+                <th>Purpose</th>
+                <th>Key Fields</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>users</td>
+                <td>Identity and account metadata</td>
+                <td>id, email, status, created_at</td>
+              </tr>
+              <tr>
+                <td>profiles</td>
+                <td>User preferences and constraints</td>
+                <td>user_id, goals, location_pref, salary_range</td>
+              </tr>
+              <tr>
+                <td>twin_versions</td>
+                <td>Versioned twin snapshots</td>
+                <td>version_id, user_id, confidence_map, source_summary</td>
+              </tr>
+              <tr>
+                <td>simulations</td>
+                <td>Scenario sets and outputs</td>
+                <td>simulation_id, version_id, assumptions, result_blob</td>
+              </tr>
+              <tr>
+                <td>insights</td>
+                <td>Generated recommendations and alerts</td>
+                <td>insight_id, user_id, type, urgency, evidence_refs</td>
+              </tr>
+              <tr>
+                <td>reports</td>
+                <td>Exported decision reports</td>
+                <td>report_id, simulation_id, storage_uri, expires_at</td>
+              </tr>
+              <tr>
+                <td>audit_events</td>
+                <td>Traceability and compliance</td>
+                <td>event_id, actor, action, metadata, timestamp</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="authentication">
+        <h3>Authentication & Authorization</h3>
+        <ul>
+          <li>OIDC/OAuth2 with short-lived access tokens and rotating refresh tokens.</li>
+          <li>Session invalidation on security events and device-level session controls.</li>
+          <li>Role model: user, admin, support (least privilege by default).</li>
+          <li>Signed service-to-service auth for internal APIs (mTLS or token exchange).</li>
+          <li>Per-feature authorization checks at gateway and domain service levels.</li>
+        </ul>
+      </section>
+
+      <section id="storage">
+        <h3>Storage Layer</h3>
+        <ul>
+          <li>Object storage buckets for resumes, generated reports, and optional artifacts.</li>
+          <li>Content-addressed keys to prevent duplicate storage and support dedupe.</li>
+          <li>KMS-managed encryption keys and lifecycle retention rules.</li>
+          <li>Presigned URL strategy for controlled client-side upload/download.</li>
+          <li>Data tiering for cold archives of historical reports.</li>
+        </ul>
+      </section>
+
+      <section id="caching">
+        <h3>Caching Strategy</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>Redis Caches</h4>
+            <ul>
+              <li>Simulation result cache keyed by twin version + scenario hash.</li>
+              <li>Short TTL profile summary cache for dashboard speed.</li>
+              <li>Rate-limiting counters and idempotency token store.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Invalidation Rules</h4>
+            <ul>
+              <li>Invalidate on twin version change.</li>
+              <li>Invalidate insight cache on new simulation completion.</li>
+              <li>Use write-through for critical consistency flows.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="api-layer">
+        <h3>API Layer</h3>
+        <p>API style: versioned REST for core platform, async jobs for heavy compute, optional GraphQL read gateway for internal clients.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Endpoint</th>
+                <th>Purpose</th>
+                <th>Sync/Async</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>POST /v1/twin/build</td>
+                <td>Create or refresh twin version</td>
+                <td>Async job with polling</td>
+              </tr>
+              <tr>
+                <td>POST /v1/simulations/run</td>
+                <td>Run scenario simulation</td>
+                <td>Sync for light runs, async fallback for heavy runs</td>
+              </tr>
+              <tr>
+                <td>POST /v1/simulations/compare</td>
+                <td>Return tradeoff comparison</td>
+                <td>Sync</td>
+              </tr>
+              <tr>
+                <td>GET /v1/insights</td>
+                <td>Fetch insight feed</td>
+                <td>Sync</td>
+              </tr>
+              <tr>
+                <td>POST /v1/reports/generate</td>
+                <td>Create export artifact</td>
+                <td>Async</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="data-flow">
+        <h3>Data Flow</h3>
+        <div class="diagram">
+          <svg viewBox="0 0 980 320" width="100%" role="img" aria-label="End to end data flow">
+            <rect x="30" y="130" width="130" height="60" rx="12" fill="#dbeafe" stroke="#93c5fd"></rect>
+            <text x="58" y="165" font-size="14" fill="#1e3a8a">Frontend</text>
+            <rect x="210" y="130" width="150" height="60" rx="12" fill="#ede9fe" stroke="#c4b5fd"></rect>
+            <text x="237" y="165" font-size="14" fill="#4c1d95">API Gateway</text>
+            <rect x="410" y="50" width="160" height="60" rx="12" fill="#dcfce7" stroke="#86efac"></rect>
+            <text x="438" y="85" font-size="14" fill="#14532d">Twin Service</text>
+            <rect x="410" y="130" width="160" height="60" rx="12" fill="#fee2e2" stroke="#fca5a5"></rect>
+            <text x="430" y="165" font-size="14" fill="#7f1d1d">Simulation Svc</text>
+            <rect x="410" y="210" width="160" height="60" rx="12" fill="#e0f2fe" stroke="#7dd3fc"></rect>
+            <text x="440" y="245" font-size="14" fill="#0c4a6e">Insights Svc</text>
+            <rect x="620" y="70" width="150" height="60" rx="12" fill="#fef3c7" stroke="#fcd34d"></rect>
+            <text x="657" y="105" font-size="14" fill="#713f12">Postgres</text>
+            <rect x="620" y="150" width="150" height="60" rx="12" fill="#fecaca" stroke="#fca5a5"></rect>
+            <text x="665" y="185" font-size="14" fill="#7f1d1d">Redis</text>
+            <rect x="620" y="230" width="150" height="60" rx="12" fill="#dbeafe" stroke="#93c5fd"></rect>
+            <text x="645" y="265" font-size="14" fill="#1e3a8a">Object Store</text>
+            <rect x="820" y="130" width="140" height="60" rx="12" fill="#ede9fe" stroke="#c4b5fd"></rect>
+            <text x="844" y="165" font-size="14" fill="#4c1d95">Workers</text>
+
+            <line x1="160" y1="160" x2="210" y2="160" stroke="#64748b" stroke-width="2"></line>
+            <line x1="360" y1="160" x2="410" y2="80" stroke="#64748b" stroke-width="2"></line>
+            <line x1="360" y1="160" x2="410" y2="160" stroke="#64748b" stroke-width="2"></line>
+            <line x1="360" y1="160" x2="410" y2="240" stroke="#64748b" stroke-width="2"></line>
+            <line x1="570" y1="80" x2="620" y2="100" stroke="#64748b" stroke-width="2"></line>
+            <line x1="570" y1="160" x2="620" y2="180" stroke="#64748b" stroke-width="2"></line>
+            <line x1="570" y1="240" x2="620" y2="260" stroke="#64748b" stroke-width="2"></line>
+            <line x1="770" y1="180" x2="820" y2="160" stroke="#64748b" stroke-width="2"></line>
+          </svg>
+        </div>
+        <ol>
+          <li>User action hits API gateway and auth middleware.</li>
+          <li>Gateway routes to domain service (twin, simulation, insight).</li>
+          <li>Service resolves from cache first; falls back to DB/object store as needed.</li>
+          <li>Heavy tasks publish to queue and worker processes perform async computation.</li>
+          <li>Results persisted, cache updated, events emitted for downstream insights/reporting.</li>
+        </ol>
+      </section>
+
+      <section id="microservices">
+        <h3>Microservices Strategy (if needed)</h3>
+        <p>
+          Use modular monolith in MVP to maximize speed; evolve to service boundaries when load, team size, and domain complexity justify operational overhead.
+        </p>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>When to stay modular monolith</h4>
+            <ul>
+              <li>Single core team and rapid iteration requirements.</li>
+              <li>Low independent scaling pressure between domains.</li>
+              <li>Simpler deployment and debugging lifecycle.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>When to split services</h4>
+            <ul>
+              <li>Simulation compute outgrows API latency budget.</li>
+              <li>Insights/report generation requires separate scaling behavior.</li>
+              <li>Clear ownership boundaries by team/domain emerge.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="deployment">
+        <h3>Deployment & DevOps</h3>
+        <ul>
+          <li>Environment tiers: dev, staging, production with isolated data boundaries.</li>
+          <li>CI/CD pipeline: lint, test, security scan, build, integration tests, deploy.</li>
+          <li>Blue/green or canary deployments for low-risk rollouts.</li>
+          <li>Feature flags for controlled releases of high-impact AI features.</li>
+          <li>Backup and disaster recovery policy for DB and object storage.</li>
+          <li>Runbook-driven incident response and SLO-based alerting.</li>
+        </ul>
+      </section>
+
+      <section id="folder-structure">
+        <h3>Folder Structure</h3>
+        <pre><code>career-twin-ai/
+├── apps/
+│   ├── web/                       # Next.js frontend
+│   ├── api/                       # Gateway/BFF
+│   └── worker/                    # Async processors
+├── services/
+│   ├── twin-service/
+│   ├── simulation-service/
+│   ├── insights-service/
+│   └── report-service/
+├── packages/
+│   ├── ui/                        # Design system
+│   ├── shared-types/              # Contracts and schemas
+│   ├── auth/                      # Auth utilities/middleware
+│   └── observability/             # Logging/tracing wrappers
+├── infra/
+│   ├── kubernetes/
+│   ├── terraform/
+│   └── monitoring/
+└── docs/
+    ├── 00-Product-Strategy/
+    ├── 01-Product-Concept-Document/
+    ├── 02-Product-Requirements-Document/
+    ├── 03-UI-UX-Specification/
+    └── 04-System-Architecture/</code></pre>
+      </section>
+
+      <section id="scalability">
+        <h3>Scalability & Reliability</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>Horizontal Scaling</h4>
+            <ul>
+              <li>Stateless API pods with autoscaling by CPU + latency.</li>
+              <li>Dedicated simulation worker pools with queue-based backpressure.</li>
+              <li>Read replicas for high read-heavy insight/report queries.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Reliability Controls</h4>
+            <ul>
+              <li>Circuit breakers on external providers.</li>
+              <li>Idempotency keys for simulation/report generation endpoints.</li>
+              <li>Graceful degradation to cached insights on partial outages.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Observability</h4>
+            <ul>
+              <li>Distributed traces across frontend, gateway, and services.</li>
+              <li>Model-quality dashboards for output confidence drift.</li>
+              <li>Error budgets linked to product-critical flows.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Data Governance</h4>
+            <ul>
+              <li>PII classification and scoped access controls.</li>
+              <li>Retention rules for generated artifacts and logs.</li>
+              <li>Compliance-ready audit trails for recommendation events.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="trade-offs">
+        <h3>Trade-offs & Key Decisions</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Decision</th>
+                <th>Chosen Option</th>
+                <th>Trade-off</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Architecture style</td>
+                <td>Modular monolith first</td>
+                <td>Faster early velocity, but future extraction effort required</td>
+              </tr>
+              <tr>
+                <td>API strategy</td>
+                <td>REST-first with async jobs</td>
+                <td>Simpler client integration, less flexible than full GraphQL mesh</td>
+              </tr>
+              <tr>
+                <td>Simulation compute</td>
+                <td>Async workers for heavy runs</td>
+                <td>Better reliability, added orchestration complexity</td>
+              </tr>
+              <tr>
+                <td>Data storage split</td>
+                <td>Postgres + object storage + cache</td>
+                <td>Clear responsibilities, more infrastructure surfaces to operate</td>
+              </tr>
+              <tr>
+                <td>Feature rollout</td>
+                <td>Flag-gated progressive release</td>
+                <td>Lower risk, requires robust flag governance</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

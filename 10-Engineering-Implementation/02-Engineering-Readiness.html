@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - Engineering Readiness</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">Engineering Implementation</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">Phase 2 - Implementation Readiness Review</p>
+      </div>
+      <div class="controls">
+        <label for="searchInput">Find section</label>
+        <input id="searchInput" type="search" placeholder="Search readiness...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+      <nav class="doc-nav">
+        <a href="01-Repository-Review.html">01 Repository Review</a>
+        <a href="02-Engineering-Readiness.html">02 Engineering Readiness</a>
+        <a href="03-Engineering-Questions.html">03 Engineering Questions</a>
+        <a href="04-Implementation-Blueprint.html">04 Implementation Blueprint</a>
+        <a href="05-Milestone-Plan.html">05 Milestone Plan</a>
+        <a href="06-Implementation-Strategy.html">06 Implementation Strategy</a>
+      </nav>
+      <nav class="section-nav">
+        <a href="#summary">Readiness Summary</a>
+        <a href="#missing-requirements">Missing Requirements</a>
+        <a href="#missing-apis">Missing APIs</a>
+        <a href="#missing-db">Missing Database Tables</a>
+        <a href="#flows">Missing Flows & States</a>
+        <a href="#ai-prompt">AI & Prompt Gaps</a>
+        <a href="#risk-review">Risk Review</a>
+        <a href="#technical-debt">Technical Debt</a>
+        <a href="#gates">Readiness Gates</a>
+      </nav>
+      <p class="sidebar-footnote">Status is intentionally strict to prevent expensive implementation churn.</p>
+    </aside>
+
+    <main class="content">
+      <header id="summary" class="hero">
+        <span class="hero-badge">Phase 2</span>
+        <h2>Implementation Readiness Report</h2>
+        <p>Current state: strategically strong, execution gaps still significant. Recommended readiness status is <span class="status-pill">Conditional Go</span> after critical gates.</p>
+      </header>
+
+      <section id="missing-requirements">
+        <h3>Missing Requirements</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Area</th><th>Gap</th><th>Risk</th><th>Priority</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Compliance</td><td>No complete retention/deletion/DSAR workflow definition.</td><td>Legal exposure.</td><td>P0</td></tr>
+              <tr><td>SRE</td><td>No user-journey-level SLO/SLI budget.</td><td>Unmeasurable reliability.</td><td>P0</td></tr>
+              <tr><td>Simulation Validity</td><td>No formal benchmark policy and acceptance threshold.</td><td>Trust collapse.</td><td>P0</td></tr>
+              <tr><td>Outcome Quality</td><td>No measurable recommendation quality KPI contract.</td><td>No feedback-driven improvement.</td><td>P1</td></tr>
+              <tr><td>Internationalization</td><td>Relocation use case without i18n requirement matrix.</td><td>Inconsistent product behavior.</td><td>P2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="missing-apis">
+        <h3>Missing APIs</h3>
+        <ul>
+          <li>Twin version diff retrieval API for explainability timeline.</li>
+          <li>Simulation assumption snapshot API for reproducibility.</li>
+          <li>Evidence lineage API to map recommendation field to source artifacts.</li>
+          <li>Prompt registry API for version rollout/rollback and audit.</li>
+          <li>User data export and deletion APIs for compliance workflows.</li>
+          <li>Consistent error envelope taxonomy across all domains.</li>
+        </ul>
+      </section>
+
+      <section id="missing-db">
+        <h3>Missing Database Tables (or Logical Equivalents)</h3>
+        <div class="card-grid three">
+          <article class="card"><h4>Governance</h4><ul><li>consent_events</li><li>data_processing_log</li><li>deletion_requests</li></ul></article>
+          <article class="card"><h4>AI Ops</h4><ul><li>prompt_versions</li><li>model_routing_policy</li><li>eval_runs</li></ul></article>
+          <article class="card"><h4>Trust</h4><ul><li>evidence_lineage</li><li>confidence_calibration</li><li>simulation_assumptions</li></ul></article>
+        </div>
+      </section>
+
+      <section id="flows">
+        <h3>Missing User Flows, AI Flows, and UI States</h3>
+        <ul>
+          <li>No complete conflict-resolution flow when resume, LinkedIn, and GitHub disagree.</li>
+          <li>No dedicated failure-recovery flow for partial import completion.</li>
+          <li>Limited explicit loading/empty/error state definition for long-running simulations.</li>
+          <li>No emotional safety flow for negative recommendation scenarios.</li>
+          <li>No policy-defined behavior for low-evidence or low-confidence result suppression.</li>
+        </ul>
+      </section>
+
+      <section id="ai-prompt">
+        <h3>Missing AI and Prompt Details</h3>
+        <ul>
+          <li>Model-by-task routing matrix (latency/cost/quality constraints).</li>
+          <li>Prompt fallback chain hierarchy for malformed/unsafe outputs.</li>
+          <li>Prompt regression testing baseline tied to release gates.</li>
+          <li>Context truncation policy for very large candidate profiles.</li>
+          <li>Contradiction arbitration policy across memory and imports.</li>
+        </ul>
+      </section>
+
+      <section id="risk-review">
+        <h3>Security, Privacy, Performance, Scalability Risks</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Type</th><th>Risk</th><th>Current Coverage</th><th>Required Action</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Security</td><td>Prompt/data injection via imported documents.</td><td>Partial controls described.</td><td>Threat model + red-team harness.</td></tr>
+              <tr><td>Privacy</td><td>PII leakage in logs/reports.</td><td>Intent documented only.</td><td>Field-level policy + automated checks.</td></tr>
+              <tr><td>Performance</td><td>Simulation latency growth under complex scenarios.</td><td>No budgeted component breakdown.</td><td>Latency budget per stage and fallback tiers.</td></tr>
+              <tr><td>Scalability</td><td>Queue backlog and worker contention.</td><td>Generic async mention.</td><td>Capacity model + autoscaling policy.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="technical-debt">
+        <h3>Technical Debt Risk if Build Starts Now</h3>
+        <ul>
+          <li>Frontend-backend mismatch from missing API contracts.</li>
+          <li>AI drift without eval platform and prompt governance.</li>
+          <li>Data model churn due to unspecified versioning semantics.</li>
+          <li>Ops burden from undocumented observability standards.</li>
+        </ul>
+      </section>
+
+      <section id="gates">
+        <h3>Required Readiness Gates Before Implementation</h3>
+        <ol>
+          <li>OpenAPI + error taxonomy frozen at v1 baseline.</li>
+          <li>Core database schema, indexing, and retention policy approved.</li>
+          <li>Model routing + prompt governance document approved.</li>
+          <li>Security threat model and privacy controls approved.</li>
+          <li>SLO/SLI and incident policy approved by engineering management.</li>
+        </ol>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

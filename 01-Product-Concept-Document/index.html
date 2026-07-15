@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - Product Concept Document</title>
+  <meta name="description" content="CareerTwin AI Product Concept Document. Build your digital career twin and simulate your future.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">Single Source Of Truth</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">Build your digital career twin and simulate your future.</p>
+      </div>
+
+      <div class="tools">
+        <label for="sectionSearch">Search sections</label>
+        <input id="sectionSearch" type="search" placeholder="Find by keyword">
+        <div class="btn-row">
+          <button type="button" id="themeToggle">Theme</button>
+          <button type="button" id="printButton">Print/PDF</button>
+        </div>
+      </div>
+
+      <nav id="docNav">
+        <a href="#cover">01 Cover</a>
+        <a href="#critical-analysis">02 Critical Analysis</a>
+        <a href="#vision">03 Vision And Principles</a>
+        <a href="#psychology">04 User Psychology</a>
+        <a href="#onboarding">05 Onboarding</a>
+        <a href="#screens">06 Product Screens</a>
+        <a href="#ai-interactions">07 AI Interactions</a>
+        <a href="#wow-moments">08 Wow Moments</a>
+        <a href="#roadmap">09 Roadmap</a>
+        <a href="#pcd">10 Consolidated PCD</a>
+        <a href="#appendix">11 Appendix</a>
+      </nav>
+
+      <p class="footnote">Crafted for hackathon demo excellence and startup-scale execution. This file is fully self-contained.</p>
+    </aside>
+
+    <main class="content">
+      <header id="cover" class="hero">
+        <span class="pill">Product Concept Document</span>
+        <h2>CareerTwin AI</h2>
+        <p>This product is a new category: personal decision intelligence for careers. It does not answer questions like a chatbot; it builds a living digital twin and runs evidence-based simulations of possible futures.</p>
+        <div class="grid-3">
+          <div class="card">
+            <strong>Category Shift</strong>
+            Static advice products become dynamic futures simulation.
+          </div>
+          <div class="card">
+            <strong>Core Promise</strong>
+            Test choices before spending years living them.
+          </div>
+          <div class="card">
+            <strong>Desired Reaction</strong>
+            "I have never seen career planning feel like this."
+          </div>
+        </div>
+      </header>
+
+      <section id="critical-analysis">
+        <h3>02 Critical Analysis And Redesign</h3>
+        <p class="top-note">The first design principle is aggressive honesty. Anything generic gets removed or reinvented.</p>
+
+        <div class="grid-2">
+          <article class="card">
+            <span class="chip danger">Weaknesses To Fix</span>
+            <ul>
+              <li>The original idea had too many metrics and too little narrative priority.</li>
+              <li>Static scenario lists felt templated, not personal.</li>
+              <li>A single confidence score can mislead users into false certainty.</li>
+              <li>Resume and LinkedIn import alone are no longer memorable.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <span class="chip warn">What Judges Might Criticize</span>
+            <ul>
+              <li>"This is another AI coach UI with charts."</li>
+              <li>"Where is the trust model and uncertainty communication?"</li>
+              <li>"Why should this product win over existing assistants?"</li>
+              <li>"What is the signature interaction only this product can own?"</li>
+            </ul>
+          </article>
+        </div>
+
+        <h4>What We Remove</h4>
+        <ul>
+          <li>Remove the always-on single confidence number.</li>
+          <li>Remove static scenario templates and generic motivational text.</li>
+          <li>Remove dense first-time dashboards that force cognitive overload.</li>
+        </ul>
+
+        <h4>What We Reinvent</h4>
+        <div class="grid-2">
+          <div class="card"><strong>Future Rooms</strong>Each scenario becomes an immersive decision room with assumptions, evidence, risks, and action steps.</div>
+          <div class="card"><strong>Twin Mirror Session</strong>Three synchronized layers animate together: path timeline, economic impact, and identity alignment.</div>
+          <div class="card"><strong>Evidence Ledger</strong>Every claim links to provenance: user-stated, imported, inferred, or market-derived.</div>
+          <div class="card"><strong>Career Experiments</strong>Before major jumps, AI proposes low-risk experiments to validate fit.</div>
+        </div>
+
+        <div class="diagram">
+          <svg viewBox="0 0 980 250" width="100%" role="img" aria-label="Redesign architecture">
+            <rect x="24" y="96" width="180" height="64" rx="12" fill="#dbeafe" stroke="#93c5fd"></rect>
+            <text x="62" y="124" fill="#1e3a8a" font-size="15">Twin Capture</text>
+            <text x="43" y="143" fill="#1e3a8a" font-size="12">Interview + imports</text>
+
+            <rect x="246" y="96" width="180" height="64" rx="12" fill="#ede9fe" stroke="#c4b5fd"></rect>
+            <text x="289" y="124" fill="#4c1d95" font-size="15">Twin Build</text>
+            <text x="269" y="143" fill="#4c1d95" font-size="12">Identity model synthesis</text>
+
+            <rect x="468" y="96" width="190" height="64" rx="12" fill="#dcfce7" stroke="#86efac"></rect>
+            <text x="519" y="124" fill="#14532d" font-size="15">Future Rooms</text>
+            <text x="500" y="143" fill="#14532d" font-size="12">Scenario simulation</text>
+
+            <rect x="700" y="96" width="250" height="64" rx="12" fill="#fee2e2" stroke="#fca5a5"></rect>
+            <text x="754" y="124" fill="#7f1d1d" font-size="15">Action Protocol</text>
+            <text x="720" y="143" fill="#7f1d1d" font-size="12">Experiments + checkpoints + reports</text>
+
+            <line x1="204" y1="128" x2="246" y2="128" stroke="#64748b" stroke-width="2"></line>
+            <line x1="426" y1="128" x2="468" y2="128" stroke="#64748b" stroke-width="2"></line>
+            <line x1="658" y1="128" x2="700" y2="128" stroke="#64748b" stroke-width="2"></line>
+          </svg>
+        </div>
+      </section>
+
+      <section id="vision">
+        <h3>03 Product Vision, Philosophy, Principles</h3>
+        <h4>Vision</h4>
+        <p>Enable every professional to simulate meaningful career futures, choose intentionally, and reduce regret through transparent decision intelligence.</p>
+
+        <h4>Core Philosophy</h4>
+        <div class="grid-2">
+          <div class="card"><strong>From Advice To Simulation</strong>Advice is opinion; simulation is explicit assumptions and testable outcomes.</div>
+          <div class="card"><strong>From Profile To Twin</strong>A profile is static. A twin learns, recalibrates, and evolves with real behavior.</div>
+          <div class="card"><strong>From Confidence Theater To Truth</strong>Uncertainty is surfaced as a first-class UI object, never hidden.</div>
+          <div class="card"><strong>From Fear To Agency</strong>The product turns anxiety into experiments and informed action.</div>
+        </div>
+
+        <h4>Product Principles</h4>
+        <ul>
+          <li>Clarity over certainty theater.</li>
+          <li>Evidence over rhetoric.</li>
+          <li>Emotion is signal, not noise.</li>
+          <li>User agency is non-negotiable.</li>
+          <li>Delight without manipulation.</li>
+          <li>One high-quality decision is better than ten noisy metrics.</li>
+        </ul>
+
+        <h4>North Star Metrics</h4>
+        <div class="kpi">
+          <div class="card"><strong>70%+</strong>Users make a real career decision within 30 days.</div>
+          <div class="card"><strong>45%+</strong>Weekly retained usage among active planners.</div>
+          <div class="card"><strong>8/10</strong>Perceived decision-confidence uplift.</div>
+          <div class="card"><strong>60%+</strong>Users share one simulation with mentor/family.</div>
+        </div>
+      </section>
+
+      <section id="psychology">
+        <h3>04 User Psychology, Personas, Journey</h3>
+
+        <h4>User Psychology To Design For</h4>
+        <div class="grid-2">
+          <div class="card"><strong>Regret Aversion</strong>Users fear irreversible mistakes more than they seek upside.</div>
+          <div class="card"><strong>Identity Conflict</strong>Compensation choices can conflict with purpose and energy profile.</div>
+          <div class="card"><strong>Decision Paralysis</strong>Content overload and contradictory advice delay action.</div>
+          <div class="card"><strong>Social Pressure Bias</strong>Prestige and external expectations can override personal fit.</div>
+        </div>
+
+        <h4>Personas</h4>
+        <div class="grid-2">
+          <div class="card"><strong>Inflection Engineer</strong>2-6 years experience, uncertain between specialist IC, management, or startup track.</div>
+          <div class="card"><strong>Global Mover</strong>Wants relocation but fears visa uncertainty, compensation mismatch, and social reset.</div>
+          <div class="card"><strong>Skilled Drifter</strong>Technically capable but strategically reactive, says yes to short-term options.</div>
+          <div class="card"><strong>Aspiring Founder</strong>Wants to test founder path against runway, stress, and leadership readiness.</div>
+        </div>
+
+        <h4>User Journey</h4>
+        <ol>
+          <li>Discover product through interactive path split demo.</li>
+          <li>Complete Twin Genesis onboarding.</li>
+          <li>Run first decision simulation with 3 futures.</li>
+          <li>Select one short experiment and execution cadence.</li>
+          <li>Review weekly insights and recalibrate assumptions.</li>
+          <li>Make high-stakes decision with evidence and confidence bands.</li>
+          <li>Track outcomes and evolve the twin model monthly.</li>
+        </ol>
+      </section>
+
+      <section id="onboarding">
+        <h3>05 Complete Onboarding Experience (Twin Genesis)</h3>
+        <p>Onboarding is a cinematic ritual that feels like creating a living intelligence companion, not filling profile forms.</p>
+
+        <h4>End-To-End Flow</h4>
+        <div class="grid-3">
+          <div class="card"><strong>1 Welcome Experience</strong>Constellation intro, privacy promise, and expected time commitment.</div>
+          <div class="card"><strong>2 AI Interview</strong>Adaptive question cards with voice/text modes and confidence tagging.</div>
+          <div class="card"><strong>3 Resume Import</strong>Live extraction preview with field-level validation.</div>
+          <div class="card"><strong>4 LinkedIn Import</strong>OAuth ingest plus mismatch reconciliation.</div>
+          <div class="card"><strong>5 GitHub Import</strong>Engineering behavior and collaboration signal extraction.</div>
+          <div class="card"><strong>6 Portfolio Import</strong>Project impact parsing and proof-type classification.</div>
+          <div class="card"><strong>7 Skills Discovery</strong>Skill galaxy drag interface: comfort, stretch, frontier.</div>
+          <div class="card"><strong>8 Goal Discovery</strong>Impact vs stability mode selector for next 24 months.</div>
+          <div class="card"><strong>9 Timeline Reconstruction</strong>Critical career moments and trajectory inflection capture.</div>
+          <div class="card"><strong>10 Personality Layer</strong>Energy rhythm, uncertainty tolerance, collaboration style, leadership appetite.</div>
+          <div class="card"><strong>11 Build The Twin</strong>Animated synthesis of capability, motivation, and market-fit models.</div>
+          <div class="card"><strong>12 Twin Creation Reveal</strong>Twin speaks first line and opens calm dashboard mode.</div>
+        </div>
+
+        <h4>Transition And Animation Notes</h4>
+        <ul>
+          <li>Soft zoom transitions between stages with progress orbit.</li>
+          <li>Each new data source becomes a glowing strand in the twin graph.</li>
+          <li>Reveal moment merges strands into a pulse-based avatar form.</li>
+          <li>No confetti during onboarding; delight is confidence and elegance.</li>
+        </ul>
+
+        <div class="diagram">
+          <svg viewBox="0 0 980 190" width="100%" role="img" aria-label="Onboarding timeline">
+            <line x1="34" y1="98" x2="948" y2="98" stroke="#94a3b8" stroke-width="3"></line>
+            <circle cx="84" cy="98" r="12" fill="#a5b4fc"></circle><text x="57" y="130" font-size="11" fill="#475569">Welcome</text>
+            <circle cx="186" cy="98" r="12" fill="#93c5fd"></circle><text x="157" y="130" font-size="11" fill="#475569">Interview</text>
+            <circle cx="288" cy="98" r="12" fill="#86efac"></circle><text x="269" y="130" font-size="11" fill="#475569">Imports</text>
+            <circle cx="390" cy="98" r="12" fill="#fde68a"></circle><text x="368" y="130" font-size="11" fill="#475569">Skills</text>
+            <circle cx="492" cy="98" r="12" fill="#fca5a5"></circle><text x="473" y="130" font-size="11" fill="#475569">Goals</text>
+            <circle cx="594" cy="98" r="12" fill="#c4b5fd"></circle><text x="568" y="130" font-size="11" fill="#475569">Timeline</text>
+            <circle cx="696" cy="98" r="12" fill="#67e8f9"></circle><text x="672" y="130" font-size="11" fill="#475569">Build</text>
+            <circle cx="798" cy="98" r="12" fill="#34d399"></circle><text x="770" y="130" font-size="11" fill="#475569">Reveal</text>
+            <circle cx="900" cy="98" r="12" fill="#60a5fa"></circle><text x="870" y="130" font-size="11" fill="#475569">Dashboard</text>
+          </svg>
+        </div>
+      </section>
+
+      <section id="screens">
+        <h3>06 Product Screens (Complete)</h3>
+        <p>Every screen is purpose-built to reduce anxiety and increase strategic decision quality.</p>
+
+        <h4>Landing Page</h4>
+        <ul>
+          <li>Hero: "Do not ask for advice. Simulate your next two years."</li>
+          <li>Interactive mini-simulation where one user choice branches into three futures.</li>
+          <li>Trust strip: privacy, explainability, and user-control commitments.</li>
+        </ul>
+
+        <h4>Dashboard</h4>
+        <ul>
+          <li>Current strategy mode (Growth, Stability, Exploration).</li>
+          <li>Top 3 AI-ranked next actions for 14 days.</li>
+          <li>Decision queue with evidence completeness bars.</li>
+          <li>Twin freshness and calibration status.</li>
+        </ul>
+
+        <h4>Career Twin Screen</h4>
+        <ul>
+          <li>Interactive twin model with layers: skills, values, momentum, risk appetite.</li>
+          <li>Identity narrative: who the user is becoming over time.</li>
+          <li>Evidence ledger with source and timestamp per claim.</li>
+        </ul>
+
+        <h4>Twin Evolution Screen</h4>
+        <ul>
+          <li>Version history of major twin updates.</li>
+          <li>Diff view: what changed and why confidence shifted.</li>
+          <li>Replay mode of past assumptions versus current reality.</li>
+        </ul>
+
+        <h4>Career Timeline Screen</h4>
+        <ul>
+          <li>Past milestones with inferred impact weights.</li>
+          <li>Future branches for 6/12/24 months.</li>
+          <li>Constraint toggles: location, salary floor, time flexibility, learning intensity.</li>
+        </ul>
+
+        <h4>Simulations Screen</h4>
+        <ul>
+          <li>Custom path builder (up to five paths).</li>
+          <li>Outputs: salary range, skill compounding, promotion probability, burnout risk, market demand, leadership growth, work-life balance.</li>
+          <li>Risk and uncertainty cards, then action conversion into experiments.</li>
+        </ul>
+
+        <h4>Comparison Screen</h4>
+        <ul>
+          <li>Side-by-side path cards with tradeoff overlays.</li>
+          <li>Regret lens across multiple time horizons.</li>
+          <li>Weight sliders for user preference shifts.</li>
+        </ul>
+
+        <h4>History, Insights, Reports, Settings</h4>
+        <ul>
+          <li>History: archive and backtesting of prior simulations.</li>
+          <li>Insights: weekly brief with blind spots and timing windows.</li>
+          <li>Reports: mentor/family/share pack with privacy controls.</li>
+          <li>Settings: source permissions, model style, deletion and consent controls.</li>
+        </ul>
+      </section>
+
+      <section id="ai-interactions">
+        <h3>07 AI Interaction Design</h3>
+        <h4>How AI Speaks</h4>
+        <ul>
+          <li>Tone is calm, precise, direct, never performative.</li>
+          <li>AI challenges weak assumptions respectfully.</li>
+          <li>AI uses concise framing then deeper layers on demand.</li>
+        </ul>
+
+        <h4>Interview Behavior</h4>
+        <ul>
+          <li>One high-leverage question at a time.</li>
+          <li>Detect uncertainty and ask confirmation follow-ups.</li>
+          <li>Clearly mark inferred vs confirmed facts.</li>
+        </ul>
+
+        <h4>Reasoning And Trust</h4>
+        <ul>
+          <li>Every recommendation must include assumptions, evidence, tradeoffs, confidence band.</li>
+          <li>Hallucination prevention: no unsupported numeric claims, mandatory provenance checks.</li>
+          <li>Contradiction detector flags mismatched user goals or data statements.</li>
+          <li>Calibration history is visible: the AI reports when prior projections were off.</li>
+        </ul>
+
+        <h4>Uncertainty Communication</h4>
+        <ul>
+          <li>Clear Skies: strong evidence, low volatility.</li>
+          <li>Cloudy: medium confidence, missing context.</li>
+          <li>Storm Watch: weak evidence or unstable market assumptions.</li>
+        </ul>
+
+        <pre>Recommendation: Transition toward AI platform engineering via a staged path.
+Assumptions: 6 hours/week upskilling capacity, no relocation for 12 months.
+Evidence: Role demand is rising in target region, backend strengths transfer strongly.
+Tradeoffs: Short-term salary volatility (-8% to -14%), long-term optionality increase (+30%).
+Confidence Range: Medium (0.58-0.73) due to incomplete leadership preference data.</pre>
+      </section>
+
+      <section id="wow-moments">
+        <h3>08 WOW Moments (60)</h3>
+        <p>These moments are designed for emotional recall, judge memorability, and product differentiation.</p>
+        <div class="wow-grid">
+          <div class="wow-item"><p class="id">01</p>Constellation intro morphs into user's name and goal theme.</div>
+          <div class="wow-item"><p class="id">02</p>AI interview tone adapts to detected stress.</div>
+          <div class="wow-item"><p class="id">03</p>Resume parsing highlights confidence field-by-field live.</div>
+          <div class="wow-item"><p class="id">04</p>LinkedIn mismatch card asks "Which version is true today?"</div>
+          <div class="wow-item"><p class="id">05</p>GitHub behavioral fingerprint reveals engineering signature.</div>
+          <div class="wow-item"><p class="id">06</p>Portfolio projects auto-classified by proof type.</div>
+          <div class="wow-item"><p class="id">07</p>Skills galaxy drag to comfort/stretch/frontier zones.</div>
+          <div class="wow-item"><p class="id">08</p>Life-goal-first planning before role suggestions.</div>
+          <div class="wow-item"><p class="id">09</p>Timeline captures emotional turning points, not only jobs.</div>
+          <div class="wow-item"><p class="id">10</p>Twin reveal animation with synchronized pulse sound cue.</div>
+          <div class="wow-item"><p class="id">11</p>First twin line: "I model possibilities, not destiny."</div>
+          <div class="wow-item"><p class="id">12</p>Future Rooms with distinct visual atmospheres per path.</div>
+          <div class="wow-item"><p class="id">13</p>Path split animation for instant branch divergence.</div>
+          <div class="wow-item"><p class="id">14</p>Decision weather visual for uncertainty literacy.</div>
+          <div class="wow-item"><p class="id">15</p>Evidence ledger click-through for every major claim.</div>
+          <div class="wow-item"><p class="id">16</p>Regret lens at 6/12/24 month windows.</div>
+          <div class="wow-item"><p class="id">17</p>Optionality meter showing opportunities gained/lost.</div>
+          <div class="wow-item"><p class="id">18</p>Salary bands with clear caveats instead of fake precision.</div>
+          <div class="wow-item"><p class="id">19</p>Burnout curve overlay across scenarios.</div>
+          <div class="wow-item"><p class="id">20</p>Identity alignment indicator per path.</div>
+          <div class="wow-item"><p class="id">21</p>AI bias challenge prompts status-vs-fit reflection.</div>
+          <div class="wow-item"><p class="id">22</p>One assumption change recomputes all paths instantly.</div>
+          <div class="wow-item"><p class="id">23</p>Decision checkpoint summarizes "must be true" conditions.</div>
+          <div class="wow-item"><p class="id">24</p>Convert insight to 30-day experiment in one click.</div>
+          <div class="wow-item"><p class="id">25</p>Mentor brief auto-export with explainability summary.</div>
+          <div class="wow-item"><p class="id">26</p>Family-safe explanation mode for non-technical audiences.</div>
+          <div class="wow-item"><p class="id">27</p>Monthly voice reflection from twin.</div>
+          <div class="wow-item"><p class="id">28</p>Twin evolution replay as narrative timeline.</div>
+          <div class="wow-item"><p class="id">29</p>Confidence dip prompts targeted data completion cards.</div>
+          <div class="wow-item"><p class="id">30</p>Market window alerts for timing-sensitive decisions.</div>
+          <div class="wow-item"><p class="id">31</p>Negotiation simulator with realistic hiring manager responses.</div>
+          <div class="wow-item"><p class="id">32</p>Leadership readiness from behavior signals, not title only.</div>
+          <div class="wow-item"><p class="id">33</p>Relocation scenario includes visa/tax friction modeling.</div>
+          <div class="wow-item"><p class="id">34</p>Freelance path includes cashflow volatility stress test.</div>
+          <div class="wow-item"><p class="id">35</p>Founder path includes runway burn and team risk layers.</div>
+          <div class="wow-item"><p class="id">36</p>What-changed narrative after every weekly refresh.</div>
+          <div class="wow-item"><p class="id">37</p>Target-company fit map with gap explanation.</div>
+          <div class="wow-item"><p class="id">38</p>Confetti reserved only for completed experiments.</div>
+          <div class="wow-item"><p class="id">39</p>Motivation recovery mode activates during burnout signals.</div>
+          <div class="wow-item"><p class="id">40</p>Outreach message drafts tied to selected path.</div>
+          <div class="wow-item"><p class="id">41</p>Goal contradiction resolver for conflicting ambitions.</div>
+          <div class="wow-item"><p class="id">42</p>Quiet dashboard mode for high-stress periods.</div>
+          <div class="wow-item"><p class="id">43</p>Twin oath screen emphasizing user control and data ownership.</div>
+          <div class="wow-item"><p class="id">44</p>Explain-like-a-CFO and explain-like-a-coach switch.</div>
+          <div class="wow-item"><p class="id">45</p>Scrubbable timeline with cinematic path transitions.</div>
+          <div class="wow-item"><p class="id">46</p>Counterfactual replay: "What if last year's choice changed?"</div>
+          <div class="wow-item"><p class="id">47</p>Decision receipts preserving exact assumptions at decision time.</div>
+          <div class="wow-item"><p class="id">48</p>Shadow twin comparison against hidden aspiration path.</div>
+          <div class="wow-item"><p class="id">49</p>Interview rehearsal generated from chosen scenario.</div>
+          <div class="wow-item"><p class="id">50</p>Three-simulation milestone unlocks personal career thesis.</div>
+          <div class="wow-item"><p class="id">51</p>Timeline heartbeat animation reflects confidence momentum.</div>
+          <div class="wow-item"><p class="id">52</p>Live demo mode compresses entire journey into 90 seconds.</div>
+          <div class="wow-item"><p class="id">53</p>Judges can edit assumptions live during pitch.</div>
+          <div class="wow-item"><p class="id">54</p>Baseline "if you do nothing" path always visible.</div>
+          <div class="wow-item"><p class="id">55</p>Celebrate clarity milestones, not vanity metrics.</div>
+          <div class="wow-item"><p class="id">56</p>Mobile nudges ask one actionable question at a time.</div>
+          <div class="wow-item"><p class="id">57</p>Future-self letter generated monthly.</div>
+          <div class="wow-item"><p class="id">58</p>Execution mode after decision focuses only on next moves.</div>
+          <div class="wow-item"><p class="id">59</p>Twin confidence legend teaches probabilistic thinking elegantly.</div>
+          <div class="wow-item"><p class="id">60</p>Closing ritual: "Decision made. Now we optimize execution."</div>
+        </div>
+      </section>
+
+      <section id="roadmap">
+        <h3>09 Future Versions: V1, V2, V3, Startup Vision</h3>
+
+        <div class="grid-3">
+          <div class="card">
+            <strong>V1 Hackathon</strong>
+            <ul>
+              <li>Twin Genesis onboarding with resume and LinkedIn import.</li>
+              <li>Three-scenario simulation with comparison and evidence ledger.</li>
+              <li>Signature Twin Mirror demo flow for judges.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <strong>V2 Beta</strong>
+            <ul>
+              <li>GitHub and portfolio intelligence.</li>
+              <li>Twin evolution history and calibration loop.</li>
+              <li>Mentor share packs and negotiation simulator.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <strong>V3 Startup Scale</strong>
+            <ul>
+              <li>Institution and cohort editions.</li>
+              <li>Talent ecosystem integrations and APIs.</li>
+              <li>Longitudinal twin graph as defensibility moat.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h4>Startup Vision</h4>
+        <p>CareerTwin AI becomes the decision layer for career mobility globally: a trusted companion that helps users allocate their most limited resource, time, with strategic precision and emotional clarity.</p>
+
+        <div class="diagram">
+          <svg viewBox="0 0 980 220" width="100%" role="img" aria-label="Roadmap timeline">
+            <line x1="60" y1="142" x2="920" y2="142" stroke="#94a3b8" stroke-width="3"></line>
+            <rect x="80" y="84" width="200" height="50" rx="12" fill="#dbeafe" stroke="#93c5fd"></rect>
+            <text x="138" y="114" font-size="14" fill="#1e3a8a">V1 Hackathon</text>
+            <rect x="390" y="84" width="200" height="50" rx="12" fill="#ede9fe" stroke="#c4b5fd"></rect>
+            <text x="464" y="114" font-size="14" fill="#4c1d95">V2 Beta</text>
+            <rect x="700" y="84" width="200" height="50" rx="12" fill="#dcfce7" stroke="#86efac"></rect>
+            <text x="775" y="114" font-size="14" fill="#14532d">V3 Scale</text>
+            <circle cx="180" cy="142" r="9" fill="#3b82f6"></circle>
+            <circle cx="490" cy="142" r="9" fill="#8b5cf6"></circle>
+            <circle cx="800" cy="142" r="9" fill="#22c55e"></circle>
+          </svg>
+        </div>
+      </section>
+
+      <section id="pcd">
+        <h3>10 Consolidated Product Concept Document (Single Source Of Truth)</h3>
+        <h4>Product Definition</h4>
+        <p>CareerTwin AI is a decision intelligence platform that builds a digital twin from professional signals and simulates career futures across economic, skill, leadership, and wellbeing dimensions.</p>
+
+        <h4>Core Objects</h4>
+        <ul>
+          <li>CareerTwin: evolving identity graph with source-labeled evidence.</li>
+          <li>FutureRoom: scenario object containing assumptions, outputs, risks, and action plan.</li>
+          <li>Experiment: low-risk test action designed to validate path fit.</li>
+          <li>DecisionReceipt: immutable decision snapshot with assumptions and confidence state.</li>
+        </ul>
+
+        <h4>Functional Requirements</h4>
+        <ul>
+          <li>Ingest resume, LinkedIn, GitHub, portfolio, and guided interview inputs.</li>
+          <li>Create and continuously evolve the career twin model.</li>
+          <li>Run multi-path simulations and side-by-side comparisons.</li>
+          <li>Expose evidence ledger and uncertainty communication for all outputs.</li>
+          <li>Generate action plans and execution reminders from chosen paths.</li>
+          <li>Export reports for mentors, managers, and family decision discussions.</li>
+        </ul>
+
+        <h4>Non-Functional Requirements</h4>
+        <ul>
+          <li>Fast recompute for assumption changes (target under 2.5 seconds).</li>
+          <li>Transparent reasoning structure for every recommendation.</li>
+          <li>Explicit uncertainty display and no deterministic future claims.</li>
+          <li>User-controlled data permissions and deletion support.</li>
+        </ul>
+
+        <h4>Business Model</h4>
+        <ul>
+          <li>Free tier: core onboarding, limited simulations, weekly insights.</li>
+          <li>Pro tier: advanced scenario depth, mentor packs, negotiation AI, market radar.</li>
+          <li>B2B/B2Edu tier: cohort planning, advisor dashboards, API access.</li>
+        </ul>
+
+        <h4>Go-To-Market</h4>
+        <ul>
+          <li>Stage 1: hackathon launch and creator-led distribution.</li>
+          <li>Stage 2: communities of engineers, designers, consultants, and PMs.</li>
+          <li>Stage 3: university and bootcamp partnerships, talent platform integrations.</li>
+        </ul>
+
+        <h4>Primary Risks and Mitigation</h4>
+        <div class="grid-2">
+          <div class="card"><strong>Trust Risk</strong>Mitigate with evidence ledger, calibration logs, and editable assumptions.</div>
+          <div class="card"><strong>Cold Start Risk</strong>Mitigate with fast onboarding value and baseline simulation.</div>
+          <div class="card"><strong>Commoditization Risk</strong>Mitigate via signature UX and longitudinal twin graph moat.</div>
+          <div class="card"><strong>Overcomplexity Risk</strong>Mitigate with calm mode and progressive disclosure.</div>
+        </div>
+      </section>
+
+      <section id="appendix">
+        <h3>11 Appendix: Architecture, Data, APIs</h3>
+        <h4>System Components</h4>
+        <ul>
+          <li>Frontend app for onboarding, simulation, comparison, and reporting.</li>
+          <li>Twin ingestion service for source normalization and reconciliation.</li>
+          <li>Twin graph datastore for versioned user identity models.</li>
+          <li>Simulation engine for multi-path projection and uncertainty calculations.</li>
+          <li>Reasoning and safety layer for explainability and output guardrails.</li>
+          <li>Analytics and calibration monitor for model quality over time.</li>
+        </ul>
+
+        <div class="diagram">
+          <svg viewBox="0 0 980 360" width="100%" role="img" aria-label="Architecture diagram">
+            <rect x="30" y="142" width="160" height="68" rx="12" fill="#dbeafe" stroke="#93c5fd"></rect>
+            <text x="76" y="178" font-size="14" fill="#1e3a8a">Frontend</text>
+
+            <rect x="240" y="42" width="200" height="68" rx="12" fill="#ede9fe" stroke="#c4b5fd"></rect>
+            <text x="286" y="78" font-size="14" fill="#4c1d95">Ingestion APIs</text>
+
+            <rect x="240" y="142" width="200" height="68" rx="12" fill="#dcfce7" stroke="#86efac"></rect>
+            <text x="274" y="178" font-size="14" fill="#14532d">Twin Graph Store</text>
+
+            <rect x="240" y="242" width="200" height="68" rx="12" fill="#fee2e2" stroke="#fca5a5"></rect>
+            <text x="266" y="278" font-size="14" fill="#7f1d1d">Market Data Layer</text>
+
+            <rect x="500" y="92" width="220" height="90" rx="12" fill="#e0f2fe" stroke="#7dd3fc"></rect>
+            <text x="548" y="132" font-size="15" fill="#0c4a6e">Simulation Engine</text>
+            <text x="538" y="154" font-size="12" fill="#0c4a6e">Path + uncertainty model</text>
+
+            <rect x="770" y="92" width="180" height="90" rx="12" fill="#fef3c7" stroke="#fcd34d"></rect>
+            <text x="808" y="132" font-size="15" fill="#713f12">Reasoning</text>
+            <text x="795" y="154" font-size="12" fill="#713f12">Trust + safety checks</text>
+
+            <line x1="190" y1="176" x2="240" y2="176" stroke="#64748b" stroke-width="2"></line>
+            <line x1="440" y1="76" x2="500" y2="120" stroke="#64748b" stroke-width="2"></line>
+            <line x1="440" y1="176" x2="500" y2="136" stroke="#64748b" stroke-width="2"></line>
+            <line x1="440" y1="276" x2="500" y2="152" stroke="#64748b" stroke-width="2"></line>
+            <line x1="720" y1="136" x2="770" y2="136" stroke="#64748b" stroke-width="2"></line>
+          </svg>
+        </div>
+
+        <h4>Core API Surface</h4>
+        <ul>
+          <li><code>POST /v1/twin/build</code> create or refresh twin from sources.</li>
+          <li><code>POST /v1/simulations/run</code> execute scenario set with constraints.</li>
+          <li><code>POST /v1/simulations/compare</code> rank tradeoffs across paths.</li>
+          <li><code>POST /v1/experiments/generate</code> convert path to action protocol.</li>
+          <li><code>GET /v1/twin/evolution</code> retrieve version history and diffs.</li>
+          <li><code>POST /v1/reports/share</code> generate privacy-controlled share pack.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

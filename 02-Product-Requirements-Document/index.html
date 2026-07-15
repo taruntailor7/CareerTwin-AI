@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - Product Requirements Document</title>
+  <meta name="description" content="CareerTwin AI Product Requirements Document (PRD) with complete feature requirements, business rules, acceptance criteria, and priorities.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">Internal Product Spec</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">Product Requirements Document</p>
+      </div>
+
+      <div class="controls">
+        <label for="searchInput">Find requirement area</label>
+        <input id="searchInput" type="search" placeholder="Search sections...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+
+      <nav id="sideNav">
+        <a href="#overview">Overview</a>
+        <a href="#functional">Functional Requirements</a>
+        <a href="#non-functional">Non-functional Requirements</a>
+        <a href="#user-stories">User Stories</a>
+        <a href="#business-rules">Business Rules</a>
+        <a href="#acceptance-criteria">Acceptance Criteria</a>
+        <a href="#edge-cases">Edge Cases</a>
+        <a href="#ai-behavior">AI Behavior</a>
+        <a href="#twin-lifecycle">Career Twin Lifecycle</a>
+        <a href="#profile-creation">Profile Creation</a>
+        <a href="#resume-import">Resume Import</a>
+        <a href="#linkedin-import">LinkedIn Import</a>
+        <a href="#github-import">GitHub Import</a>
+        <a href="#portfolio-import">Portfolio Import</a>
+        <a href="#ai-interview">AI Interview</a>
+        <a href="#simulations">Career Simulations</a>
+        <a href="#twin-evolution">Twin Evolution</a>
+        <a href="#career-insights">Career Insights</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#reports">Reports</a>
+        <a href="#priorities">Feature Priorities</a>
+        <a href="#mvp-vs-future">MVP vs Future Versions</a>
+      </nav>
+      <p class="sidebar-footnote">
+        This PRD is derived from Product Strategy and PCD and defines what must be built and how quality is measured.
+      </p>
+    </aside>
+
+    <main class="content">
+      <header id="overview" class="hero">
+        <span class="hero-badge">Product Requirements Document</span>
+        <h2>CareerTwin AI PRD</h2>
+        <p>
+          This document defines complete product requirements for CareerTwin AI, including feature behavior, constraints, business rules, and measurable acceptance standards.
+        </p>
+      </header>
+
+      <section id="functional">
+        <h3>Functional Requirements</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>FR-01 Twin Onboarding Orchestration</h4>
+            <ul>
+              <li>System shall provide guided onboarding with source imports and AI interview.</li>
+              <li>System shall maintain progress state and allow resume later.</li>
+              <li>System shall generate initial twin profile when minimum required signals are validated.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>FR-02 Signal Ingestion</h4>
+            <ul>
+              <li>System shall ingest resume, LinkedIn, GitHub, and portfolio data independently.</li>
+              <li>System shall allow users to skip non-essential sources and continue.</li>
+              <li>System shall label each data point by source provenance.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>FR-03 Twin Model Synthesis</h4>
+            <ul>
+              <li>System shall map inputs into skill, motivation, preference, and risk dimensions.</li>
+              <li>System shall expose confidence level per dimension.</li>
+              <li>System shall store twin versions as immutable snapshots.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>FR-04 Simulation Engine</h4>
+            <ul>
+              <li>System shall run multiple scenario simulations from user-defined assumptions.</li>
+              <li>System shall compute tradeoffs (growth, earnings, burnout, optionality).</li>
+              <li>System shall return comparative outputs and recommended experiments.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>FR-05 Insights and Reporting</h4>
+            <ul>
+              <li>System shall deliver weekly insights and trigger-based alerts.</li>
+              <li>System shall generate shareable reports with privacy controls.</li>
+              <li>System shall track decision history and outcome review entries.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>FR-06 Configuration and Control</h4>
+            <ul>
+              <li>System shall provide user controls for data sources and deletions.</li>
+              <li>System shall allow AI response style preferences.</li>
+              <li>System shall support explicit consent for each integration.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="non-functional">
+        <h3>Non-functional Requirements</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Requirement</th>
+                <th>Target</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>NFR-01</td>
+                <td>Simulation response time</td>
+                <td>Initial run under 6s, incremental rerun under 2.5s</td>
+              </tr>
+              <tr>
+                <td>NFR-02</td>
+                <td>Availability</td>
+                <td>99.5% minimum for authenticated user flows</td>
+              </tr>
+              <tr>
+                <td>NFR-03</td>
+                <td>Security and privacy</td>
+                <td>Explicit consent, encryption in transit and at rest, user deletion path</td>
+              </tr>
+              <tr>
+                <td>NFR-04</td>
+                <td>Explainability completeness</td>
+                <td>100% of AI recommendations include assumptions and evidence blocks</td>
+              </tr>
+              <tr>
+                <td>NFR-05</td>
+                <td>Accessibility</td>
+                <td>WCAG 2.1 AA baseline for all core screens</td>
+              </tr>
+              <tr>
+                <td>NFR-06</td>
+                <td>Auditability</td>
+                <td>All recommendation outputs retain version and source metadata</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="user-stories">
+        <h3>User Stories</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>US-01</h4>
+            <p>As a career switcher, I want to compare three future paths so that I can choose one with clear tradeoffs.</p>
+          </article>
+          <article class="card">
+            <h4>US-02</h4>
+            <p>As a time-constrained user, I want to import my resume and LinkedIn quickly so that I can avoid manual profile entry.</p>
+          </article>
+          <article class="card">
+            <h4>US-03</h4>
+            <p>As a skeptical user, I want to inspect evidence behind AI outputs so that I can trust recommendations.</p>
+          </article>
+          <article class="card">
+            <h4>US-04</h4>
+            <p>As an ambitious professional, I want weekly signals about timing and risk so that I can act before opportunities close.</p>
+          </article>
+          <article class="card">
+            <h4>US-05</h4>
+            <p>As a user with changing goals, I want my twin to evolve over time so that recommendations stay relevant.</p>
+          </article>
+          <article class="card">
+            <h4>US-06</h4>
+            <p>As a user discussing decisions with mentors, I want shareable reports so that I can get aligned feedback fast.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="business-rules">
+        <h3>Business Rules</h3>
+        <ul>
+          <li>BR-01: AI must never output deterministic future claims.</li>
+          <li>BR-02: Recommendations require explicit assumptions and confidence bands.</li>
+          <li>BR-03: Imported data cannot overwrite user-confirmed data without user approval.</li>
+          <li>BR-04: Simulation runs require minimum profile completeness threshold.</li>
+          <li>BR-05: Users may disable any external source without losing account access.</li>
+          <li>BR-06: Share reports default to private and explicit opt-in for public link generation.</li>
+        </ul>
+      </section>
+
+      <section id="acceptance-criteria">
+        <h3>Acceptance Criteria</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>AC-01 Profile Completion</h4>
+            <ul>
+              <li>Given onboarding in progress, when mandatory fields are complete, then twin creation is enabled.</li>
+              <li>Given import failure, when retry succeeds, then progress continues without restart.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>AC-02 Simulation Output</h4>
+            <ul>
+              <li>Given at least two scenarios, when simulation executes, then comparison output appears for all required dimensions.</li>
+              <li>Given missing assumptions, then system blocks final recommendation and requests additional inputs.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>AC-03 Explainability</h4>
+            <ul>
+              <li>Given any recommendation card, then assumptions, evidence, tradeoffs, and confidence are visible.</li>
+              <li>Given source references, then each item indicates data origin type.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>AC-04 Reporting</h4>
+            <ul>
+              <li>Given a selected simulation, when report export is triggered, then PDF-ready report is generated with privacy settings.</li>
+              <li>Given link sharing enabled, then link expiry setting is required.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="edge-cases">
+        <h3>Edge Cases</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>EC-01 Contradictory Inputs</h4>
+            <p>User says "high stability" but selects founder scenario as primary. System must prompt tradeoff confirmation.</p>
+          </article>
+          <article class="card">
+            <h4>EC-02 Sparse Profile</h4>
+            <p>User skips all imports and provides minimal interview data. System should run baseline simulation with low confidence warnings.</p>
+          </article>
+          <article class="card">
+            <h4>EC-03 Stale External Data</h4>
+            <p>LinkedIn/GitHub data is outdated. System should display freshness indicators and ask for re-sync.</p>
+          </article>
+          <article class="card">
+            <h4>EC-04 High-risk Decision Bias</h4>
+            <p>User repeatedly selects prestige paths despite mismatch. System should trigger reflective challenge prompts.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="ai-behavior">
+        <h3>AI Behavior Requirements</h3>
+        <ul>
+          <li>AI-B01: Tone must be calm, precise, and non-judgmental.</li>
+          <li>AI-B02: AI must expose uncertainty and clarify weak data zones.</li>
+          <li>AI-B03: AI shall ask follow-up questions before high-impact recommendations if confidence is below threshold.</li>
+          <li>AI-B04: AI shall identify contradiction patterns across user goals and behavior.</li>
+          <li>AI-B05: AI shall output actionable experiments, not only abstract guidance.</li>
+        </ul>
+      </section>
+
+      <section id="twin-lifecycle">
+        <h3>Career Twin Lifecycle</h3>
+        <div class="timeline">
+          <article>
+            <h4>Stage 1 - Genesis</h4>
+            <p>Initial twin created via imports + interview with baseline confidence map.</p>
+          </article>
+          <article>
+            <h4>Stage 2 - Calibration</h4>
+            <p>Twin quality improves through corrections, simulations, and behavior signals.</p>
+          </article>
+          <article>
+            <h4>Stage 3 - Decision Support</h4>
+            <p>Twin powers major transition simulations and action planning.</p>
+          </article>
+          <article>
+            <h4>Stage 4 - Evolution</h4>
+            <p>Twin versions track trajectory shifts and outcome feedback loops.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="profile-creation">
+        <h3>Profile Creation Requirements</h3>
+        <ul>
+          <li>PC-01: Collect identity basics, goals, constraints, and preference inputs.</li>
+          <li>PC-02: Validate required fields with inline error recovery.</li>
+          <li>PC-03: Persist partial state autosave during onboarding.</li>
+          <li>PC-04: Show completion percentage and remaining steps.</li>
+        </ul>
+      </section>
+
+      <section id="resume-import">
+        <h3>Resume Import Requirements</h3>
+        <ul>
+          <li>RI-01: Support PDF/DOCX upload and parse to structured fields.</li>
+          <li>RI-02: Surface parse confidence per section.</li>
+          <li>RI-03: Allow user edit and confirmation before final save.</li>
+          <li>RI-04: Preserve original file for re-parse audit trail.</li>
+        </ul>
+      </section>
+
+      <section id="linkedin-import">
+        <h3>LinkedIn Import Requirements</h3>
+        <ul>
+          <li>LI-01: OAuth-based connection and explicit permission display.</li>
+          <li>LI-02: Import profile summary, roles, skills, and endorsements metadata.</li>
+          <li>LI-03: Highlight conflicts with existing data and request user choice.</li>
+          <li>LI-04: Show last sync timestamp and manual refresh action.</li>
+        </ul>
+      </section>
+
+      <section id="github-import">
+        <h3>GitHub Import Requirements</h3>
+        <ul>
+          <li>GI-01: Connect GitHub account and ingest repository metadata.</li>
+          <li>GI-02: Derive language mix, contribution cadence, and collaboration signals.</li>
+          <li>GI-03: Support private repo exclusion by user control.</li>
+          <li>GI-04: Provide summary view before committing to twin profile.</li>
+        </ul>
+      </section>
+
+      <section id="portfolio-import">
+        <h3>Portfolio Import Requirements</h3>
+        <ul>
+          <li>PI-01: Accept portfolio URL and crawl project pages.</li>
+          <li>PI-02: Extract project outcomes, stack, and role indicators.</li>
+          <li>PI-03: Classify project evidence type: depth, leadership, creativity, impact.</li>
+          <li>PI-04: Let user discard low-quality extracted entries.</li>
+        </ul>
+      </section>
+
+      <section id="ai-interview">
+        <h3>AI Interview Requirements</h3>
+        <ul>
+          <li>AII-01: Ask adaptive questions based on confidence gaps and contradictions.</li>
+          <li>AII-02: Support short-form and long-form response modes.</li>
+          <li>AII-03: Label responses as confirmed, inferred, or uncertain.</li>
+          <li>AII-04: End with summary confirmation before twin synthesis.</li>
+        </ul>
+      </section>
+
+      <section id="simulations">
+        <h3>Career Simulations Requirements</h3>
+        <ul>
+          <li>CS-01: Build and compare at least 2 and up to 5 scenarios per run.</li>
+          <li>CS-02: Evaluate salary growth, skill growth, promotion probability, burnout risk, market demand, work-life balance, leadership growth.</li>
+          <li>CS-03: Display uncertainty bands and assumption impact.</li>
+          <li>CS-04: Generate path-specific next-step experiments.</li>
+        </ul>
+      </section>
+
+      <section id="twin-evolution">
+        <h3>Twin Evolution Requirements</h3>
+        <ul>
+          <li>TE-01: Maintain version history for all major profile or outcome shifts.</li>
+          <li>TE-02: Provide diff view between versions.</li>
+          <li>TE-03: Link simulation outcomes back to version state at execution time.</li>
+          <li>TE-04: Trigger recalibration prompts when profile drift is detected.</li>
+        </ul>
+      </section>
+
+      <section id="career-insights">
+        <h3>Career Insights Requirements</h3>
+        <ul>
+          <li>CI-01: Generate weekly insight brief with top opportunities and risks.</li>
+          <li>CI-02: Provide blind spot and capability gap alerts.</li>
+          <li>CI-03: Trigger timing alerts for market windows.</li>
+          <li>CI-04: Store insights in timeline for review and accountability.</li>
+        </ul>
+      </section>
+
+      <section id="dashboard">
+        <h3>Dashboard Requirements</h3>
+        <ul>
+          <li>DB-01: Display twin health, pending decisions, and top three next actions.</li>
+          <li>DB-02: Show latest simulation summary and confidence status.</li>
+          <li>DB-03: Surface overdue experiments and stale data warnings.</li>
+          <li>DB-04: Provide direct navigation to high-priority actions.</li>
+        </ul>
+      </section>
+
+      <section id="reports">
+        <h3>Reports Requirements</h3>
+        <ul>
+          <li>RP-01: Generate decision report with scenario comparisons and evidence.</li>
+          <li>RP-02: Support mentor view and executive summary view.</li>
+          <li>RP-03: Include configurable privacy redactions.</li>
+          <li>RP-04: Track report generation and share events for analytics.</li>
+        </ul>
+      </section>
+
+      <section id="priorities">
+        <h3>Feature Priorities</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Priority</th>
+                <th>Features</th>
+                <th>Rationale</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>P0</td>
+                <td>Profile creation, Resume/LinkedIn import, AI interview, baseline simulations, dashboard essentials</td>
+                <td>Core value loop and demo narrative</td>
+              </tr>
+              <tr>
+                <td>P1</td>
+                <td>GitHub import, portfolio import, reports, twin evolution history</td>
+                <td>Depth, trust, and retention</td>
+              </tr>
+              <tr>
+                <td>P2</td>
+                <td>Advanced insights, market timing alerts, extended simulation modes</td>
+                <td>Differentiation and monetization</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="mvp-vs-future">
+        <h3>MVP vs Future Versions</h3>
+        <div class="card-grid three">
+          <article class="card">
+            <h4>MVP (Hackathon-ready)</h4>
+            <ul>
+              <li>Onboarding and twin genesis</li>
+              <li>Resume + LinkedIn + AI interview</li>
+              <li>3-scenario simulation comparison</li>
+              <li>Actionable dashboard and basic report export</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>V2</h4>
+            <ul>
+              <li>GitHub and portfolio intelligence</li>
+              <li>Twin evolution and calibration tracking</li>
+              <li>Advanced insights and timing alerts</li>
+              <li>Richer sharing and mentor collaboration</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>V3+</h4>
+            <ul>
+              <li>Organization and cohort layers</li>
+              <li>API integrations and ecosystem embedding</li>
+              <li>Industry-specialized simulation packs</li>
+              <li>Longitudinal decision moat at scale</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

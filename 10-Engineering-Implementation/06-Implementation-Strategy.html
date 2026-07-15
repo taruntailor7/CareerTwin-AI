@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - Implementation Strategy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">Engineering Implementation</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">Phase 6 - Recommended Implementation Strategy</p>
+      </div>
+      <div class="controls">
+        <label for="searchInput">Find section</label>
+        <input id="searchInput" type="search" placeholder="Search strategy...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+      <nav class="doc-nav">
+        <a href="01-Repository-Review.html">01 Repository Review</a>
+        <a href="02-Engineering-Readiness.html">02 Engineering Readiness</a>
+        <a href="03-Engineering-Questions.html">03 Engineering Questions</a>
+        <a href="04-Implementation-Blueprint.html">04 Implementation Blueprint</a>
+        <a href="05-Milestone-Plan.html">05 Milestone Plan</a>
+        <a href="06-Implementation-Strategy.html">06 Implementation Strategy</a>
+      </nav>
+      <nav class="section-nav">
+        <a href="#principles">Strategy Principles</a>
+        <a href="#structure">Best Folder Structure</a>
+        <a href="#tech">Best Technology Choices</a>
+        <a href="#db">Best Database Design</a>
+        <a href="#prompt">Best Prompt Strategy</a>
+        <a href="#ai-arch">Best AI Architecture</a>
+        <a href="#state">Best State Management</a>
+        <a href="#deploy">Best Deployment Strategy</a>
+        <a href="#tradeoffs">Trade-offs</a>
+        <a href="#alternatives">Alternative Approaches</a>
+      </nav>
+      <p class="sidebar-footnote">Decision recommendations are optimized for trust, speed, and long-term maintainability.</p>
+    </aside>
+
+    <main class="content">
+      <header id="principles" class="hero">
+        <span class="hero-badge">Phase 6</span>
+        <h2>Recommended Implementation Strategy</h2>
+        <p>Each recommendation is chosen to maximize shipping velocity without sacrificing trust-critical quality for a product that influences high-stakes career decisions.</p>
+      </header>
+
+      <section id="structure">
+        <h3>Best Folder Structure (Why)</h3>
+        <ul>
+          <li>Use monorepo with app-level and package-level boundaries to avoid duplicated domain logic.</li>
+          <li>Separate domain contracts from UI and transport concerns to reduce churn.</li>
+          <li>Keep AI/prompt modules as first-class package for governance and testing consistency.</li>
+        </ul>
+      </section>
+
+      <section id="tech">
+        <h3>Best Technology Choices (Why)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Layer</th><th>Recommendation</th><th>Why</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Web App</td><td>Next.js + TypeScript</td><td>Fast iteration, SSR support, strong ecosystem.</td></tr>
+              <tr><td>API</td><td>Fastify/Nest with OpenAPI</td><td>Performance + explicit contract control.</td></tr>
+              <tr><td>Jobs</td><td>Queue workers (SQS/Kafka + workers)</td><td>Decouples high-latency tasks from user requests.</td></tr>
+              <tr><td>Infra</td><td>Kubernetes managed cluster</td><td>Reliable scaling and workload isolation.</td></tr>
+              <tr><td>Telemetry</td><td>OpenTelemetry + centralized logs</td><td>Traceability across AI and simulation paths.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="db">
+        <h3>Best Database Design (Why)</h3>
+        <ul>
+          <li>PostgreSQL as primary source of truth for consistency and relational integrity.</li>
+          <li>Event tables for versioned twin and simulation history to ensure reproducibility.</li>
+          <li>Redis for cache and short-lived computation acceleration.</li>
+          <li>Object storage for heavy artifacts and exportables to keep DB lean.</li>
+        </ul>
+      </section>
+
+      <section id="prompt">
+        <h3>Best Prompt Strategy (Why)</h3>
+        <ul>
+          <li>Version-controlled prompt registry with immutable release IDs.</li>
+          <li>Structured output schemas enforced on every AI interaction.</li>
+          <li>Automated eval suite before prompt promotion to production.</li>
+          <li>Rollback-first release policy for prompt/model changes.</li>
+        </ul>
+      </section>
+
+      <section id="ai-arch">
+        <h3>Best AI Architecture (Why)</h3>
+        <ul>
+          <li>Task-specific model routing beats single-model overuse for cost and latency.</li>
+          <li>Evidence and confidence subsystems should gate user-visible recommendations.</li>
+          <li>Memory/context services should be deterministic and independently testable.</li>
+          <li>Safety filters must run post-generation and pre-delivery for policy compliance.</li>
+        </ul>
+      </section>
+
+      <section id="state">
+        <h3>Best State Management (Why)</h3>
+        <ul>
+          <li>Server state: React Query for caching, retries, and synchronization.</li>
+          <li>Client session state: lightweight local store for simulation builders.</li>
+          <li>Avoid global over-centralization; keep state domain-scoped.</li>
+          <li>Use URL-backed state for comparison views to improve shareability.</li>
+        </ul>
+      </section>
+
+      <section id="deploy">
+        <h3>Best Deployment Strategy (Why)</h3>
+        <ul>
+          <li>Progressive rollout with canary by route or user cohort.</li>
+          <li>Feature flags for AI-heavy features to contain blast radius.</li>
+          <li>Blue/green fallback for API layer and worker pools.</li>
+          <li>Explicit rollback runbooks for model/prompt regressions.</li>
+        </ul>
+      </section>
+
+      <section id="tradeoffs">
+        <h3>Trade-offs to Accept Explicitly</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Decision</th><th>Benefit</th><th>Cost</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Modular monolith first</td><td>Faster delivery and simpler ops</td><td>Later extraction work for service split</td></tr>
+              <tr><td>Strict schema validation</td><td>Higher reliability/trust</td><td>Higher prompt engineering overhead</td></tr>
+              <tr><td>Heavy observability upfront</td><td>Lower incident resolution time</td><td>Initial setup complexity</td></tr>
+              <tr><td>Conservative AI fallback behavior</td><td>Safer user outcomes</td><td>Less "wow" output in edge cases</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="alternatives">
+        <h3>Alternative Approaches Considered</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>Option A: Microservices from Day One</h4>
+            <p>Rejected for v1 due to overhead and team coordination tax.</p>
+          </article>
+          <article class="card">
+            <h4>Option B: Single-Model AI Stack</h4>
+            <p>Rejected due to cost/latency mismatch across diverse tasks.</p>
+          </article>
+          <article class="card">
+            <h4>Option C: No Prompt Registry</h4>
+            <p>Rejected because it blocks reproducibility and safe iteration.</p>
+          </article>
+          <article class="card">
+            <h4>Option D: Client-Only Simulation</h4>
+            <p>Rejected due to trust, reproducibility, and security limitations.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

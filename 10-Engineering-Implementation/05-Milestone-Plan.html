@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - Milestone Plan</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">Engineering Implementation</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">Phase 5 - Development Milestone Plan</p>
+      </div>
+      <div class="controls">
+        <label for="searchInput">Find section</label>
+        <input id="searchInput" type="search" placeholder="Search milestones...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+      <nav class="doc-nav">
+        <a href="01-Repository-Review.html">01 Repository Review</a>
+        <a href="02-Engineering-Readiness.html">02 Engineering Readiness</a>
+        <a href="03-Engineering-Questions.html">03 Engineering Questions</a>
+        <a href="04-Implementation-Blueprint.html">04 Implementation Blueprint</a>
+        <a href="05-Milestone-Plan.html">05 Milestone Plan</a>
+        <a href="06-Implementation-Strategy.html">06 Implementation Strategy</a>
+      </nav>
+      <nav class="section-nav">
+        <a href="#overview">Roadmap Overview</a>
+        <a href="#milestones">Milestone Details</a>
+        <a href="#critical-path">Critical Path</a>
+        <a href="#risk-mitigations">Cross-Milestone Risk Mitigation</a>
+      </nav>
+      <p class="sidebar-footnote">Estimates assume a focused cross-functional team with parallel backend/frontend/AI tracks.</p>
+    </aside>
+
+    <main class="content">
+      <header id="overview" class="hero">
+        <span class="hero-badge">Phase 5</span>
+        <h2>Execution Milestone Roadmap</h2>
+        <p>11 milestone plan from foundation to production readiness with explicit objective, deliverables, dependencies, complexity, timeline, definition of done, and risks.</p>
+      </header>
+
+      <section id="milestones">
+        <h3>Milestone Details</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Milestone</th>
+                <th>Objective</th>
+                <th>Deliverables</th>
+                <th>Dependencies</th>
+                <th>Complexity</th>
+                <th>Est. Time</th>
+                <th>Definition of Done</th>
+                <th>Key Risks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>M1 Foundation</td><td>Set baseline platform and standards.</td><td>Monorepo setup, CI, env model, coding standards.</td><td>Team roles and tool selection.</td><td>Medium</td><td>1.5 weeks</td><td>Build/test/lint/security pipelines passing.</td><td>Tooling churn.</td></tr>
+              <tr><td>M2 Authentication</td><td>Secure identity lifecycle.</td><td>Login, session, account recovery, role model.</td><td>M1</td><td>Medium</td><td>1 week</td><td>Auth flows pass security and UX tests.</td><td>Provider limitations.</td></tr>
+              <tr><td>M3 Twin Creation</td><td>Create first valid twin profile.</td><td>Profile setup UI, twin schema, confidence seed.</td><td>M1-M2</td><td>High</td><td>1.5 weeks</td><td>User can create versioned baseline twin.</td><td>Schema ambiguity.</td></tr>
+              <tr><td>M4 Imports</td><td>Ingest resume, LinkedIn, GitHub, portfolio.</td><td>Import services, parsing jobs, conflict UX.</td><td>M3</td><td>High</td><td>2.5 weeks</td><td>Imports complete with auditable evidence links.</td><td>Data inconsistency and failures.</td></tr>
+              <tr><td>M5 AI Interview</td><td>Fill profile uncertainty through adaptive interview.</td><td>Interview engine, contradiction handling, confidence updates.</td><td>M3-M4</td><td>High</td><td>1.5 weeks</td><td>Interview outputs update twin safely.</td><td>Prompt quality drift.</td></tr>
+              <tr><td>M6 Twin Engine</td><td>Operationalize twin lifecycle and evolution.</td><td>Versioning, diffing, memory updates, evolution rules.</td><td>M4-M5</td><td>High</td><td>2 weeks</td><td>Twin versions reproducible and auditable.</td><td>Model drift and data growth.</td></tr>
+              <tr><td>M7 Simulation Engine</td><td>Run scenario simulations with tradeoffs.</td><td>Scenario builder, ranking logic, confidence bands.</td><td>M6</td><td>Very High</td><td>3 weeks</td><td>Simulation outputs stable and benchmarked.</td><td>Validity and latency risk.</td></tr>
+              <tr><td>M8 Dashboard</td><td>Deliver decision cockpit UI.</td><td>Insights dashboard, timeline, action center.</td><td>M6-M7</td><td>Medium</td><td>1.5 weeks</td><td>Users can interpret and act on results.</td><td>Cognitive overload.</td></tr>
+              <tr><td>M9 Reports & Insights</td><td>Generate shareable outcomes.</td><td>Report generator, export formats, evidence summaries.</td><td>M7-M8</td><td>Medium</td><td>1 week</td><td>Reports are reliable and policy-safe.</td><td>Privacy leakage in exports.</td></tr>
+              <tr><td>M10 Reliability & Performance</td><td>Harden system behavior.</td><td>Load tuning, retries, observability, fallback modes.</td><td>M1-M9</td><td>High</td><td>1.5 weeks</td><td>SLO targets achieved in pre-prod.</td><td>Queue and compute contention.</td></tr>
+              <tr><td>M11 Release & Deployment</td><td>Launch controlled production rollout.</td><td>Canary release, runbooks, incident response playbooks.</td><td>M1-M10</td><td>Medium</td><td>1 week</td><td>Production release with rollback confidence.</td><td>Late-breaking regressions.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="critical-path">
+        <h3>Critical Path</h3>
+        <p>M3 → M4 → M5 → M6 → M7 defines the product-critical sequence. Delays here directly impact first usable simulation delivery.</p>
+        <ul>
+          <li>Frontend and report tracks can progress in parallel after M6.</li>
+          <li>Reliability work should start earlier as a shadow track, not only at M10.</li>
+        </ul>
+      </section>
+
+      <section id="risk-mitigations">
+        <h3>Cross-Milestone Risk Mitigations</h3>
+        <ul>
+          <li>Introduce quality gates at each milestone (API contract, test, security, AI eval).</li>
+          <li>Use feature flags for every high-risk subsystem release.</li>
+          <li>Run weekly architecture and prompt governance review.</li>
+          <li>Maintain visible burn-up with dependency risk tracking by engineering manager.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

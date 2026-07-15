@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - Development Roadmap</title>
+  <meta name="description" content="CareerTwin AI complete development roadmap with milestones, dependencies, complexity, estimates, risks, and definitions of done.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">Execution Planning</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">07 - Development Roadmap</p>
+      </div>
+
+      <div class="controls">
+        <label for="searchInput">Find milestone</label>
+        <input id="searchInput" type="search" placeholder="Search roadmap...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+
+      <nav id="sideNav">
+        <a href="#overview">Overview</a>
+        <a href="#milestone-0">Milestone 0 - Foundations</a>
+        <a href="#milestone-1">Milestone 1 - Twin Genesis MVP</a>
+        <a href="#milestone-2">Milestone 2 - Simulation Core</a>
+        <a href="#milestone-3">Milestone 3 - Decision UX</a>
+        <a href="#milestone-4">Milestone 4 - Insights and Reporting</a>
+        <a href="#milestone-5">Milestone 5 - Reliability and Safety</a>
+        <a href="#milestone-6">Milestone 6 - Beta Scale</a>
+        <a href="#milestone-7">Milestone 7 - Growth and Platform</a>
+      </nav>
+
+      <p class="sidebar-footnote">
+        Roadmap aligned to Strategy, PRD, UI/UX, System Architecture, and AI Architecture documentation.
+      </p>
+    </aside>
+
+    <main class="content">
+      <header id="overview" class="hero">
+        <span class="hero-badge">Development Roadmap</span>
+        <h2>Milestone-driven execution plan</h2>
+        <p>
+          This roadmap sequences CareerTwin AI delivery from foundation to scalable platform with explicit scope gates, dependencies, complexity ratings, and risk controls.
+        </p>
+      </header>
+
+      <section class="timeline">
+        <h3>Roadmap Timeline</h3>
+        <div class="diagram">
+          <svg viewBox="0 0 980 170" width="100%" role="img" aria-label="Roadmap timeline">
+            <line x1="40" y1="86" x2="940" y2="86" stroke="#94a3b8" stroke-width="3"></line>
+            <circle cx="90" cy="86" r="10" fill="#3b82f6"></circle><text x="72" y="114" font-size="11" fill="#475569">M0</text>
+            <circle cx="210" cy="86" r="10" fill="#6366f1"></circle><text x="192" y="114" font-size="11" fill="#475569">M1</text>
+            <circle cx="330" cy="86" r="10" fill="#8b5cf6"></circle><text x="312" y="114" font-size="11" fill="#475569">M2</text>
+            <circle cx="450" cy="86" r="10" fill="#a855f7"></circle><text x="432" y="114" font-size="11" fill="#475569">M3</text>
+            <circle cx="570" cy="86" r="10" fill="#d946ef"></circle><text x="552" y="114" font-size="11" fill="#475569">M4</text>
+            <circle cx="690" cy="86" r="10" fill="#ec4899"></circle><text x="672" y="114" font-size="11" fill="#475569">M5</text>
+            <circle cx="810" cy="86" r="10" fill="#f59e0b"></circle><text x="792" y="114" font-size="11" fill="#475569">M6</text>
+            <circle cx="930" cy="86" r="10" fill="#22c55e"></circle><text x="912" y="114" font-size="11" fill="#475569">M7</text>
+          </svg>
+        </div>
+      </section>
+
+      <section id="milestone-0" class="milestone">
+        <h3>Milestone 0 - Foundations</h3>
+        <div class="spec-grid">
+          <article><h4>Objectives</h4><p>Establish core repo, architecture baseline, design system, and instrumentation foundations.</p></article>
+          <article><h4>Deliverables</h4><ul><li>Monorepo setup</li><li>CI/CD baseline</li><li>Auth skeleton</li><li>Design token system</li></ul></article>
+          <article><h4>Dependencies</h4><p>Finalized strategy + PRD + architecture decisions.</p></article>
+          <article><h4>Complexity</h4><p>Medium</p></article>
+          <article><h4>Estimated Development Time</h4><p>2-3 weeks</p></article>
+          <article><h4>Definition of Done</h4><p>CI green, environment parity, baseline observability dashboards live.</p></article>
+          <article><h4>Risks</h4><p>Tooling churn and architecture indecision causing rework.</p></article>
+        </div>
+      </section>
+
+      <section id="milestone-1" class="milestone">
+        <h3>Milestone 1 - Twin Genesis MVP</h3>
+        <div class="spec-grid">
+          <article><h4>Objectives</h4><p>Deliver onboarding flow and first working career twin creation loop.</p></article>
+          <article><h4>Deliverables</h4><ul><li>Auth flow</li><li>Profile creation</li><li>Resume + LinkedIn import</li><li>AI interview v1</li><li>Twin snapshot v1</li></ul></article>
+          <article><h4>Dependencies</h4><p>Milestone 0 foundations, parser service contracts, prompt baseline.</p></article>
+          <article><h4>Complexity</h4><p>High</p></article>
+          <article><h4>Estimated Development Time</h4><p>4-5 weeks</p></article>
+          <article><h4>Definition of Done</h4><p>New user can complete onboarding and receive first twin with confidence map.</p></article>
+          <article><h4>Risks</h4><p>Import quality variance and onboarding drop-off.</p></article>
+        </div>
+      </section>
+
+      <section id="milestone-2" class="milestone">
+        <h3>Milestone 2 - Simulation Core</h3>
+        <div class="spec-grid">
+          <article><h4>Objectives</h4><p>Enable scenario simulation and core comparison outputs.</p></article>
+          <article><h4>Deliverables</h4><ul><li>Scenario builder</li><li>Simulation engine v1</li><li>Comparison model</li><li>Confidence bands</li></ul></article>
+          <article><h4>Dependencies</h4><p>Twin engine v1, context builder, evidence engine skeleton.</p></article>
+          <article><h4>Complexity</h4><p>High</p></article>
+          <article><h4>Estimated Development Time</h4><p>5-6 weeks</p></article>
+          <article><h4>Definition of Done</h4><p>User can run 2-5 scenarios and view tradeoff outputs with structured rationale.</p></article>
+          <article><h4>Risks</h4><p>Compute latency and unstable scoring consistency.</p></article>
+        </div>
+      </section>
+
+      <section id="milestone-3" class="milestone">
+        <h3>Milestone 3 - Decision UX</h3>
+        <div class="spec-grid">
+          <article><h4>Objectives</h4><p>Make decision-making actionable with premium UX and experiment conversion.</p></article>
+          <article><h4>Deliverables</h4><ul><li>Dashboard core</li><li>Scenario comparison UX</li><li>Action protocol generator</li><li>Twin profile views</li></ul></article>
+          <article><h4>Dependencies</h4><p>Simulation outputs stable and schema-validated.</p></article>
+          <article><h4>Complexity</h4><p>Medium-High</p></article>
+          <article><h4>Estimated Development Time</h4><p>4 weeks</p></article>
+          <article><h4>Definition of Done</h4><p>Users can select path and convert insight into a tracked experiment plan.</p></article>
+          <article><h4>Risks</h4><p>UX complexity increases cognitive load if not tuned.</p></article>
+        </div>
+      </section>
+
+      <section id="milestone-4" class="milestone">
+        <h3>Milestone 4 - Insights and Reporting</h3>
+        <div class="spec-grid">
+          <article><h4>Objectives</h4><p>Drive retention and sharing through insights and exportable reports.</p></article>
+          <article><h4>Deliverables</h4><ul><li>Weekly insights engine</li><li>Alerting system</li><li>Report generation</li><li>Share controls</li></ul></article>
+          <article><h4>Dependencies</h4><p>Event pipeline, scheduler service, report templates.</p></article>
+          <article><h4>Complexity</h4><p>Medium</p></article>
+          <article><h4>Estimated Development Time</h4><p>3-4 weeks</p></article>
+          <article><h4>Definition of Done</h4><p>Users receive weekly digest and can export privacy-safe decision reports.</p></article>
+          <article><h4>Risks</h4><p>Low signal-to-noise in alerts, report generation performance.</p></article>
+        </div>
+      </section>
+
+      <section id="milestone-5" class="milestone">
+        <h3>Milestone 5 - Reliability and Safety</h3>
+        <div class="spec-grid">
+          <article><h4>Objectives</h4><p>Harden system for production-quality trust and operational resilience.</p></article>
+          <article><h4>Deliverables</h4><ul><li>Safety filters</li><li>Injection defenses</li><li>Prompt eval suite</li><li>Incident runbooks</li></ul></article>
+          <article><h4>Dependencies</h4><p>Prompt engineering docs, AI architecture controls, monitoring stack.</p></article>
+          <article><h4>Complexity</h4><p>High</p></article>
+          <article><h4>Estimated Development Time</h4><p>3-5 weeks</p></article>
+          <article><h4>Definition of Done</h4><p>Safety eval pass threshold met; rollback-ready release gates active.</p></article>
+          <article><h4>Risks</h4><p>False positives in moderation, missed edge-case policy violations.</p></article>
+        </div>
+      </section>
+
+      <section id="milestone-6" class="milestone">
+        <h3>Milestone 6 - Beta Scale</h3>
+        <div class="spec-grid">
+          <article><h4>Objectives</h4><p>Support larger user cohorts with stability, analytics, and iteration velocity.</p></article>
+          <article><h4>Deliverables</h4><ul><li>Autoscaling</li><li>Tenant controls</li><li>Cohort analytics</li><li>A/B experimentation framework</li></ul></article>
+          <article><h4>Dependencies</h4><p>Observability maturity and proven core flow metrics.</p></article>
+          <article><h4>Complexity</h4><p>High</p></article>
+          <article><h4>Estimated Development Time</h4><p>5-7 weeks</p></article>
+          <article><h4>Definition of Done</h4><p>System remains stable under target beta load with acceptable SLOs.</p></article>
+          <article><h4>Risks</h4><p>Cost spikes, infra bottlenecks, analytics fragmentation.</p></article>
+        </div>
+      </section>
+
+      <section id="milestone-7" class="milestone">
+        <h3>Milestone 7 - Growth and Platform</h3>
+        <div class="spec-grid">
+          <article><h4>Objectives</h4><p>Evolve into a platform with integrations, partner channels, and monetization depth.</p></article>
+          <article><h4>Deliverables</h4><ul><li>API exposure</li><li>Partner integrations</li><li>Enterprise controls</li><li>Growth experimentation loops</li></ul></article>
+          <article><h4>Dependencies</h4><p>Beta performance proof, security readiness, legal/compliance approvals.</p></article>
+          <article><h4>Complexity</h4><p>Very High</p></article>
+          <article><h4>Estimated Development Time</h4><p>8-12 weeks</p></article>
+          <article><h4>Definition of Done</h4><p>First external partner integration live and platform-level monetization active.</p></article>
+          <article><h4>Risks</h4><p>Scope explosion and platform complexity before product maturity.</p></article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

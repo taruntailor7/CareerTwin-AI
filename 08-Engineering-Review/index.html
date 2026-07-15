@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - Engineering Review Report</title>
+  <meta name="description" content="Principal Engineering review report across Strategy, PCD, PRD, UI/UX, System, AI, Prompt, and Roadmap docs.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">Principal Engineering Review</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">08 - Engineering Review</p>
+      </div>
+
+      <div class="controls">
+        <label for="searchInput">Find review section</label>
+        <input id="searchInput" type="search" placeholder="Search findings...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+
+      <nav id="sideNav">
+        <a href="#scope">Scope Reviewed</a>
+        <a href="#summary">Executive Summary</a>
+        <a href="#critical">Critical Blockers</a>
+        <a href="#missing-requirements">Missing Requirements</a>
+        <a href="#architecture-problems">Architecture Problems</a>
+        <a href="#ai-problems">AI Problems</a>
+        <a href="#twin-logic">Career Twin Logic Issues</a>
+        <a href="#simulation-problems">Simulation Problems</a>
+        <a href="#security-risks">Security Risks</a>
+        <a href="#performance-risks">Performance Risks</a>
+        <a href="#database-problems">Database Problems</a>
+        <a href="#api-problems">API Problems</a>
+        <a href="#ux-problems">UX Problems</a>
+        <a href="#edge-cases">Edge Cases</a>
+        <a href="#missing-features">Missing Features</a>
+        <a href="#pre-dev-gate">Pre-Development Gate</a>
+      </nav>
+
+      <p class="sidebar-footnote">
+        Review stance: build-readiness and production risk reduction. This report identifies what must be fixed before implementation.
+      </p>
+    </aside>
+
+    <main class="content">
+      <header id="scope" class="hero">
+        <span class="hero-badge">Engineering Review Report</span>
+        <h2>Principal Engineer Assessment</h2>
+        <p>
+          Reviewed all current documentation artifacts: Product Strategy, Product Concept, PRD, UI/UX Specification, System Architecture, AI Architecture, Prompt Engineering, and Development Roadmap.
+        </p>
+        <div class="reviewed-list">
+          <code>00-Product-Strategy</code>
+          <code>01-Product-Concept-Document</code>
+          <code>02-Product-Requirements-Document</code>
+          <code>03-UI-UX-Specification</code>
+          <code>04-System-Architecture</code>
+          <code>05-AI-Architecture</code>
+          <code>06-Prompt-Engineering</code>
+          <code>07-Development-Roadmap</code>
+        </div>
+      </header>
+
+      <section id="summary">
+        <h3>Executive Summary</h3>
+        <p>
+          The documentation quality is strong in breadth and narrative cohesion, but not yet implementation-safe. The biggest gap is lack of operational precision in model validity, data governance, and contract-level specifications.
+        </p>
+        <div class="score-grid">
+          <article><strong>Product Direction</strong><span>9/10</span></article>
+          <article><strong>Requirement Clarity</strong><span>7/10</span></article>
+          <article><strong>Architecture Readiness</strong><span>6/10</span></article>
+          <article><strong>AI Safety Readiness</strong><span>6/10</span></article>
+          <article><strong>Execution Readiness</strong><span>6.5/10</span></article>
+        </div>
+      </section>
+
+      <section id="critical">
+        <h3>Critical Blockers (Fix Before Development)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Severity</th>
+                <th>Finding</th>
+                <th>Risk</th>
+                <th>Required Fix</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>P0</td>
+                <td>No formal simulation validity model</td>
+                <td>Unreliable outputs and trust collapse</td>
+                <td>Define simulation math assumptions, confidence calibration method, and benchmark datasets</td>
+              </tr>
+              <tr>
+                <td>P0</td>
+                <td>No legal/compliance requirements for career recommendation data</td>
+                <td>Regulatory and privacy exposure</td>
+                <td>Add GDPR/CCPA data mapping, retention schedules, DSAR flow, model-data deletion semantics</td>
+              </tr>
+              <tr>
+                <td>P0</td>
+                <td>API contracts are high-level only</td>
+                <td>Frontend-backend mismatch and rework</td>
+                <td>Publish OpenAPI specs with request/response schemas, error envelopes, and idempotency rules</td>
+              </tr>
+              <tr>
+                <td>P0</td>
+                <td>No threat model for prompt/data ingestion path</td>
+                <td>Injection and exfiltration risk</td>
+                <td>Create threat model with attack trees, test cases, and control mapping</td>
+              </tr>
+              <tr>
+                <td>P1</td>
+                <td>Roadmap lacks staffing/capacity assumptions</td>
+                <td>Schedule optimism and delivery slip</td>
+                <td>Add team topology, role ownership, and critical-path resource matrix</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="missing-requirements">
+        <h3>Missing Requirements</h3>
+        <ul>
+          <li>No explicit localization/internationalization requirements despite relocation-focused use cases.</li>
+          <li>No SLO/SLA requirements at endpoint or workflow level beyond broad uptime target.</li>
+          <li>No data retention/deletion SLA requirement for imported third-party artifacts.</li>
+          <li>No requirement for recommendation explainability minimum quality threshold (beyond presence of fields).</li>
+          <li>No incident severity classification and response-time requirements.</li>
+        </ul>
+      </section>
+
+      <section id="architecture-problems">
+        <h3>Architecture Problems</h3>
+        <ul>
+          <li>Architecture toggles between modular monolith and microservices without migration triggers quantified.</li>
+          <li>No explicit consistency model for twin version write/read during concurrent simulation runs.</li>
+          <li>No event schema governance strategy for async workflows (versioning, backward compatibility).</li>
+          <li>Insufficient multi-region and disaster failover details for high-impact user decisions.</li>
+          <li>Observability is listed but no cardinality control strategy for high-volume telemetry.</li>
+        </ul>
+      </section>
+
+      <section id="ai-problems">
+        <h3>AI Problems</h3>
+        <ul>
+          <li>No model-routing strategy (which model for which stage, latency/cost/quality trade-offs).</li>
+          <li>No explicit grounding hierarchy when evidence sources conflict.</li>
+          <li>No formal calibration loop tied to real-world user outcomes.</li>
+          <li>Evaluation framework lacks threshold gates per task type (parser, reasoning, simulation).</li>
+          <li>No red-team protocol for adversarial prompt and data poisoning tests.</li>
+        </ul>
+      </section>
+
+      <section id="twin-logic">
+        <h3>Career Twin Logic Issues</h3>
+        <ul>
+          <li>Twin dimension definitions are present but scoring semantics are not defined.</li>
+          <li>No deterministic rule precedence for user-edited values vs imported values over time.</li>
+          <li>Twin versioning exists conceptually, but no compaction/archival strategy for long-term growth.</li>
+          <li>Profile drift detection is mentioned, but trigger thresholds and actions are unspecified.</li>
+        </ul>
+      </section>
+
+      <section id="simulation-problems">
+        <h3>Simulation Problems</h3>
+        <ul>
+          <li>Simulation metrics are comprehensive, but their underlying formulas are absent.</li>
+          <li>No scenario feasibility constraints catalog (e.g., impossible transitions, timeline mismatch).</li>
+          <li>No Monte Carlo or probabilistic sampling strategy described for uncertainty generation.</li>
+          <li>No benchmark protocol to validate simulation quality against historical outcomes.</li>
+        </ul>
+      </section>
+
+      <section id="security-risks">
+        <h3>Security Risks</h3>
+        <ul>
+          <li>No explicit secrets management and rotation policy for integrations.</li>
+          <li>No tenant isolation controls described for future enterprise/cohort mode.</li>
+          <li>No signed audit trail integrity strategy (tamper-evident logging).</li>
+          <li>No outbound data egress controls for AI toolchain and report exports.</li>
+          <li>No abuse prevention strategy for automated scraping or simulation flooding.</li>
+        </ul>
+      </section>
+
+      <section id="performance-risks">
+        <h3>Performance Risks</h3>
+        <ul>
+          <li>2.5s incremental simulation target likely unrealistic without strict feature flags on metric depth.</li>
+          <li>No query budget or payload size constraints for dashboard and comparison views.</li>
+          <li>No explicit cold-start strategy for AI worker pools.</li>
+          <li>No fallback behavior for degraded downstream dependencies beyond generic cache mention.</li>
+        </ul>
+      </section>
+
+      <section id="database-problems">
+        <h3>Database Problems</h3>
+        <ul>
+          <li>Schema lacks indexing strategy and partitioning plan for high-write tables (events/simulations).</li>
+          <li>No migration governance for schema evolution tied to prompt/schema version changes.</li>
+          <li>PII classification tags not mapped at column level.</li>
+          <li>No data lifecycle policy for high-volume artifact metadata.</li>
+        </ul>
+      </section>
+
+      <section id="api-problems">
+        <h3>API Problems</h3>
+        <ul>
+          <li>Missing standardized error codes and recoverability semantics.</li>
+          <li>No idempotency guidance for all mutating endpoints (only selectively mentioned).</li>
+          <li>No API pagination/filtering contracts for history and insight feeds.</li>
+          <li>No explicit API deprecation/version sunset policy.</li>
+        </ul>
+      </section>
+
+      <section id="ux-problems">
+        <h3>UX Problems</h3>
+        <ul>
+          <li>Very rich experience design but no cognitive load budget by screen complexity.</li>
+          <li>No explicit information hierarchy for low-confidence outputs to avoid user over-trust.</li>
+          <li>No flows for emotionally sensitive outcomes (e.g., negative projection handling).</li>
+          <li>No fallback content strategy when AI content generation repeatedly fails.</li>
+        </ul>
+      </section>
+
+      <section id="edge-cases">
+        <h3>Edge Cases Not Covered</h3>
+        <ul>
+          <li>User intentionally manipulates profile to obtain biased recommendation.</li>
+          <li>Conflicting external imports across time (LinkedIn vs resume vs GitHub chronology).</li>
+          <li>Large account with very long career history causing context overrun.</li>
+          <li>Rapid market regime shift invalidating stale simulation priors.</li>
+          <li>Shared-device privacy leakage for reports and cached insights.</li>
+        </ul>
+      </section>
+
+      <section id="missing-features">
+        <h3>Missing Features Before Build</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>Essential Platform Features</h4>
+            <ul>
+              <li>Admin console for prompt/version rollout and rollback.</li>
+              <li>Model governance dashboard (drift, calibration, failure buckets).</li>
+              <li>Policy override workflow for sensitive content escalations.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>User Trust Features</h4>
+            <ul>
+              <li>Data lineage viewer for each recommendation line item.</li>
+              <li>Simulation assumptions lock and comparison snapshots.</li>
+              <li>Consent history and integration activity log for users.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="pre-dev-gate">
+        <h3>Pre-Development Gate Checklist (Must Pass)</h3>
+        <ol>
+          <li>OpenAPI v1 contracts finalized with error and idempotency standards.</li>
+          <li>Simulation validity spec approved (math assumptions, confidence algorithm, calibration targets).</li>
+          <li>Threat model and abuse model completed with test plan.</li>
+          <li>Data governance policy completed (retention, deletion, access boundaries, compliance mapping).</li>
+          <li>Prompt registry, eval pipeline, and quality thresholds operational before feature coding.</li>
+          <li>Roadmap re-baselined with team capacity and critical path ownership.</li>
+        </ol>
+        <p class="closing-note">
+          Recommendation: do not start feature implementation until all six gate items are closed. Current documentation is excellent for direction, but not yet safe for full-scale execution.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

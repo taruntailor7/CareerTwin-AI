@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - AI Architecture</title>
+  <meta name="description" content="CareerTwin AI architecture: engines, pipelines, safety, evaluation, and monitoring.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">AI Systems Blueprint</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">05 - AI Architecture</p>
+      </div>
+
+      <div class="controls">
+        <label for="searchInput">Find AI module</label>
+        <input id="searchInput" type="search" placeholder="Search architecture...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+
+      <nav id="sideNav">
+        <a href="#overview">Overview</a>
+        <a href="#twin-engine">Career Twin Engine</a>
+        <a href="#resume-parser">Resume Parser</a>
+        <a href="#linkedin-analysis">LinkedIn Analysis</a>
+        <a href="#github-analysis">GitHub Analysis</a>
+        <a href="#portfolio-analysis">Portfolio Analysis</a>
+        <a href="#interview-engine">Career Interview Engine</a>
+        <a href="#memory">Memory</a>
+        <a href="#context-builder">Context Builder</a>
+        <a href="#simulation-engine">Simulation Engine</a>
+        <a href="#evidence-engine">Evidence Engine</a>
+        <a href="#confidence-engine">Confidence Engine</a>
+        <a href="#reasoning-pipeline">Reasoning Pipeline</a>
+        <a href="#prompt-flow">Prompt Flow</a>
+        <a href="#function-calling">Function Calling</a>
+        <a href="#structured-outputs">Structured Outputs</a>
+        <a href="#safety">Safety</a>
+        <a href="#hallucination-prevention">Hallucination Prevention</a>
+        <a href="#prompt-injection">Prompt Injection Protection</a>
+        <a href="#evaluation">Evaluation Framework</a>
+        <a href="#monitoring">Monitoring</a>
+      </nav>
+
+      <p class="sidebar-footnote">
+        Designed for production reliability, explainability, and measurable decision quality.
+      </p>
+    </aside>
+
+    <main class="content">
+      <header id="overview" class="hero">
+        <span class="hero-badge">AI Architecture Specification</span>
+        <h2>Decision Intelligence AI System</h2>
+        <p>
+          CareerTwin AI uses a modular AI architecture: multi-source profile understanding, structured reasoning, evidence-backed simulation, and strict safety controls. Every recommendation is traceable, calibrated, and continuously evaluated.
+        </p>
+      </header>
+
+      <section>
+        <h3>End-to-End AI Architecture Diagram</h3>
+        <div class="diagram">
+          <svg viewBox="0 0 1100 360" width="100%" role="img" aria-label="AI architecture end-to-end">
+            <rect x="20" y="140" width="130" height="62" rx="12" fill="#dbeafe" stroke="#93c5fd"></rect>
+            <text x="48" y="176" font-size="14" fill="#1e3a8a">User Input</text>
+
+            <rect x="190" y="60" width="150" height="58" rx="12" fill="#ede9fe" stroke="#c4b5fd"></rect>
+            <text x="208" y="94" font-size="13" fill="#4c1d95">Import Parsers</text>
+            <rect x="190" y="140" width="150" height="58" rx="12" fill="#dcfce7" stroke="#86efac"></rect>
+            <text x="214" y="174" font-size="13" fill="#14532d">Interview AI</text>
+            <rect x="190" y="220" width="150" height="58" rx="12" fill="#fee2e2" stroke="#fca5a5"></rect>
+            <text x="216" y="254" font-size="13" fill="#7f1d1d">Memory Layer</text>
+
+            <rect x="390" y="100" width="170" height="70" rx="12" fill="#e0f2fe" stroke="#7dd3fc"></rect>
+            <text x="418" y="138" font-size="14" fill="#0c4a6e">Context Builder</text>
+
+            <rect x="610" y="60" width="170" height="58" rx="12" fill="#fef3c7" stroke="#fcd34d"></rect>
+            <text x="632" y="94" font-size="13" fill="#713f12">Twin Engine</text>
+            <rect x="610" y="140" width="170" height="58" rx="12" fill="#dbeafe" stroke="#93c5fd"></rect>
+            <text x="622" y="174" font-size="13" fill="#1e3a8a">Simulation Engine</text>
+            <rect x="610" y="220" width="170" height="58" rx="12" fill="#ede9fe" stroke="#c4b5fd"></rect>
+            <text x="624" y="254" font-size="13" fill="#4c1d95">Evidence + Confidence</text>
+
+            <rect x="830" y="100" width="170" height="70" rx="12" fill="#dcfce7" stroke="#86efac"></rect>
+            <text x="854" y="138" font-size="14" fill="#14532d">Reasoning Pipeline</text>
+
+            <rect x="1030" y="100" width="58" height="70" rx="10" fill="#fee2e2" stroke="#fca5a5"></rect>
+            <text x="1042" y="138" font-size="11" fill="#7f1d1d">Safe</text>
+            <text x="1036" y="153" font-size="11" fill="#7f1d1d">Output</text>
+
+            <line x1="150" y1="171" x2="190" y2="90" stroke="#64748b" stroke-width="2"></line>
+            <line x1="150" y1="171" x2="190" y2="170" stroke="#64748b" stroke-width="2"></line>
+            <line x1="150" y1="171" x2="190" y2="250" stroke="#64748b" stroke-width="2"></line>
+            <line x1="340" y1="90" x2="390" y2="125" stroke="#64748b" stroke-width="2"></line>
+            <line x1="340" y1="170" x2="390" y2="135" stroke="#64748b" stroke-width="2"></line>
+            <line x1="340" y1="250" x2="390" y2="145" stroke="#64748b" stroke-width="2"></line>
+            <line x1="560" y1="135" x2="610" y2="90" stroke="#64748b" stroke-width="2"></line>
+            <line x1="560" y1="135" x2="610" y2="170" stroke="#64748b" stroke-width="2"></line>
+            <line x1="560" y1="135" x2="610" y2="250" stroke="#64748b" stroke-width="2"></line>
+            <line x1="780" y1="90" x2="830" y2="120" stroke="#64748b" stroke-width="2"></line>
+            <line x1="780" y1="170" x2="830" y2="135" stroke="#64748b" stroke-width="2"></line>
+            <line x1="780" y1="250" x2="830" y2="150" stroke="#64748b" stroke-width="2"></line>
+            <line x1="1000" y1="135" x2="1030" y2="135" stroke="#64748b" stroke-width="2"></line>
+          </svg>
+        </div>
+      </section>
+
+      <section id="twin-engine">
+        <h3>Career Twin Engine</h3>
+        <ul>
+          <li>Builds multi-dimensional user twin: skills, motivations, constraints, risk profile, growth vector.</li>
+          <li>Versioned snapshots with immutable IDs for reproducible simulations.</li>
+          <li>Supports recalibration triggers from new data or behavior changes.</li>
+        </ul>
+      </section>
+
+      <section id="resume-parser">
+        <h3>Resume Parser</h3>
+        <ul>
+          <li>Input formats: PDF/DOCX/text.</li>
+          <li>Pipeline: OCR/parse → section segmentation → entity extraction → role timeline normalization.</li>
+          <li>Outputs structured JSON with per-field confidence and source offsets.</li>
+        </ul>
+      </section>
+
+      <section id="linkedin-analysis">
+        <h3>LinkedIn Analysis</h3>
+        <ul>
+          <li>Extracts roles, tenure, skill endorsements, growth signals, and network context.</li>
+          <li>Reconciles with resume and user-edited profile; conflict resolver requests explicit user confirmation.</li>
+          <li>Produces quality score indicating completeness and freshness.</li>
+        </ul>
+      </section>
+
+      <section id="github-analysis">
+        <h3>GitHub Analysis</h3>
+        <ul>
+          <li>Extracts language mix, contribution cadence, collaboration density, repository complexity proxies.</li>
+          <li>Private repository inclusion is opt-in; aggregation supports privacy-first mode.</li>
+          <li>Outputs technical signature vector for twin enrichment.</li>
+        </ul>
+      </section>
+
+      <section id="portfolio-analysis">
+        <h3>Portfolio Analysis</h3>
+        <ul>
+          <li>Crawls portfolio/project pages for impact statements, scope, outcomes, and role descriptions.</li>
+          <li>Classifies evidence into depth, leadership, creativity, and business impact.</li>
+          <li>Supports user review and exclusion of noisy extracted entries.</li>
+        </ul>
+      </section>
+
+      <section id="interview-engine">
+        <h3>Career Interview Engine</h3>
+        <ul>
+          <li>Adaptive question graph driven by confidence gaps and contradiction detection.</li>
+          <li>Maintains conversational memory per session with summarization checkpoints.</li>
+          <li>Labels responses: confirmed, inferred, uncertain.</li>
+        </ul>
+      </section>
+
+      <section id="memory">
+        <h3>Memory</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>Short-term Memory</h4>
+            <ul>
+              <li>Session context for interview and simulation runtime decisions.</li>
+              <li>Windowed summary to keep prompt size bounded.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Long-term Memory</h4>
+            <ul>
+              <li>Versioned twin snapshots and decision history.</li>
+              <li>Retrieval by recency, relevance, and source reliability.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="context-builder">
+        <h3>Context Builder</h3>
+        <ul>
+          <li>Aggregates only relevant slices of memory + profile + simulation assumptions.</li>
+          <li>Applies token budgeting and ordered context packing by priority.</li>
+          <li>Injects system guardrails and output schema contracts before model call.</li>
+        </ul>
+      </section>
+
+      <section id="simulation-engine">
+        <h3>Simulation Engine</h3>
+        <ul>
+          <li>Generates multi-path projections using user constraints and market signals.</li>
+          <li>Computes: salary growth, skill growth, promotion probability, burnout risk, optionality, work-life balance.</li>
+          <li>Runs sensitivity checks across assumption perturbations to avoid brittle outputs.</li>
+        </ul>
+      </section>
+
+      <section id="evidence-engine">
+        <h3>Evidence Engine</h3>
+        <ul>
+          <li>Attaches provenance metadata to every recommendation statement.</li>
+          <li>Source classes: user-stated, imported, inferred, external market source.</li>
+          <li>Blocks claims without sufficient support and downgrades confidence where evidence is weak.</li>
+        </ul>
+      </section>
+
+      <section id="confidence-engine">
+        <h3>Confidence Engine</h3>
+        <ul>
+          <li>Combines data quality, source agreement, model stability, and scenario sensitivity.</li>
+          <li>Outputs confidence bands per metric and per final recommendation.</li>
+          <li>Supports calibration tracking against future outcome feedback.</li>
+        </ul>
+      </section>
+
+      <section id="reasoning-pipeline">
+        <h3>Reasoning Pipeline</h3>
+        <ol>
+          <li>Intent & objective extraction</li>
+          <li>Context assembly and normalization</li>
+          <li>Scenario generation and feasibility check</li>
+          <li>Metric evaluation and tradeoff synthesis</li>
+          <li>Evidence linking and confidence scoring</li>
+          <li>Safety and policy filters</li>
+          <li>Structured response rendering</li>
+        </ol>
+      </section>
+
+      <section id="prompt-flow">
+        <h3>Prompt Flow</h3>
+        <div class="diagram">
+          <svg viewBox="0 0 980 180" width="100%" role="img" aria-label="Prompt flow diagram">
+            <rect x="30" y="70" width="140" height="50" rx="10" fill="#dbeafe" stroke="#93c5fd"></rect>
+            <text x="55" y="100" font-size="13" fill="#1e3a8a">System Prompt</text>
+            <rect x="210" y="70" width="140" height="50" rx="10" fill="#ede9fe" stroke="#c4b5fd"></rect>
+            <text x="238" y="100" font-size="13" fill="#4c1d95">Context Pack</text>
+            <rect x="390" y="70" width="140" height="50" rx="10" fill="#dcfce7" stroke="#86efac"></rect>
+            <text x="420" y="100" font-size="13" fill="#14532d">Task Prompt</text>
+            <rect x="570" y="70" width="160" height="50" rx="10" fill="#fee2e2" stroke="#fca5a5"></rect>
+            <text x="594" y="100" font-size="13" fill="#7f1d1d">Tool Calls + Check</text>
+            <rect x="770" y="70" width="170" height="50" rx="10" fill="#e0f2fe" stroke="#7dd3fc"></rect>
+            <text x="798" y="100" font-size="13" fill="#0c4a6e">Structured Output</text>
+            <line x1="170" y1="95" x2="210" y2="95" stroke="#64748b" stroke-width="2"></line>
+            <line x1="350" y1="95" x2="390" y2="95" stroke="#64748b" stroke-width="2"></line>
+            <line x1="530" y1="95" x2="570" y2="95" stroke="#64748b" stroke-width="2"></line>
+            <line x1="730" y1="95" x2="770" y2="95" stroke="#64748b" stroke-width="2"></line>
+          </svg>
+        </div>
+      </section>
+
+      <section id="function-calling">
+        <h3>Function Calling</h3>
+        <ul>
+          <li>Tool contracts enforce typed schemas for parsing, retrieval, simulation, evidence lookup, and report generation.</li>
+          <li>All tool responses validated before feeding back into reasoning pipeline.</li>
+          <li>Idempotency keys required for mutating operations.</li>
+        </ul>
+      </section>
+
+      <section id="structured-outputs">
+        <h3>Structured Outputs</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Requirement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>recommendation</td><td>string</td><td>Required</td></tr>
+              <tr><td>assumptions</td><td>array[string]</td><td>Required</td></tr>
+              <tr><td>tradeoffs</td><td>array[string]</td><td>Required</td></tr>
+              <tr><td>evidence_refs</td><td>array[object]</td><td>Required</td></tr>
+              <tr><td>confidence_band</td><td>object(min,max)</td><td>Required</td></tr>
+              <tr><td>next_actions</td><td>array[object]</td><td>Required</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="safety">
+        <h3>Safety</h3>
+        <ul>
+          <li>Policy filter for harmful advice patterns and high-risk deterministic statements.</li>
+          <li>Output guardrails ensuring uncertainty language for all predictive content.</li>
+          <li>Escalation pathways for sensitive scenarios and user support cues.</li>
+        </ul>
+      </section>
+
+      <section id="hallucination-prevention">
+        <h3>Hallucination Prevention</h3>
+        <ul>
+          <li>Evidence-required generation mode: unsupported statements are blocked or marked uncertain.</li>
+          <li>Consistency checks across sources before finalizing output.</li>
+          <li>Self-critique stage: model validates claim-evidence alignment before response release.</li>
+        </ul>
+      </section>
+
+      <section id="prompt-injection">
+        <h3>Prompt Injection Protection</h3>
+        <ul>
+          <li>Untrusted external content (portfolio/web/import text) sandboxed and stripped of instruction-like patterns.</li>
+          <li>Hard separation between system instructions and retrieved user content.</li>
+          <li>Policy scanner to detect jailbreak prompts, hidden instructions, and malicious payload tokens.</li>
+        </ul>
+      </section>
+
+      <section id="evaluation">
+        <h3>Evaluation Framework</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>Offline Evals</h4>
+            <ul>
+              <li>Golden datasets for profile parsing accuracy.</li>
+              <li>Simulation consistency tests across repeated runs.</li>
+              <li>Reasoning quality scoring with rubric-based review.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Online Evals</h4>
+            <ul>
+              <li>A/B tests on clarity, trust, and decision activation metrics.</li>
+              <li>Calibration tracking between confidence and real outcomes.</li>
+              <li>User-reported usefulness and correction feedback loops.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="monitoring">
+        <h3>Monitoring</h3>
+        <ul>
+          <li>Operational: latency, error rates, token usage, tool call failures.</li>
+          <li>Quality: evidence coverage rate, contradiction detection rate, confidence calibration drift.</li>
+          <li>Safety: policy violation counts, blocked outputs, injection detection events.</li>
+          <li>Product impact: simulation completion rate, decision activation, report generation success.</li>
+        </ul>
+        <p class="closing-note">
+          Release gates require passing minimum thresholds in safety, consistency, and calibration before production rollout.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

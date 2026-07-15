@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerTwin AI - Final Judge Review</title>
+  <meta name="description" content="OpenAI × NamasteDev Hackathon final judging report for CareerTwin AI.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <p class="eyebrow">Final Judging Round</p>
+        <h1>CareerTwin AI</h1>
+        <p class="tagline">09 - Judge Review</p>
+      </div>
+
+      <div class="controls">
+        <label for="searchInput">Find review section</label>
+        <input id="searchInput" type="search" placeholder="Search evaluation...">
+        <div class="button-row">
+          <button id="themeToggle" type="button">Theme</button>
+          <button id="printButton" type="button">Print/PDF</button>
+        </div>
+      </div>
+
+      <nav id="sideNav">
+        <a href="#summary">Executive Summary</a>
+        <a href="#scorecards">Scorecards</a>
+        <a href="#radar">Radar Charts</a>
+        <a href="#career-twin-review">Career Twin Review</a>
+        <a href="#competitor-review">Competitor Review</a>
+        <a href="#demo-review">Demo Review</a>
+        <a href="#risk-matrix">Risk Matrix</a>
+        <a href="#priority-matrix">Priority Matrix</a>
+        <a href="#winning-analysis">Winning Analysis</a>
+        <a href="#top-improvements">Top 30 Improvements</a>
+        <a href="#roadmap">Improvement Roadmap</a>
+        <a href="#judge-comments">Judge Comments</a>
+        <a href="#final-verdict">Final Verdict</a>
+      </nav>
+
+      <p class="sidebar-footnote">
+        Review posture: strict elimination pressure across 2,000+ submissions. Goal: maximize probability of winning.
+      </p>
+    </aside>
+
+    <main class="content">
+      <header id="summary" class="hero">
+        <span class="hero-badge">OpenAI × NamasteDev Judge Panel</span>
+        <h2>Final-Round Engineering + Product Judgment</h2>
+        <p>
+          CareerTwin AI is one of the more thoughtful and complete proposals in this cohort. It has category-creation potential, but today it still reads as "highly advanced concept docs" rather than "battle-tested product thesis." It is not first-prize ready yet without focused changes.
+        </p>
+        <div class="headline-metrics">
+          <article><strong>Weighted Score</strong><span>7.4/10</span></article>
+          <article><strong>Judge Memorability</strong><span>8.1/10</span></article>
+          <article><strong>Execution Risk</strong><span>High</span></article>
+          <article><strong>Current Verdict</strong><span>Approved After Changes</span></article>
+        </div>
+      </header>
+
+      <section id="scorecards">
+        <h3>Scorecards (1-10)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Score</th>
+                <th>Strengths</th>
+                <th>Weaknesses</th>
+                <th>Risks</th>
+                <th>Suggestions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1. Originality</td><td>8.6</td><td>Digital twin framing is fresh.</td><td>Could still be mistaken as AI career coach.</td><td>Category confusion.</td><td>Lead with signature "Twin Mirror" mechanic early.</td></tr>
+              <tr><td>2. Impact</td><td>8.2</td><td>Career decisions have high life impact.</td><td>No validated outcome evidence yet.</td><td>Perceived overpromise.</td><td>Add outcome validation loop in demo narrative.</td></tr>
+              <tr><td>3. AI Fluency</td><td>8.4</td><td>Strong multi-engine framing and prompt rigor.</td><td>Model-routing specifics missing.</td><td>Latency and cost mismatch.</td><td>Publish model/task routing table with budgets.</td></tr>
+              <tr><td>4. Product Vision</td><td>9.0</td><td>Clear long-term category thesis.</td><td>Vision outpaces near-term proof.</td><td>Vision-execution gap.</td><td>Tighten v1 to one dominant outcome metric.</td></tr>
+              <tr><td>5. Product Design</td><td>8.5</td><td>Excellent interaction ideas and emotional design.</td><td>Some flows are over-rich for v1.</td><td>Scope diffusion.</td><td>Cut 40% of v1 UI surface area.</td></tr>
+              <tr><td>6. User Experience</td><td>7.9</td><td>State coverage and accessibility intent are strong.</td><td>Cognitive load risk in simulation screens.</td><td>Decision fatigue.</td><td>Add "calm mode" defaults and progressive reveal gates.</td></tr>
+              <tr><td>7. Technical Architecture</td><td>7.1</td><td>Solid layered architecture narrative.</td><td>Contract-level precision missing.</td><td>Implementation churn.</td><td>Publish OpenAPI + event schema registry before coding.</td></tr>
+              <tr><td>8. AI Architecture</td><td>7.6</td><td>Good decomposition (evidence/confidence/reasoning).</td><td>No formal simulation validity math.</td><td>Untrustworthy outputs.</td><td>Define benchmarked simulation model and calibration method.</td></tr>
+              <tr><td>9. Engineering Quality</td><td>7.0</td><td>Docs are coherent and comprehensive.</td><td>Lacks operational runbooks depth.</td><td>Production fragility.</td><td>Add SRE playbooks, error budgets, and incident drills.</td></tr>
+              <tr><td>10. Scalability</td><td>7.3</td><td>Reasonable scaling direction in docs.</td><td>No quantified scaling thresholds.</td><td>Premature microservice split or bottleneck.</td><td>Define explicit split triggers and load targets.</td></tr>
+              <tr><td>11. Security</td><td>6.6</td><td>Acknowledges injection and policy controls.</td><td>No complete threat model.</td><td>Injection/data leakage risk.</td><td>Create formal threat model + penetration test suite.</td></tr>
+              <tr><td>12. Privacy</td><td>6.8</td><td>Consent emphasis present.</td><td>Compliance flows are underspecified.</td><td>Regulatory exposure.</td><td>Add GDPR/CCPA retention/deletion and DSAR mapping.</td></tr>
+              <tr><td>13. Business Potential</td><td>8.1</td><td>Strong B2C-to-B2B expansion logic.</td><td>Monetization triggers not tied to behavior proof.</td><td>Weak conversion economics.</td><td>Define paywall moments using activation data.</td></tr>
+              <tr><td>14. Market Potential</td><td>8.0</td><td>Large fragmented market with weak incumbents.</td><td>Acquisition strategy still high-level.</td><td>Distribution bottleneck.</td><td>Commit to one wedge channel for first 1,000 users.</td></tr>
+              <tr><td>15. Demo Potential</td><td>8.7</td><td>Highly memorable if executed tightly.</td><td>Too many features for 3-minute demo.</td><td>Narrative dilution.</td><td>Show one user, one question, three paths, one decision.</td></tr>
+              <tr><td>16. Creativity</td><td>8.8</td><td>Future Rooms + Twin Evolution are standout concepts.</td><td>Some wow ideas feel ornamental.</td><td>Style over substance.</td><td>Keep only wow moments that prove decision quality.</td></tr>
+              <tr><td>17. Startup Potential</td><td>8.2</td><td>Potential moat in longitudinal career graph.</td><td>Moat depends on retention and data quality.</td><td>Commoditization by assistants.</td><td>Prioritize retention and outcome proof over surface breadth.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="radar">
+        <h3>Radar Charts</h3>
+        <p>Two dimensions: concept strength vs execution readiness.</p>
+        <div class="diagram">
+          <svg viewBox="0 0 980 340" width="100%" role="img" aria-label="Radar charts">
+            <text x="205" y="28" font-size="14" fill="#475569">Concept Strength</text>
+            <text x="695" y="28" font-size="14" fill="#475569">Execution Readiness</text>
+
+            <polygon points="200,50 280,95 280,185 200,230 120,185 120,95" fill="none" stroke="#94a3b8"/>
+            <polygon points="200,75 255,107 255,173 200,205 145,173 145,107" fill="none" stroke="#cbd5e1"/>
+            <polygon points="200,96 240,119 240,161 200,184 160,161 160,119" fill="none" stroke="#e2e8f0"/>
+            <polygon points="200,58 270,102 262,176 200,216 130,180 122,102" fill="rgba(79,70,229,.35)" stroke="#4f46e5"/>
+
+            <text x="194" y="42" font-size="11" fill="#64748b">Vision</text>
+            <text x="287" y="100" font-size="11" fill="#64748b">Originality</text>
+            <text x="287" y="189" font-size="11" fill="#64748b">Demo</text>
+            <text x="193" y="246" font-size="11" fill="#64748b">Market</text>
+            <text x="80" y="190" font-size="11" fill="#64748b">Creativity</text>
+            <text x="80" y="100" font-size="11" fill="#64748b">Impact</text>
+
+            <polygon points="690,50 770,95 770,185 690,230 610,185 610,95" fill="none" stroke="#94a3b8"/>
+            <polygon points="690,75 745,107 745,173 690,205 635,173 635,107" fill="none" stroke="#cbd5e1"/>
+            <polygon points="690,96 730,119 730,161 690,184 650,161 650,119" fill="none" stroke="#e2e8f0"/>
+            <polygon points="690,92 732,118 720,164 690,198 646,166 632,116" fill="rgba(236,72,153,.35)" stroke="#ec4899"/>
+
+            <text x="676" y="42" font-size="11" fill="#64748b">Security</text>
+            <text x="777" y="100" font-size="11" fill="#64748b">Architecture</text>
+            <text x="777" y="189" font-size="11" fill="#64748b">Scalability</text>
+            <text x="670" y="246" font-size="11" fill="#64748b">Ops</text>
+            <text x="574" y="189" font-size="11" fill="#64748b">Data</text>
+            <text x="572" y="100" font-size="11" fill="#64748b">API</text>
+          </svg>
+        </div>
+      </section>
+
+      <section id="career-twin-review">
+        <h3>Career Twin Feature Review</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Feature</th><th>Judge Impression</th><th>Magical</th><th>Generic</th><th>Must-Fix</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Digital Career Twin concept</td><td>Strong category signal.</td><td>Yes</td><td>No</td><td>Define measurable twin quality score.</td></tr>
+              <tr><td>Onboarding</td><td>Premium and cinematic.</td><td>Yes</td><td>Partly</td><td>Cut low-value steps for v1 speed.</td></tr>
+              <tr><td>Resume import</td><td>Expected baseline.</td><td>No</td><td>Yes</td><td>Need parser accuracy benchmark.</td></tr>
+              <tr><td>LinkedIn import</td><td>Useful but common.</td><td>No</td><td>Yes</td><td>Conflict resolution rules missing.</td></tr>
+              <tr><td>GitHub import</td><td>Compelling for tech persona.</td><td>Partial</td><td>Partial</td><td>Privacy and signal quality controls.</td></tr>
+              <tr><td>Portfolio import</td><td>Differentiator if robust.</td><td>Yes</td><td>No</td><td>Low-quality scrape fallback path.</td></tr>
+              <tr><td>AI Interview</td><td>Potentially standout.</td><td>Yes</td><td>No</td><td>Contradiction handling formalization.</td></tr>
+              <tr><td>Career Timeline</td><td>Good planning interface.</td><td>Partial</td><td>Partial</td><td>Cognitive load tuning needed.</td></tr>
+              <tr><td>Dashboard</td><td>Solid command center concept.</td><td>Partial</td><td>Partial</td><td>Prioritization logic unspecified.</td></tr>
+              <tr><td>Simulations</td><td>Core value driver.</td><td>Yes</td><td>No</td><td>Mathematical validity model absent.</td></tr>
+              <tr><td>Insights</td><td>Retention lever.</td><td>Partial</td><td>Partial</td><td>Signal/noise quality thresholds needed.</td></tr>
+              <tr><td>Twin Evolution</td><td>Long-term moat vector.</td><td>Yes</td><td>No</td><td>Version storage + diff policy.</td></tr>
+              <tr><td>Confidence scores</td><td>Important trust layer.</td><td>No</td><td>Can feel generic</td><td>Define calibration methodology.</td></tr>
+              <tr><td>Evidence reasoning</td><td>Strong trust direction.</td><td>Yes</td><td>No</td><td>Evidence completeness thresholds.</td></tr>
+              <tr><td>Privacy & trust</td><td>Intent strong, controls incomplete.</td><td>No</td><td>No</td><td>Compliance-grade controls before launch.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="competitor-review">
+        <h3>Competitor Review</h3>
+        <div class="card-grid two">
+          <article class="card">
+            <h4>Where CareerTwin Wins</h4>
+            <ul>
+              <li>Stronger long-horizon decision framing than resume tools and interview prep apps.</li>
+              <li>Richer personalized simulation than generic AI copilots.</li>
+              <li>Potential defensibility through longitudinal twin data and version history.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Where CareerTwin Risks Looking Incremental</h4>
+            <ul>
+              <li>If demo over-focuses on imports, judges will bucket it as "resume analyzer plus chat".</li>
+              <li>If simulation math is vague, "evidence-based" claim looks cosmetic.</li>
+              <li>If confidence scoring is opaque, trust claim weakens quickly.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="verdict-line">
+          Category verdict: <strong>Potentially new category</strong>, but only if the demo proves simulation validity and decision conversion in real time.
+        </p>
+      </section>
+
+      <section id="demo-review">
+        <h3>3-Minute Demo Review</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Segment</th><th>Current Risk</th><th>Judge Reaction</th><th>Upgrade</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Opening (0:00-0:25)</td><td>Too conceptual</td><td>May blend into crowd</td><td>Open with one painful decision and quantified regret risk.</td></tr>
+              <tr><td>Twin Creation (0:25-1:15)</td><td>Import-heavy and familiar</td><td>Interest dips</td><td>Compress imports; emphasize synthesized twin insight quickly.</td></tr>
+              <tr><td>Simulation (1:15-2:20)</td><td>Could look like charts</td><td>Medium</td><td>Live assumption flip with visible tradeoff shift.</td></tr>
+              <tr><td>Reasoning (2:20-2:45)</td><td>Can sound generic AI</td><td>Skepticism risk</td><td>Show evidence ledger + confidence band + missing-data disclosure.</td></tr>
+              <tr><td>Ending (2:45-3:00)</td><td>No hard proof</td><td"For later maybe"</td><td>Close with concrete action protocol and outcome metric.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Would judges remember it?</strong> Yes, if the "Twin Mirror" sequence is real-time and grounded. No, if it becomes a narrated dashboard tour.</p>
+      </section>
+
+      <section id="risk-matrix">
+        <h3>Risk Matrix (Severity Ranked)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Risk</th><th>Type</th><th>Severity</th><th>Likelihood</th><th>Priority</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Simulation validity not provable</td><td>Product/AI</td><td>Critical</td><td>High</td><td>P0</td></tr>
+              <tr><td>Prompt/data injection from imported content</td><td>Security</td><td>Critical</td><td>Medium</td><td>P0</td></tr>
+              <tr><td>Confidence scores poorly calibrated</td><td>Trust/AI</td><td>High</td><td>High</td><td>P0</td></tr>
+              <tr><td>Cognitive overload in core flow</td><td>UX</td><td>High</td><td>Medium</td><td>P1</td></tr>
+              <tr><td>API/schema mismatch across modules</td><td>Engineering</td><td>High</td><td>Medium</td><td>P1</td></tr>
+              <tr><td>Privacy compliance gaps</td><td>Privacy/Legal</td><td>High</td><td>Medium</td><td>P1</td></tr>
+              <tr><td>Demo narrative too broad</td><td>Demo</td><td>High</td><td>High</td><td>P1</td></tr>
+              <tr><td>Infrastructure cost spikes in simulation</td><td>Scalability</td><td>Medium</td><td>Medium</td><td>P2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="priority-matrix">
+        <h3>Priority Matrix (Impact vs Effort)</h3>
+        <div class="matrix-grid">
+          <article><h4>High Impact / Low-Medium Effort</h4><ul><li>Single canonical 3-min demo script</li><li>OpenAPI + error contract</li><li>Confidence language standardization</li><li>Safety gate checklist</li></ul></article>
+          <article><h4>High Impact / High Effort</h4><ul><li>Simulation validity framework + calibration</li><li>Evidence completeness scoring</li><li>Threat model + red-team suite</li><li>Outcome feedback loop</li></ul></article>
+          <article><h4>Medium Impact / Low Effort</h4><ul><li>Reduce onboarding scope for demo</li><li>Default calm UI mode</li><li>Report privacy presets</li><li>Decision history annotations</li></ul></article>
+          <article><h4>Low Impact / High Effort</h4><ul><li>Broad ecosystem integrations in early phase</li><li>Over-extended wow animations</li><li>Premature multi-region rollout</li><li>Enterprise features pre-PMF</li></ul></article>
+        </div>
+      </section>
+
+      <section id="winning-analysis">
+        <h3>Winning Analysis</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Rank Tier</th><th>Current Probability</th><th>Why</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Top 100</td><td>95%</td><td>Strong documentation depth and coherent concept.</td></tr>
+              <tr><td>Top 50</td><td>88%</td><td>Clear product narrative and high perceived ambition.</td></tr>
+              <tr><td>Top 20</td><td>63%</td><td>Needs sharper demo and less conceptual breadth.</td></tr>
+              <tr><td>Top 10</td><td>39%</td><td>Must prove real-time simulation trust and actionability.</td></tr>
+              <tr><td>Top 5</td><td>21%</td><td>Requires standout execution + crisp category proof.</td></tr>
+              <tr><td>First Prize</td><td>11%</td><td>Not impossible, but blocked by validation and clarity gaps.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="top-improvements">
+        <h3>Top 30 Improvements (Ranked)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>#</th><th>Improvement</th><th>Impact</th><th>Effort</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>Define simulation validity model and calibration benchmark</td><td>Very High</td><td>Large</td></tr>
+              <tr><td>2</td><td>Create one laser-focused 3-minute demo storyline</td><td>Very High</td><td>Small</td></tr>
+              <tr><td>3</td><td>Publish API contracts (OpenAPI + errors + idempotency)</td><td>Very High</td><td>Medium</td></tr>
+              <tr><td>4</td><td>Add evidence completeness score per recommendation</td><td>High</td><td>Medium</td></tr>
+              <tr><td>5</td><td>Introduce formal prompt/data injection threat model</td><td>High</td><td>Medium</td></tr>
+              <tr><td>6</td><td>Quantify confidence calibration thresholds and dashboards</td><td>High</td><td>Medium</td></tr>
+              <tr><td>7</td><td>Cut non-core onboarding steps for demo build</td><td>High</td><td>Small</td></tr>
+              <tr><td>8</td><td>Add contradiction-resolution policy across data sources</td><td>High</td><td>Medium</td></tr>
+              <tr><td>9</td><td>Define profile completeness threshold formula</td><td>High</td><td>Small</td></tr>
+              <tr><td>10</td><td>Add explicit fallback mode for AI generation failures</td><td>High</td><td>Small</td></tr>
+              <tr><td>11</td><td>Establish outcome feedback loop for recommendation quality</td><td>High</td><td>Large</td></tr>
+              <tr><td>12</td><td>Define SLOs per critical user workflow</td><td>Medium</td><td>Medium</td></tr>
+              <tr><td>13</td><td>Add PII field-level classification matrix</td><td>Medium</td><td>Medium</td></tr>
+              <tr><td>14</td><td>Document GDPR/CCPA deletion + DSAR handling</td><td>Medium</td><td>Medium</td></tr>
+              <tr><td>15</td><td>Specify event schema governance and versioning policy</td><td>Medium</td><td>Medium</td></tr>
+              <tr><td>16</td><td>Add queue retry/backoff + poison message strategy</td><td>Medium</td><td>Small</td></tr>
+              <tr><td>17</td><td>Create red-team test suite for adversarial prompts</td><td>Medium</td><td>Medium</td></tr>
+              <tr><td>18</td><td>Define rollout gate metrics for prompt changes</td><td>Medium</td><td>Small</td></tr>
+              <tr><td>19</td><td>Add UX cognitive load budget per screen</td><td>Medium</td><td>Small</td></tr>
+              <tr><td>20</td><td>Implement "calm mode" defaults for new users</td><td>Medium</td><td>Small</td></tr>
+              <tr><td>21</td><td>Add stale-data indicators with forced re-sync recommendations</td><td>Medium</td><td>Small</td></tr>
+              <tr><td>22</td><td>Define storage lifecycle policy for artifacts/reports</td><td>Medium</td><td>Small</td></tr>
+              <tr><td>23</td><td>Specify incident severity policy and response SLAs</td><td>Medium</td><td>Small</td></tr>
+              <tr><td>24</td><td>Add deterministic "if-data-missing" recommendation behavior</td><td>Medium</td><td>Small</td></tr>
+              <tr><td>25</td><td>Tie pricing tiers to proven behavioral milestones</td><td>Medium</td><td>Small</td></tr>
+              <tr><td>26</td><td>Define first distribution wedge with measurable target</td><td>Medium</td><td>Small</td></tr>
+              <tr><td>27</td><td>Create feature kill-switch matrix for production incidents</td><td>Low</td><td>Small</td></tr>
+              <tr><td>28</td><td>Add multi-language readiness requirements</td><td>Low</td><td>Medium</td></tr>
+              <tr><td>29</td><td>Defer non-core wow interactions outside demo path</td><td>Low</td><td>Small</td></tr>
+              <tr><td>30</td><td>Build partner integration roadmap only after PMF evidence</td><td>Low</td><td>Small</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="roadmap">
+        <h3>Improvement Roadmap</h3>
+        <ol>
+          <li><strong>Week 1-2:</strong> Demo narrowing, API contracts, confidence language policy.</li>
+          <li><strong>Week 3-5:</strong> Simulation validity + calibration framework, threat model, injection defenses.</li>
+          <li><strong>Week 6-7:</strong> Evaluation gates, red-team suite, fallback modes, trust UX hardening.</li>
+          <li><strong>Week 8+:</strong> Outcome feedback loop and scalable reliability controls.</li>
+        </ol>
+      </section>
+
+      <section id="judge-comments">
+        <h3>Judge Comments (Panel Composite)</h3>
+        <div class="card-grid two">
+          <article class="card"><h4>OpenAI AI Engineer</h4><p>Impressive decomposition, but model validity and calibration are underspecified.</p></article>
+          <article class="card"><h4>OpenAI Product Designer</h4><p>Great experiential ambition. Need sharper hierarchy to avoid over-designed complexity.</p></article>
+          <article class="card"><h4>Research Engineer</h4><p>Evidence and confidence ideas are right; now prove they are scientifically grounded.</p></article>
+          <article class="card"><h4>YC Partner</h4><p>Compelling story. Show a narrower wedge with immediate user pull.</p></article>
+          <article class="card"><h4>VC Investor</h4><p>Strong category thesis. Defensibility depends on retention, not documentation richness.</p></article>
+          <article class="card"><h4>Hackathon Judge</h4><p>Memorable if demo stays focused. Lose the feature parade.</p></article>
+        </div>
+      </section>
+
+      <section id="final-verdict">
+        <h3>Final Verdict</h3>
+        <div class="verdict-card">
+          <p class="verdict-label">⚠ APPROVED AFTER CHANGES</p>
+          <p>
+            CareerTwin AI is a high-upside contender with real first-prize potential, but it is not currently first-prize ready. The biggest pre-launch gaps are simulation validity proof, security/compliance depth, and demo focus.
+          </p>
+          <p>
+            If the top 10 improvements are completed and the demo is restructured around one decisive high-stakes question with live assumption switching and evidence-backed reasoning, this project can move into serious Top 5 contention.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
