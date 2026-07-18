@@ -1,3 +1,4 @@
+import { env } from "../config/env.js";
 import { logger } from "../lib/logger.js";
 
 interface GithubUser {
@@ -39,6 +40,17 @@ export interface GithubAnalysis {
 const GITHUB_API_BASE = "https://api.github.com";
 const SIX_MONTHS_MS = 1000 * 60 * 60 * 24 * 182;
 
+// Unauthenticated GitHub API requests are capped at 60/hour per IP, which is
+// easily exhausted on shared hosting (e.g. Render's pooled egress IPs). A
+// token (no scopes needed for public data) raises this to 5,000/hour.
+function githubHeaders(): HeadersInit {
+  const headers: HeadersInit = { Accept: "application/vnd.github+json", "User-Agent": "careertwin-ai" };
+  if (env.GITHUB_TOKEN) {
+    (headers as Record<string, string>).Authorization = `Bearer ${env.GITHUB_TOKEN}`;
+  }
+  return headers;
+}
+
 export function extractGithubUsername(githubUrl: string): string | null {
   try {
     const url = new URL(githubUrl);
@@ -52,10 +64,14 @@ export function extractGithubUsername(githubUrl: string): string | null {
 
 async function fetchJson<T>(path: string): Promise<T | null> {
   try {
-    const response = await fetch(`${GITHUB_API_BASE}${path}`, {
-      headers: { Accept: "application/vnd.github+json", "User-Agent": "careertwin-ai" }
-    });
-    if (!response.ok) return null;
+    const response = await fetch(`${GITHUB_API_BASE}${path}`, { headers: githubHeaders() });
+    if (!response.ok) {
+      logger.warn(
+        { status: response.status, path, rateLimitRemaining: response.headers.get("x-ratelimit-remaining") },
+        "GitHub API request returned a non-OK status"
+      );
+      return null;
+    }
     return (await response.json()) as T;
   } catch (error) {
     logger.warn({ error, path }, "GitHub API request failed");
@@ -65,9 +81,7 @@ async function fetchJson<T>(path: string): Promise<T | null> {
 
 async function checkReadmeExists(owner: string, repo: string): Promise<boolean> {
   try {
-    const response = await fetch(`${GITHUB_API_BASE}/repos/${owner}/${repo}/readme`, {
-      headers: { Accept: "application/vnd.github+json", "User-Agent": "careertwin-ai" }
-    });
+    const response = await fetch(`${GITHUB_API_BASE}/repos/${owner}/${repo}/readme`, { headers: githubHeaders() });
     return response.ok;
   } catch {
     return false;

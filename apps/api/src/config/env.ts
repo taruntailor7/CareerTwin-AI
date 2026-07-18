@@ -10,6 +10,7 @@ const envSchema = z.object({
     .optional()
     .transform((value) => value === "true"),
   CLERK_SECRET_KEY: z.string().optional(),
+  GITHUB_TOKEN: z.string().optional(),
   GEMINI_API_KEY: z.string().optional(),
   GEMINI_MODEL_FAST: z.string().default("gemini-flash-latest"),
   GEMINI_MODEL_REASONING: z.string().default("gemini-flash-latest"),
