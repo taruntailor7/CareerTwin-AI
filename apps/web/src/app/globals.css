@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f5fb;
+  --foreground: #171426;
+
+  --surface: #ffffff;
+  --surface-2: #f1eefb;
+  --surface-hover: #ebe7fb;
+  --border: #e3ddf5;
+  --border-soft: #ece7f9;
+  --muted: #6f6a85;
+
+  --accent: #7c5cff;
+  --accent-hover: #6a48f2;
+  --accent-soft: #efe9ff;
+  --accent-2: #06b6d4;
+  --accent-2-soft: #dff8fc;
+  --accent-3: #f59e0b;
+  --accent-3-soft: #fff3dc;
+
+  --success: #10b981;
+  --success-soft: #e1f8ef;
+  --danger: #f43f5e;
+  --danger-soft: #fde6ea;
+
+  --ring: rgba(124, 92, 255, 0.35);
+  --gradient-primary: linear-gradient(135deg, #7c5cff 0%, #a855f7 50%, #06b6d4 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(124, 92, 255, 0.14), rgba(6, 182, 212, 0.1));
+  --shadow-soft: 0 20px 45px -25px rgba(76, 47, 189, 0.35);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+.dark {
+  --background: #08070f;
+  --foreground: #f0edfb;
+
+  --surface: #13111f;
+  --surface-2: #191629;
+  --surface-hover: #211d34;
+  --border: #2a2540;
+  --border-soft: #221e35;
+  --muted: #9c96b8;
+
+  --accent: #8b6bff;
+  --accent-hover: #a084ff;
+  --accent-soft: rgba(139, 107, 255, 0.16);
+  --accent-2: #22d3ee;
+  --accent-2-soft: rgba(34, 211, 238, 0.14);
+  --accent-3: #fbbf24;
+  --accent-3-soft: rgba(251, 191, 36, 0.14);
+
+  --success: #34d399;
+  --success-soft: rgba(52, 211, 153, 0.14);
+  --danger: #fb7185;
+  --danger-soft: rgba(251, 113, 133, 0.14);
+
+  --ring: rgba(139, 107, 255, 0.4);
+  --gradient-primary: linear-gradient(135deg, #8b6bff 0%, #c084fc 50%, #22d3ee 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(139, 107, 255, 0.22), rgba(34, 211, 238, 0.12));
+  --shadow-soft: 0 25px 60px -25px rgba(0, 0, 0, 0.55);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.gradient-text {
+  background-image: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 1rem;
+  background: var(--gradient-primary);
+  padding: 1px;
+}
+
+.gradient-border > * {
+  border-radius: calc(1rem - 1px);
+}
+
+* {
+  scrollbar-color: var(--border) transparent;
+}
