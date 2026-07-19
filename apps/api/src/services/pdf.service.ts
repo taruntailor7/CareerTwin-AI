@@ -576,7 +576,48 @@ function drawScorecardSection(doc: PDFKit.PDFDocument, cursor: Cursor, scorecard
 function drawBestScenario(doc: PDFKit.PDFDocument, cursor: Cursor, scenario: SimulationScenarioResult) {
   sectionHeader(doc, cursor, "Best-Fit Scenario", "The path our model rates as your strongest current option.");
   const width = contentWidth(doc);
-  const cardHeight = 96;
+  const textColumnWidth = width - 140;
+  const ringDiameter = 34 * 2 + 24; // ring radius(34)*2 plus breathing room, so the card never clips it
+
+  // Salary projections and (especially) metric values are AI-generated and vary a lot in length
+  // — some are one word ("Moderate"), others a full clause. Measure the real wrapped height of
+  // each piece of text instead of assuming a fixed card height, otherwise long content overflows
+  // straight through into whatever section is drawn next (the bug this replaces).
+  const nameFontSize = 13;
+  doc.font("Helvetica-Bold").fontSize(nameFontSize);
+  const nameHeight = doc.heightOfString(scenario.name, { width: textColumnWidth });
+
+  const salaryText = `Salary projection: ${scenario.salaryProjection}   ·   Timeline: ${scenario.timelineToGoal}`;
+  doc.font("Helvetica").fontSize(9.5);
+  const salaryHeight = doc.heightOfString(salaryText, { width: textColumnWidth });
+
+  const metricEntries = Object.entries(scenario.metrics);
+  const metricGap = 10;
+  const metricWidth = metricEntries.length
+    ? (textColumnWidth - metricGap * (metricEntries.length - 1)) / metricEntries.length
+    : textColumnWidth;
+  doc.font("Helvetica-Bold").fontSize(9.5);
+  const metricValueHeight = metricEntries.reduce(
+    (max, [, value]) => Math.max(max, doc.heightOfString(value, { width: metricWidth })),
+    0
+  );
+
+  const topPadding = 16;
+  const afterNameGap = 6;
+  const afterSalaryGap = 16;
+  const metricLabelHeight = 10;
+  const labelToValueGap = 4;
+  const bottomPadding = 16;
+  const contentHeight =
+    topPadding +
+    nameHeight +
+    afterNameGap +
+    salaryHeight +
+    afterSalaryGap +
+    (metricEntries.length ? metricLabelHeight + labelToValueGap + metricValueHeight : 0) +
+    bottomPadding;
+  const cardHeight = Math.max(ringDiameter, contentHeight);
+
   ensureSpace(doc, cursor, cardHeight);
 
   const gradient = doc.linearGradient(MARGIN, cursor.y, MARGIN + width, cursor.y + cardHeight);
@@ -589,30 +630,26 @@ function drawBestScenario(doc: PDFKit.PDFDocument, cursor: Cursor, scenario: Sim
     label: "Success"
   });
 
-  doc.fillColor(COLOR.ink).font("Helvetica-Bold").fontSize(13).text(scenario.name, MARGIN + 116, cursor.y + 16, {
-    width: width - 140
+  let textY = cursor.y + topPadding;
+  doc.fillColor(COLOR.ink).font("Helvetica-Bold").fontSize(nameFontSize).text(scenario.name, MARGIN + 116, textY, {
+    width: textColumnWidth
   });
-  doc
-    .fillColor(COLOR.muted)
-    .font("Helvetica")
-    .fontSize(9.5)
-    .text(`Salary projection: ${scenario.salaryProjection}   ·   Timeline: ${scenario.timelineToGoal}`, MARGIN + 116, cursor.y + 38, {
-      width: width - 140
-    });
+  textY += nameHeight + afterNameGap;
 
-  const metricEntries = Object.entries(scenario.metrics);
-  const metricGap = 10;
-  const metricWidth = (width - 140 - metricGap * (metricEntries.length - 1)) / metricEntries.length;
+  doc.fillColor(COLOR.muted).font("Helvetica").fontSize(9.5).text(salaryText, MARGIN + 116, textY, {
+    width: textColumnWidth
+  });
+  textY += salaryHeight + afterSalaryGap;
+
   metricEntries.forEach(([key, value], index) => {
     const x = MARGIN + 116 + index * (metricWidth + metricGap);
     const label = key.replace(/([A-Z])/g, " $1").trim().toUpperCase();
-    doc.fillColor(COLOR.muted).font("Helvetica").fontSize(7).text(label, x, cursor.y + 58, {
+    doc.fillColor(COLOR.muted).font("Helvetica").fontSize(7).text(label, x, textY, {
       width: metricWidth + metricGap,
       lineBreak: false
     });
-    doc.fillColor(COLOR.ink).font("Helvetica-Bold").fontSize(9.5).text(value, x, cursor.y + 71, {
-      width: metricWidth,
-      ellipsis: true
+    doc.fillColor(COLOR.ink).font("Helvetica-Bold").fontSize(9.5).text(value, x, textY + metricLabelHeight + labelToValueGap, {
+      width: metricWidth
     });
   });
 
