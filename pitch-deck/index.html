@@ -377,6 +377,11 @@
     backdrop-filter: blur(6px);
   }
   .nav-controls button:hover { background: rgba(255,255,255,0.22); }
+  .nav-controls button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    background: rgba(255,255,255,0.12);
+  }
   .slide-counter {
     position: fixed;
     bottom: 28px;
@@ -385,6 +390,57 @@
     font-size: 13px;
     font-weight: 600;
     z-index: 10;
+  }
+
+  /* ---------- Page dots ---------- */
+  .dots {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    z-index: 10;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .dot:hover { background: rgba(255,255,255,0.55); }
+  .dot.active {
+    width: 22px;
+    border-radius: 5px;
+    background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  }
+
+  /* ---------- Slide 8: Thank you ---------- */
+  .slide-thanks {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--surface);
+    background-image: radial-gradient(circle at 20% 25%, rgba(124,92,255,0.14), transparent 45%),
+                radial-gradient(circle at 80% 75%, rgba(6,182,212,0.14), transparent 45%);
+  }
+  .slide-thanks h1 {
+    font-size: 56px;
+    margin-bottom: 12px;
+  }
+  .slide-thanks p.lede {
+    max-width: 620px;
+    margin: 0 auto 32px;
+    font-size: 18px;
+  }
+  .slide-thanks .thanks-link {
+    font-size: 16px;
+    font-weight: 700;
   }
 
   @media print {
@@ -451,7 +507,7 @@
         <p>Switching roles, asking for a promotion, or pivoting industries is a leap of faith — there's no way to simulate the outcome first.</p>
       </div>
     </div>
-    <div class="page-footer"><span>CareerTwin AI · Pitch Deck</span><span>2 / 7</span></div>
+    <div class="page-footer"><span>CareerTwin AI · Pitch Deck</span><span>2 / 8</span></div>
   </section>
 
   <!-- SLIDE 3: SOLUTION -->
@@ -481,7 +537,7 @@
         <p>A polished, visual PDF report you can hand to a mentor, manager, or keep for yourself.</p>
       </div>
     </div>
-    <div class="page-footer"><span>CareerTwin AI · Pitch Deck</span><span>3 / 7</span></div>
+    <div class="page-footer"><span>CareerTwin AI · Pitch Deck</span><span>3 / 8</span></div>
   </section>
 
   <!-- SLIDE 4: WHAT WE BUILT -->
@@ -515,7 +571,7 @@
         <div><h4>Rich PDF reports</h4><p>Dashboard-quality visual reports — score rings, bars, and action plans — downloadable by name.</p></div>
       </div>
     </div>
-    <div class="page-footer"><span>CareerTwin AI · Pitch Deck</span><span>4 / 7</span></div>
+    <div class="page-footer"><span>CareerTwin AI · Pitch Deck</span><span>4 / 8</span></div>
   </section>
 
   <!-- SLIDE 5: TECH STACK -->
@@ -569,7 +625,7 @@
         </div>
       </div>
     </div>
-    <div class="page-footer"><span>CareerTwin AI · Pitch Deck</span><span>5 / 7</span></div>
+    <div class="page-footer"><span>CareerTwin AI · Pitch Deck</span><span>5 / 8</span></div>
   </section>
 
   <!-- SLIDE 6: MARKET -->
@@ -595,7 +651,7 @@
       <strong>Why now:</strong> LLMs finally make it possible to read a person's real career footprint (resume, LinkedIn, GitHub, portfolio) and reason over it — turning a generic quiz into a genuinely personalized simulation.
     </p>
     <div class="stat-note">Note: replace bracketed figures with sourced stats before presenting.</div>
-    <div class="page-footer"><span>CareerTwin AI · Pitch Deck</span><span>6 / 7</span></div>
+    <div class="page-footer"><span>CareerTwin AI · Pitch Deck</span><span>6 / 8</span></div>
   </section>
 
   <!-- SLIDE 7: ROADMAP / WHAT'S NEXT -->
@@ -635,12 +691,22 @@
       </div>
       <div style="font-size:28px;">→</div>
     </div>
-    <div class="page-footer"><span>CareerTwin AI · Pitch Deck</span><span>7 / 7</span></div>
+    <div class="page-footer"><span>CareerTwin AI · Pitch Deck</span><span>7 / 8</span></div>
+  </section>
+
+  <!-- SLIDE 8: THANK YOU -->
+  <section class="slide slide-thanks">
+    <div class="brand" style="justify-content:center;"><span class="logo-dot"></span> CareerTwin AI</div>
+    <h1><span class="gradient-text">Thank You</span></h1>
+    <p class="lede">Thanks for your time — we'd love your questions and feedback.</p>
+    <div class="thanks-link"><a href="https://career-twin-ai-web.vercel.app/" target="_blank" class="deck-link">career-twin-ai-web.vercel.app ↗</a></div>
+    <div class="page-footer" style="width:100%;"><span>CareerTwin AI · Pitch Deck</span><span>8 / 8</span></div>
   </section>
 
 </div>
 
-<div class="slide-counter" id="counter">1 / 7</div>
+<div class="slide-counter" id="counter">1 / 8</div>
+<div class="dots" id="dots"></div>
 <div class="nav-controls">
   <button id="prevBtn">← Prev</button>
   <button id="nextBtn">Next →</button>
@@ -648,18 +714,39 @@
 
 <script>
   const slides = document.querySelectorAll('.slide');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotsContainer = document.getElementById('dots');
   let current = 0;
+
+  // Build one clickable dot per slide so viewers can see how many pages
+  // remain and jump directly to one, instead of only stepping via arrows.
+  slides.forEach((_, idx) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot';
+    dot.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
+    dot.addEventListener('click', () => {
+      current = idx;
+      showSlide(current);
+    });
+    dotsContainer.appendChild(dot);
+  });
+  const dots = dotsContainer.querySelectorAll('.dot');
 
   function showSlide(i) {
     slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
     document.getElementById('counter').textContent = (i + 1) + ' / ' + slides.length;
+    prevBtn.disabled = i === 0;
+    nextBtn.disabled = i === slides.length - 1;
+    nextBtn.textContent = i === slides.length - 1 ? 'End' : 'Next →';
   }
 
-  document.getElementById('nextBtn').addEventListener('click', () => {
+  nextBtn.addEventListener('click', () => {
     current = Math.min(current + 1, slides.length - 1);
     showSlide(current);
   });
-  document.getElementById('prevBtn').addEventListener('click', () => {
+  prevBtn.addEventListener('click', () => {
     current = Math.max(current - 1, 0);
     showSlide(current);
   });
@@ -677,8 +764,8 @@
   const hashSlide = parseInt(window.location.hash.replace('#', ''), 10);
   if (!Number.isNaN(hashSlide) && hashSlide >= 1 && hashSlide <= slides.length) {
     current = hashSlide - 1;
-    showSlide(current);
   }
+  showSlide(current);
 </script>
 
 </body>
